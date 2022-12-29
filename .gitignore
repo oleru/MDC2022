@@ -64,3 +64,6 @@ dkms.conf
 *.zip
 
 *.flag
+
+*.bak
+*.bak0
