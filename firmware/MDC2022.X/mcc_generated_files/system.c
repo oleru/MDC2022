@@ -83,30 +83,34 @@
 #include "pin_manager.h"
 #include "clock.h"
 #include "system.h"
-#include "sccp5_compare.h"
-#include "sccp4_compare.h"
+#include "adc1.h"
+#include "uart1.h"
+#include "tmr2.h"
+#include "coretimer.h"
 #include "interrupt_manager.h"
 #include "exceptions.h"
-#include "ext_int.h"
-#include "adc1.h"
-#include "mccp2_compare.h"
-#include "mccp3_compare.h"
 #include "mccp1_compare.h"
-#include "uart1.h"
+#include "mccp3_compare.h"
+#include "mccp2_compare.h"
+#include "sccp4_compare.h"
+#include "ext_int.h"
+#include "sccp5_compare.h"
 
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
-    INTERRUPT_Initialize();
     CLOCK_Initialize();
+    INTERRUPT_Initialize();
+    CORETIMER_Initialize();
     SCCP4_COMPARE_Initialize();
-    MCCP3_COMPARE_Initialize();
     SCCP5_COMPARE_Initialize();
+    MCCP3_COMPARE_Initialize();
     MCCP2_COMPARE_Initialize();
     MCCP1_COMPARE_Initialize();
     UART1_Initialize();
-    ADC1_Initialize();
+    TMR2_Initialize();
     EXT_INT_Initialize();
+    ADC1_Initialize();
     INTERRUPT_GlobalEnable();
 }
 

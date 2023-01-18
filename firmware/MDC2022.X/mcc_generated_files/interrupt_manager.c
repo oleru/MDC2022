@@ -55,6 +55,11 @@ void INTERRUPT_Initialize (void)
     // Enable Multi Vector Configuration
     INTCONbits.MVEC = 1;
     
+    //    CTI: Core Timer
+    //    Priority: 1
+        IPC0bits.CTIP = 1;
+    //    Sub Priority: 0
+        IPC0bits.CTIS = 0;
     //    INT0I: External 0
     //    Priority: 1
         IPC0bits.INT0IP = 1;

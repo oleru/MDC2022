@@ -73,11 +73,11 @@
   @Example
     <code>
     // Set RA10 high (1)
-    IO_RA10_SetHigh();
+    RLY_STEP_SetHigh();
     </code>
 
 */
-#define IO_RA10_SetHigh()          ( LATASET = (1 << 10) )
+#define RLY_STEP_SetHigh()          ( LATASET = (1 << 10) )
 /**
   @Summary
     Sets the GPIO pin, RA10, low using LATA10.
@@ -97,11 +97,11 @@
   @Example
     <code>
     // Set RA10 low (0)
-    IO_RA10_SetLow();
+    RLY_STEP_SetLow();
     </code>
 
 */
-#define IO_RA10_SetLow()           ( LATACLR = (1 << 10) )
+#define RLY_STEP_SetLow()           ( LATACLR = (1 << 10) )
 
 /**
   @Summary
@@ -122,19 +122,19 @@
   @Example
     <code>
     // Set RA10 to low.
-    IO_RA10_SetValue(false);
+    RLY_STEP_SetValue(false);
     </code>
 
 */
-inline static void IO_RA10_SetValue(bool value)
+inline static void RLY_STEP_SetValue(bool value)
 {
   if(value)
   {
-    IO_RA10_SetHigh();
+    RLY_STEP_SetHigh();
   }
   else
   {
-    IO_RA10_SetLow();
+    RLY_STEP_SetLow();
   }
 }
 
@@ -157,11 +157,11 @@ inline static void IO_RA10_SetValue(bool value)
   @Example
     <code>
     // Toggle RA10
-    IO_RA10_Toggle();
+    RLY_STEP_Toggle();
     </code>
 
 */
-#define IO_RA10_Toggle()           ( LATAINV = (1 << 10) )
+#define RLY_STEP_Toggle()           ( LATAINV = (1 << 10) )
 /**
   @Summary
     Reads the value of the GPIO pin, RA10.
@@ -183,11 +183,11 @@ inline static void IO_RA10_SetValue(bool value)
     uint16_t portValue;
 
     // Read RA10
-    postValue = IO_RA10_GetValue();
+    postValue = RLY_STEP_GetValue();
     </code>
 
 */
-#define IO_RA10_GetValue()         PORTAbits.RA10
+#define RLY_STEP_GetValue()         PORTAbits.RA10
 /**
   @Summary
     Configures the GPIO pin, RA10, as an input.
@@ -207,11 +207,11 @@ inline static void IO_RA10_SetValue(bool value)
   @Example
     <code>
     // Sets the RA10 as an input
-    IO_RA10_SetDigitalInput();
+    RLY_STEP_SetDigitalInput();
     </code>
 
 */
-#define IO_RA10_SetDigitalInput()   ( TRISASET = (1 << 10) )
+#define RLY_STEP_SetDigitalInput()   ( TRISASET = (1 << 10) )
 /**
   @Summary
     Configures the GPIO pin, RA10, as an output.
@@ -231,11 +231,11 @@ inline static void IO_RA10_SetValue(bool value)
   @Example
     <code>
     // Sets the RA10 as an output
-    IO_RA10_SetDigitalOutput();
+    RLY_STEP_SetDigitalOutput();
     </code>
 
 */
-#define IO_RA10_SetDigitalOutput()   ( TRISACLR = (1 << 10) )
+#define RLY_STEP_SetDigitalOutput()   ( TRISACLR = (1 << 10) )
 /**
   @Summary
     Sets the GPIO pin, RA11, high using LATA11.

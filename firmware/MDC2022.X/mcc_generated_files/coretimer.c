@@ -1,27 +1,29 @@
+
 /**
-  Generated main.c file from MPLAB Code Configurator
+  CORETIMER Generated Driver File
 
   @Company
     Microchip Technology Inc.
 
   @File Name
-    main.c
+   coretimer.c
 
   @Summary
-    This is the generated main.c using PIC24 / dsPIC33 / PIC32MM MCUs.
+    This is the generated driver implementation file for the CORETIMER driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
   @Description
-    This source file provides main entry point for system initialization and application code development.
+    This source file provides implementations for driver APIs for CORETIMER.
     Generation Information :
-        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.171.1
+        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - pic24-dspic-pic32mm : 1.169.0
         Device            :  PIC32MM0256GPM064
+        Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC16 v1.70
-        MPLAB 	          :  MPLAB X v5.50
+        Compiler          :  XC32 v2.40
+        MPLAB             :  MPLAB X v5.40
 */
 
 /*
-    (c) 2020 Microchip Technology Inc. and its subsidiaries. You may use this
+    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
     software and any derivatives exclusively with Microchip products.
 
     THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
@@ -45,46 +47,53 @@
 /**
   Section: Included Files
 */
-#include "mcc_generated_files/system.h"
-#include "mcc_generated_files/pin_manager.h"
-#include "mcc_generated_files/mccp2_compare.h"
 
-/*
-    Main application
- */
-int main(void)
+#include "coretimer.h"
+
+/**
+  Section: Core Timer Module APIs
+*/
+
+void CORETIMER_Initialize()
 {
-    uint16_t priVal = 0x0000;
-    uint16_t secVal = 0x0000;
-    
-    // initialize the device
-    SYSTEM_Initialize();
+   // Set the count value
+   _CP0_SET_COUNT(0x0); 
+   // Set the compare value
+   _CP0_SET_COMPARE(0x1D4C0); 
+    // Enable the interrupt
+   IEC0bits.CTIE = 1;
 
-    POWER_OK_SetHigh();
-    OP_STATUS_SetHigh();
-    FOCUS_END_IN_LED_SetHigh();
-    FOCUS_END_OUT_LED_SetHigh();
-    HIGH_TEMP_LED_SetHigh();
-    
-    RLY_IGNITE_ON_SetLow();
-    RLY_LAMP_ON_SetLow();
-    RLY_STEP_SetLow();
-    
-    MD_FOCUS_DIR_SetHigh();
-    
-    MCCP2_COMPARE_DualEdgeBufferedConfig( priVal, secVal );
-    
-    while (1)
-    {
-        // Add your application code
-        if(LAMP_ON_GetValue()==1)
-            POWER_OK_SetHigh();
-        else
-            POWER_OK_SetLow();
-    }
-    return 1; 
 }
+
+void CORETIMER_EnableInterrupt()
+{
+    IEC0bits.CTIE = 1;
+}
+
+void CORETIMER_DisableInterrupt()
+{
+    IEC0bits.CTIE = 0;
+}
+
+uint32_t CORETIMER_CountGet()
+{
+   return _CP0_GET_COUNT();
+}
+
+void __attribute__ ((vector(_CORE_TIMER_VECTOR), interrupt(IPL1SOFT))) _CORE_TIMER_ISR(void)
+{
+   uint32_t static compare = 0x1D4C0;
+
+   // Update the compare value
+   compare = compare + 0x1D4C0;
+
+   _CP0_SET_COMPARE(compare);
+
+   IFS0CLR= 1 << _IFS0_CTIF_POSITION;
+   // Add your custom code here
+
+}
+
 /**
  End of File
 */
-

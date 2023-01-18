@@ -67,18 +67,18 @@ static uint16_t         gMCCP2Mode;
 
 void MCCP2_COMPARE_Initialize (void)
 {
-    // ON enabled; MOD 16-Bit Single Edge, High; ALTSYNC disabled; SIDL disabled; OPS Each Time Base Period Match; CCPSLP disabled; TMRSYNC disabled; RTRGEN disabled; CCSEL disabled; ONESHOT disabled; TRIGEN disabled; T32 16 Bit; SYNC None; OPSSRC Timer Interrupt Event; TMRPS 1:1; CLKSEL SYSCLK; 
-    CCP2CON1 = (0x8001 & 0xFFFF7FFF); //Disabling CCPON bit
-    //OCCEN enabled; OCDEN disabled; ASDGM disabled; OCEEN disabled; ICGSM Level-Sensitive mode; OCFEN disabled; ICS ICM2; SSDG disabled; AUXOUT Disabled; ASDG 0; OCAEN disabled; OCBEN disabled; OENSYNC disabled; PWMRSEN disabled; 
-    CCP2CON2 = 0x4000000;
+    // ON enabled; MOD Dual Edge Compare, Buffered(PWM); ALTSYNC disabled; SIDL disabled; OPS Each Time Base Period Match; CCPSLP disabled; TMRSYNC disabled; RTRGEN disabled; CCSEL disabled; ONESHOT disabled; TRIGEN disabled; T32 16 Bit; SYNC None; OPSSRC Special Event Trigger; TMRPS 1:1; CLKSEL SYSCLK; 
+    CCP2CON1 = (0x80008005 & 0xFFFF7FFF); //Disabling CCPON bit
+    //OCCEN enabled; OCDEN disabled; ASDGM disabled; OCEEN disabled; ICGSM Level-Sensitive mode; OCFEN disabled; ICS ICM2; SSDG disabled; AUXOUT OC Signal; ASDG 0; OCAEN disabled; OCBEN disabled; OENSYNC enabled; PWMRSEN enabled; 
+    CCP2CON2 = 0x84188000;
     //DT 0; OETRIG disabled; OSCNT None; POLACE disabled; POLBDF disabled; PSSBDF Tri-state; OUTM Steerable single output; PSSACE Tri-state; 
     CCP2CON3 = 0x00;
     //SCEVT disabled; TRSET disabled; ICOV disabled; ASEVT disabled; ICGARM disabled; RBWIP disabled; TRCLR disabled; RAWIP disabled; TMRHWIP disabled; TMRLWIP disabled; PRLWIP disabled; 
     CCP2STAT = 0x00;
     //TMRL 0; TMRH 0; 
     CCP2TMR = 0x00;
-    //PRH 0; PRL 0; 
-    CCP2PR = 0x00;
+    //PRH 0; PRL 32767; 
+    CCP2PR = 0x7FFF;
     //CMPA 0; 
     CCP2RA = 0x00;
     //CMPB 0; 
