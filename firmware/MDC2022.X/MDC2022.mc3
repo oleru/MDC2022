@@ -7356,19 +7356,19 @@
          <value>%DESELECT%</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM2R%aux0"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM2R%aux3"/>
          <value>%DESELECT%</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM3R%aux1"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM3R%aux2"/>
          <value>%DESELECT%</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM4R%aux2"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM4R%aux0"/>
          <value>%DESELECT%</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM5R%aux3"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ICM5R%aux1"/>
          <value>%DESELECT%</value>
       </entry>
       <entry>
@@ -18475,7 +18475,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\system.c</file>
-         <hash>7caa24be83562346afbdc185aa85d64a2a5278700896ddcea37a0315066bb370</hash>
+         <hash>f5eafe84a52c9be44eea2c2cb81fc0dc4d32aa8a07f49375fa8f838ac415224e</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\sccp4_compare.h</file>
@@ -18495,7 +18495,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>0672c96633baf34f646ceba41a6cc107fb6cccef7db471cc8712a978b3e2f692</hash>
+         <hash>4c564d7172803ff2b193f1a1611837615f0f1fc4d78486ccc4aa19cafc42bb87</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\exceptions.h</file>
@@ -18506,12 +18506,12 @@
          <hash>cd4fef890aa0aba844bba361e78b9a02f2aec70d8e16073a45c97407a8398951</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\uart1.c</file>
-         <hash>30da1a7cc4327bacd7dc15aff34f957428ccddfc384f1724ecbaa2708c3e20a8</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\exceptions.c</file>
          <hash>6952bda6d3fe41408fbb403b22dff3589545465deadae54db5d7394de093467e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\uart1.c</file>
+         <hash>30da1a7cc4327bacd7dc15aff34f957428ccddfc384f1724ecbaa2708c3e20a8</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\clock.c</file>
@@ -18534,28 +18534,28 @@
          <hash>42d03dc452f93ac4d75277b360929f2718ee2850e77c93bae5d210f4a95dcf85</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\tmr2.c</file>
-         <hash>b63a982ebd06f3f9419db9042fbac091c09a111548447b46ad411bcb75e4c03f</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\pin_manager.h</file>
          <hash>f620c7957a68b007920ebe5d28324ba93e4db8c20ab23927d5ba862ab3fb8cd9</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files\tmr2.c</file>
+         <hash>b63a982ebd06f3f9419db9042fbac091c09a111548447b46ad411bcb75e4c03f</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\pin_manager.c</file>
-         <hash>8ce33847fcaa34713a98659918b57f7cbaede6d1127403ce811b8cc616b0ada0</hash>
+         <hash>480e0eaea39b0f151470c9febcc1356303ecb90e7b0a584c999696f301ae4299</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mccp1_compare.c</file>
          <hash>c148ef035c3bf1ec76d21bd8ee94db0b04440aca9d973693708004472cfd53ab</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\coretimer.c</file>
-         <hash>a2d8c3856034bf73d77c9a1d74a3fd368349090c1115e11f4b7411d4bd7d1128</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\mccp1_compare.h</file>
          <hash>3c428432939927f86d9f3e843f14b160f8600916cb205797e1a7a3b2bba6abf7</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\coretimer.c</file>
+         <hash>a2d8c3856034bf73d77c9a1d74a3fd368349090c1115e11f4b7411d4bd7d1128</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mccp3_compare.h</file>

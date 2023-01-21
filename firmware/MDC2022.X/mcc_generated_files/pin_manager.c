@@ -107,8 +107,8 @@ void PIN_MANAGER_Initialize (void)
     SYSTEM_RegUnlock(); // unlock PPS
     RPCONbits.IOLOCK = 0;
 
-    RPOR4bits.RP17R = 0x000B;    //RB15->SCCP4:OCM4
     RPOR2bits.RP9R = 0x000C;    //RB3->SCCP5:OCM5
+    RPOR4bits.RP17R = 0x000B;    //RB15->SCCP4:OCM4
 
     RPCONbits.IOLOCK = 1; // lock   PPS
     SYSTEM_RegLock(); 

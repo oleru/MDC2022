@@ -51,18 +51,18 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "watchdog.h"
-#include "adc1.h"
-#include "uart1.h"
-#include "tmr2.h"
-#include "coretimer.h"
-#include "interrupt_manager.h"
-#include "exceptions.h"
-#include "mccp1_compare.h"
 #include "mccp3_compare.h"
 #include "mccp2_compare.h"
-#include "sccp4_compare.h"
+#include "mccp1_compare.h"
+#include "interrupt_manager.h"
+#include "exceptions.h"
+#include "adc1.h"
+#include "watchdog.h"
+#include "tmr2.h"
+#include "uart1.h"
 #include "ext_int.h"
+#include "sccp4_compare.h"
+#include "coretimer.h"
 #include "sccp5_compare.h"
 
 #warning "This file will be removed in future MCC releases. Use system.h instead."

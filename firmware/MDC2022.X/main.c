@@ -42,20 +42,164 @@
     TERMS.
 */
 
+#define CW 1
+#define CCW 0
+
 /**
   Section: Included Files
 */
+#include <stdint.h>
+
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
+#include "mcc_generated_files/mccp1_compare.h"
 #include "mcc_generated_files/mccp2_compare.h"
+#include "mcc_generated_files/mccp3_compare.h"
+#include "mcc_generated_files/sccp4_compare.h"
+#include "mcc_generated_files/sccp5_compare.h"
+
+
+/*
+    Prototypes
+ */
+void setHorizMD(uint8_t dir, uint16_t speed);
+void setVertMD(uint8_t dir, uint16_t speed);
+void setFocusMD(uint8_t dir, uint16_t speed);
+
+
+
+/**
+  @Summary
+    Sets the Direction and Speed for the Motor Driver driving the Horizontal Motor.
+ 
+  @Description
+    This routine Sets the Direction and Speed for the Motor Driver driving the Horizontal Motor.
+
+  @Preconditions
+    SYSTEM_Initialize() function should have been called 
+
+  @Param
+    dir - 0=CCW and !0(any other value than 0)=CW.
+    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
+	
+  @Returns
+    None.
+
+  @Example 
+    <code>
+        uint8_t dir = 0x1000;
+        uint16_t speed = 0x2000;
+        void setHorizMD( dir, speed );
+    <code>
+*/
+void setHorizMD(uint8_t dir, uint16_t speed)
+{
+    // Set PWM channel depending on the Direction
+    if(dir!=CCW) {  // CW
+
+        // Then set Speed
+        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, speed );        
+        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, 0 );
+        
+    } else {  // CCW
+
+        // Then set Speed
+        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
+        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, speed );
+
+    }
+
+}
+
+
+/**
+  @Summary
+    Sets the Direction and Speed for the Motor Driver driving the Vertical Motor.
+ 
+  @Description
+    This routine Sets the Direction and Speed for the Motor Driver driving the Vertical Motor.
+
+  @Preconditions
+    SYSTEM_Initialize() function should have been called 
+
+  @Param
+    dir - 0=CCW and !0(any other value than 0)=CW.
+    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
+	
+  @Returns
+    None.
+
+  @Example 
+    <code>
+        uint8_t dir = 0x1000;
+        uint16_t speed = 0x2000;
+        void setVertMD( dir, speed );
+    <code>
+*/
+void setVertMD(uint8_t dir, uint16_t speed)
+{
+    // Set PWM channel depending on the Direction
+    if(dir!=CCW) {  // CW
+
+        // Then set Speed
+        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, speed );        
+        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, 0 );
+        
+    } else {  // CCW
+
+        // Then set Speed
+        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
+        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, speed );
+
+    }
+
+}
+
+
+/**
+  @Summary
+    Sets the Direction and Speed for the Motor Driver driving the Focus Motor.
+ 
+  @Description
+    This routine Sets the Direction and Speed for the Motor Driver driving the Focus Motor.
+
+  @Preconditions
+    SYSTEM_Initialize() function should have been called 
+
+  @Param
+    dir - 0=CCW and !0(any other value than 0)=CW.
+    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
+	
+  @Returns
+    None.
+
+  @Example 
+    <code>
+        uint8_t dir = 0x1000;
+        uint16_t speed = 0x2000;
+        void setFocusMD( dir, speed );
+    <code>
+*/
+void setFocusMD(uint8_t dir, uint16_t speed)
+{
+    // First set Direction
+    if(dir!=CCW) {
+        MD_FOCUS_DIR_SetHigh();
+    } else {
+        MD_FOCUS_DIR_SetLow();
+    }
+    
+    // Then set Speed
+    MCCP2_COMPARE_DualEdgeBufferedConfig( 0, speed );
+        
+}
+
 
 /*
     Main application
  */
 int main(void)
 {
-    uint16_t priVal = 0x0000;
-    uint16_t secVal = 0x0000;
     
     // initialize the device
     SYSTEM_Initialize();
@@ -69,10 +213,12 @@ int main(void)
     RLY_IGNITE_ON_SetLow();
     RLY_LAMP_ON_SetLow();
     RLY_STEP_SetLow();
+
+    // Sett alt til 0
+    setHorizMD( CCW, 0);
+    setVertMD( CCW, 0);
+    setFocusMD( CCW, 0);
     
-    MD_FOCUS_DIR_SetHigh();
-    
-    MCCP2_COMPARE_DualEdgeBufferedConfig( priVal, secVal );
     
     while (1)
     {
@@ -81,6 +227,7 @@ int main(void)
             POWER_OK_SetHigh();
         else
             POWER_OK_SetLow();
+        
     }
     return 1; 
 }
