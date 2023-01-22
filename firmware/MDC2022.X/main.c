@@ -42,8 +42,12 @@
     TERMS.
 */
 
-#define CW 1
-#define CCW 0
+/**
+  Section: Defines
+*/
+
+
+
 
 /**
   Section: Included Files
@@ -52,147 +56,25 @@
 
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
-#include "mcc_generated_files/mccp1_compare.h"
-#include "mcc_generated_files/mccp2_compare.h"
-#include "mcc_generated_files/mccp3_compare.h"
-#include "mcc_generated_files/sccp4_compare.h"
-#include "mcc_generated_files/sccp5_compare.h"
+#include "MD_MotorDrivers.h"
+#include "EE_RegisterStorage.h"
 
 
-/*
+
+/**
     Prototypes
  */
-void setHorizMD(uint8_t dir, uint16_t speed);
-void setVertMD(uint8_t dir, uint16_t speed);
-void setFocusMD(uint8_t dir, uint16_t speed);
+void MD_setHoriz(int8_t dir, uint16_t speed);
+void MD_setVert(int8_t dir, uint16_t speed);
+void MD_setFocus(int8_t dir, uint16_t speed);
 
 
 
-/**
-  @Summary
-    Sets the Direction and Speed for the Motor Driver driving the Horizontal Motor.
- 
-  @Description
-    This routine Sets the Direction and Speed for the Motor Driver driving the Horizontal Motor.
+// Version Tags
+char VersionTag1[] = __DATE__;     // "Jan 24 2011"
+char VersionTag2[] = __TIME__;     // "14:45:20"
+char RevBuild[] = "Rev.: 001";
 
-  @Preconditions
-    SYSTEM_Initialize() function should have been called 
-
-  @Param
-    dir - 0=CCW and !0(any other value than 0)=CW.
-    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
-	
-  @Returns
-    None.
-
-  @Example 
-    <code>
-        uint8_t dir = 0x1000;
-        uint16_t speed = 0x2000;
-        void setHorizMD( dir, speed );
-    <code>
-*/
-void setHorizMD(uint8_t dir, uint16_t speed)
-{
-    // Set PWM channel depending on the Direction
-    if(dir!=CCW) {  // CW
-
-        // Then set Speed
-        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, speed );        
-        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, 0 );
-        
-    } else {  // CCW
-
-        // Then set Speed
-        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
-        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, speed );
-
-    }
-
-}
-
-
-/**
-  @Summary
-    Sets the Direction and Speed for the Motor Driver driving the Vertical Motor.
- 
-  @Description
-    This routine Sets the Direction and Speed for the Motor Driver driving the Vertical Motor.
-
-  @Preconditions
-    SYSTEM_Initialize() function should have been called 
-
-  @Param
-    dir - 0=CCW and !0(any other value than 0)=CW.
-    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
-	
-  @Returns
-    None.
-
-  @Example 
-    <code>
-        uint8_t dir = 0x1000;
-        uint16_t speed = 0x2000;
-        void setVertMD( dir, speed );
-    <code>
-*/
-void setVertMD(uint8_t dir, uint16_t speed)
-{
-    // Set PWM channel depending on the Direction
-    if(dir!=CCW) {  // CW
-
-        // Then set Speed
-        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, speed );        
-        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, 0 );
-        
-    } else {  // CCW
-
-        // Then set Speed
-        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
-        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, speed );
-
-    }
-
-}
-
-
-/**
-  @Summary
-    Sets the Direction and Speed for the Motor Driver driving the Focus Motor.
- 
-  @Description
-    This routine Sets the Direction and Speed for the Motor Driver driving the Focus Motor.
-
-  @Preconditions
-    SYSTEM_Initialize() function should have been called 
-
-  @Param
-    dir - 0=CCW and !0(any other value than 0)=CW.
-    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
-	
-  @Returns
-    None.
-
-  @Example 
-    <code>
-        uint8_t dir = 0x1000;
-        uint16_t speed = 0x2000;
-        void setFocusMD( dir, speed );
-    <code>
-*/
-void setFocusMD(uint8_t dir, uint16_t speed)
-{
-    // First set Direction
-    if(dir!=CCW) {
-        MD_FOCUS_DIR_SetHigh();
-    } else {
-        MD_FOCUS_DIR_SetLow();
-    }
-    
-    // Then set Speed
-    MCCP2_COMPARE_DualEdgeBufferedConfig( 0, speed );
-        
-}
 
 
 /*
@@ -200,10 +82,13 @@ void setFocusMD(uint8_t dir, uint16_t speed)
  */
 int main(void)
 {
+    uint32_t horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
+    
     
     // initialize the device
     SYSTEM_Initialize();
 
+/*
     POWER_OK_SetHigh();
     OP_STATUS_SetHigh();
     FOCUS_END_IN_LED_SetHigh();
@@ -213,13 +98,33 @@ int main(void)
     RLY_IGNITE_ON_SetLow();
     RLY_LAMP_ON_SetLow();
     RLY_STEP_SetLow();
+*/
+    
+    // Read out Persistent variables
+    horizSpeedIndex = EERS_Read(HORIZ_SPEED_INDEX);
+    if(horizSpeedIndex == 0xFFFFFFFF) {
+        horizSpeedIndex = 3;
+        EERS_Write(HORIZ_SPEED_INDEX,horizSpeedIndex);
+    }
+    vertSpeedIndex = EERS_Read(VERT_SPEED_INDEX);
+    if(vertSpeedIndex == 0xFFFFFFFF) {
+        vertSpeedIndex = 3;
+        EERS_Write(VERT_SPEED_INDEX,vertSpeedIndex);
+    }
+    focusSpeedIndex = EERS_Read(FOCUS_SPEED_INDEX);
+    if(focusSpeedIndex == 0xFFFFFFFF) {
+        focusSpeedIndex = 6;  // Full speed...
+        EERS_Write(FOCUS_SPEED_INDEX,focusSpeedIndex);
+    }
 
-    // Sett alt til 0
-    setHorizMD( CCW, 0);
-    setVertMD( CCW, 0);
-    setFocusMD( CCW, 0);
+    
+    // Init. all Motor Driver in lock - no motion
+    MD_setHoriz( CCW, 0);
+    MD_setVert( CCW, 0);
+    MD_setFocus( CCW, 0);
     
     
+    // Main loop
     while (1)
     {
         // Add your application code

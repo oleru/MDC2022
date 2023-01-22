@@ -26,6 +26,9 @@
         <itemPath>mcc_generated_files/coretimer.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
       </logicalFolder>
+      <itemPath>EE_RegisterStorage.h</itemPath>
+      <itemPath>flash.h</itemPath>
+      <itemPath>MD_MotorDrivers.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -55,6 +58,9 @@
         <itemPath>mcc_generated_files/tmr2.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>EE_RegisterStorage.c</itemPath>
+      <itemPath>flash.c</itemPath>
+      <itemPath>MD_MotorDrivers.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -63,6 +69,9 @@
       <itemPath>MDC2022.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -188,7 +197,7 @@
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-device-startup-code" value="false"/>
         <property key="no-startup-files" value="false"/>
-        <property key="oXC32ld-extra-opts" value=""/>
+        <property key="oXC32ld-extra-opts" value="-mreserve=prog@0x1d00F000:0x1d00FFFF"/>
         <property key="optimization-level" value=""/>
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
@@ -432,6 +441,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d03ffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/debug/default/MDC2022_ptg"/>
         <property key="programmerToGoImageName" value="MDC2022_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
