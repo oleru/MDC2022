@@ -108,11 +108,22 @@ void UpdateTimers(void)
  */
 int main(void)
 {
-    uint32_t horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
-    uint32_t xenonIgniteTime,myXenonIgniteTime=0;
     DB_debounce_struct_t Lamp_ON_Signal;
     bool Lamp_ON_Status=false;
-    
+    uint32_t xenonIgniteTime,myXenonIgniteTime=0;
+    DB_debounce_struct_t joystick_Right_Signal;
+    DB_debounce_struct_t joystick_Left_Signal;
+    DB_debounce_struct_t joystick_Down_Signal;
+    DB_debounce_struct_t joystick_Up_Signal;
+    DB_debounce_struct_t HSP_Signal;
+    DB_debounce_struct_t HSN_Signal;
+    DB_debounce_struct_t VSP_Signal;
+    DB_debounce_struct_t VSN_Signal;
+    DB_debounce_struct_t focus_P_Signal;
+    DB_debounce_struct_t focus_N_Signal;
+    int8_t horizDir=0, vertDir=0, focusDir=0;
+    uint32_t horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
+
     
     // initialize the device
     SYSTEM_Initialize();
@@ -143,7 +154,7 @@ int main(void)
     }
     focusSpeedIndex = EERS_Read(EE_FOCUS_SPEED_INDEX);
     if(focusSpeedIndex == 0xFFFFFFFF) {
-        focusSpeedIndex = 6;  // Full speed...
+        focusSpeedIndex = 7;  // Full speed...
         EERS_Write(EE_FOCUS_SPEED_INDEX,focusSpeedIndex);
     }
     xenonIgniteTime = EERS_Read(EE_XENON_IGNITE_TIME);
@@ -183,8 +194,36 @@ int main(void)
                     myXenonIgniteTime=0;
                 }
             }
-            
-            
+             
+            horizDir=0;
+            if(DB_DebounceSignal(JOYSTICK_RIGHT_GetValue(),&joystick_Right_Signal)==false) {
+                horizDir=1;
+            } 
+            if(DB_DebounceSignal(JOYSTICK_LEFT_GetValue(),&joystick_Left_Signal)==false) {
+                horizDir=-1;
+            }
+                
+            vertDir=0;
+            if(DB_DebounceSignal(JOYSTICK_DOWN_GetValue(),&joystick_Down_Signal)==false) {
+                vertDir=1;
+            } 
+            if(DB_DebounceSignal(JOYSTICK_UP_GetValue(),&joystick_Up_Signal)==false) {
+                vertDir=-1;
+            }
+                
+            focusDir=0;
+            if(DB_DebounceSignal(FOCUS_P_GetValue(),&focus_P_Signal)==false) {
+                focusDir=1;
+            } 
+            if(DB_DebounceSignal(FOCUS_N_GetValue(),&focus_N_Signal)==false) {
+                focusDir=-1;
+            }
+
+            DB_DebounceSignal(HORIZ_SPEED_P_GetValue(),&HSP_Signal);
+            DB_DebounceSignal(HORIZ_SPEED_N_GetValue(),&HSN_Signal);
+            DB_DebounceSignal(VERT_SPEED_P_GetValue(),&VSP_Signal);
+            DB_DebounceSignal(VERT_SPEED_N_GetValue(),&VSN_Signal);
+
         }  //..if(my10msTimer)
         
         
@@ -193,6 +232,11 @@ int main(void)
             TimerEvent50ms = false;
 
             OP_STATUS_SetLow();
+            
+            // Update PWM Control
+            MD_setHoriz(horizDir*horizSpeedIndex);
+            MD_setVert(vertDir*vertSpeedIndex);
+            MD_setFocus(focusDir*focusSpeedIndex);
 
         }  //..if(TimerEvent50ms)
         
@@ -202,11 +246,12 @@ int main(void)
             TimerEvent1s = false;
             
             OP_STATUS_SetHigh();
+
             
         }  //..if(TimerEvent1s)
     
 
-        // Lamp_ON pressed and handled?
+        // Lamp_ON
         if(!Lamp_ON_Signal.handled) {
             Lamp_ON_Signal.handled = true;
             if(Lamp_ON_Signal.value==false) {
@@ -222,7 +267,46 @@ int main(void)
                 }
             }
         }
-
+        
+        // Handle Horizontal Speed +
+        if(!HSP_Signal.handled) {
+            HSP_Signal.handled=true;
+            if(HSP_Signal.value==false) {
+                if(horizSpeedIndex<MD_SPEED_STEPS) {
+                    horizSpeedIndex++;                
+                }
+            }
+        }
+        
+        // Handle Horizontal Speed -
+        if(!HSN_Signal.handled) {
+            HSN_Signal.handled=true;
+            if(HSN_Signal.value==false) {
+                if(horizSpeedIndex>1) {
+                    horizSpeedIndex--;                
+                }
+            }
+        }
+        
+        // Handle Vertical Speed +
+        if(!VSP_Signal.handled) {
+            VSP_Signal.handled=true;
+            if(VSP_Signal.value==false) {
+                if(vertSpeedIndex<MD_SPEED_STEPS) {
+                    vertSpeedIndex++;                
+                }
+            }
+        }
+        
+        // Handle Vertical Speed -
+        if(!VSN_Signal.handled) {
+            VSN_Signal.handled=true;
+            if(VSN_Signal.value==false) {
+                if(vertSpeedIndex>1) {
+                    vertSpeedIndex--;                
+                }
+            }
+        }
         
         
         // Guard the Watchdog

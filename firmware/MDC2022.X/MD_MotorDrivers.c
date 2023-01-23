@@ -95,18 +95,30 @@ int32_t MD_FocusSpeed[] = {
 
 void MD_setHorizPWM(int32_t dirAndSpeed)
 {
+    static int32_t newDirAndSpeed;
+
+    // Leaky integrator (a=0.1)
+    if(dirAndSpeed!=0) {
+        newDirAndSpeed = 0.9*newDirAndSpeed + 0.1*dirAndSpeed;
+    } else {
+        newDirAndSpeed = 0.25*newDirAndSpeed;
+        if(abs(newDirAndSpeed)<100) {
+            newDirAndSpeed = 0;
+        }    
+    }    
+
     // Set PWM channel depending on the Direction
-    if(dirAndSpeed>=0) {  // CW
+    if(newDirAndSpeed>=0) {  // CW
 
         // Then set Speed
-        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, dirAndSpeed );        
+        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, newDirAndSpeed );        
         SCCP5_COMPARE_DualEdgeBufferedConfig( 0, 0 );
         
     } else {  // CCW
 
         // Then set Speed
         MCCP1_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
-        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, abs(dirAndSpeed) );
+        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, abs(newDirAndSpeed) );
 
     }
 
@@ -115,18 +127,30 @@ void MD_setHorizPWM(int32_t dirAndSpeed)
 
 void MD_setVertPWM(int32_t dirAndSpeed)
 {
+    static int32_t newDirAndSpeed;
+
+    // Leaky integrator (a=0.1)
+    if(dirAndSpeed!=0) {
+        newDirAndSpeed = 0.9*newDirAndSpeed + 0.1*dirAndSpeed;
+    } else {
+        newDirAndSpeed = 0.25*newDirAndSpeed;
+        if(abs(newDirAndSpeed)<100) {
+            newDirAndSpeed = 0;
+        }    
+    }    
+
     // Set PWM channel depending on the Direction
-    if(dirAndSpeed>=0) {  // CW
+    if(newDirAndSpeed>=0) {  // CW
 
         // Then set Speed
-        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, dirAndSpeed );        
+        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, newDirAndSpeed );        
         SCCP4_COMPARE_DualEdgeBufferedConfig( 0, 0 );
         
     } else {  // CCW
 
         // Then set Speed
         MCCP3_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
-        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, abs(dirAndSpeed) );
+        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, abs(newDirAndSpeed) );
 
     }
     
@@ -135,15 +159,27 @@ void MD_setVertPWM(int32_t dirAndSpeed)
 
 void MD_setFocusPWM(int32_t dirAndSpeed)
 {
+    static int32_t newDirAndSpeed;
+
+    // Leaky integrator (a=0.1)
+    if(dirAndSpeed!=0) {
+        newDirAndSpeed = 0.9*newDirAndSpeed + 0.1*dirAndSpeed;
+    } else {
+        newDirAndSpeed = 0.25*newDirAndSpeed;
+        if(abs(newDirAndSpeed)<100) {
+            newDirAndSpeed = 0;
+        }    
+    }    
+
     // First set Direction
-    if(dirAndSpeed<0) {
+    if(newDirAndSpeed<0) {
         MD_FOCUS_DIR_SetHigh();
     } else {
         MD_FOCUS_DIR_SetLow();
     }
     
     // Then set Speed
-    MCCP2_COMPARE_DualEdgeBufferedConfig( 0, abs(dirAndSpeed) );
+    MCCP2_COMPARE_DualEdgeBufferedConfig( 0, abs(newDirAndSpeed) );
     
 }
 
@@ -182,7 +218,7 @@ void MD_setVert(int8_t dirAndIndex)
 
 void MD_setFocus(int8_t dirAndIndex)
 {
-    uint16_t mySpeed = 0;
+    int32_t mySpeed = 0;
     
     if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
         mySpeed = MD_FocusSpeed[abs(dirAndIndex)]; 
@@ -190,7 +226,7 @@ void MD_setFocus(int8_t dirAndIndex)
     if(dirAndIndex<0) {
         mySpeed = -mySpeed;
     }
-    
+        
     MD_setFocusPWM(mySpeed);
 
 }
