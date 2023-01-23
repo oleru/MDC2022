@@ -53,21 +53,19 @@
   Section: Included Files
 */
 #include <stdint.h>
-
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
+#include "mcc_generated_files/coretimer.h"
 #include "MD_MotorDrivers.h"
 #include "EE_RegisterStorage.h"
+#include "DB_Debounce.h"
 
 
 
 /**
     Prototypes
  */
-void MD_setHoriz(int8_t dir, uint16_t speed);
-void MD_setVert(int8_t dir, uint16_t speed);
-void MD_setFocus(int8_t dir, uint16_t speed);
-
+void UpdateTimers(void);
 
 
 // Version Tags
@@ -75,6 +73,34 @@ char VersionTag1[] = __DATE__;     // "Jan 24 2011"
 char VersionTag2[] = __TIME__;     // "14:45:20"
 char RevBuild[] = "Rev.: 001";
 
+volatile bool TimerEvent10ms;
+volatile uint32_t myTime=0;
+bool TimerEvent50ms=false, TimerEvent1s=false;
+uint32_t myLastTime=0;
+
+
+
+void UpdateTimers(void)
+{
+    static int32_t my50msCnt, my1000msCnt;
+    int32_t delta;
+    
+    delta = myTime-myLastTime;
+    myLastTime = myTime;
+    my50msCnt += delta;
+    
+    // Update Time Keepers
+    while(my50msCnt>=50) {
+        TimerEvent50ms = true;
+        my50msCnt -= 50;
+        my1000msCnt += 50;
+        while(my1000msCnt>=1000) {
+            TimerEvent1s=true;
+            my1000msCnt -= 1000; 
+        }  //..while(my250msCnt>=250)
+    }  //..while(my50msCnt>=50)
+    
+}
 
 
 /*
@@ -83,6 +109,9 @@ char RevBuild[] = "Rev.: 001";
 int main(void)
 {
     uint32_t horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
+    uint32_t xenonIgniteTime,myXenonIgniteTime=0;
+    DB_debounce_struct_t Lamp_ON_Signal;
+    bool Lamp_ON_Status=false;
     
     
     // initialize the device
@@ -94,44 +123,111 @@ int main(void)
     FOCUS_END_IN_LED_SetHigh();
     FOCUS_END_OUT_LED_SetHigh();
     HIGH_TEMP_LED_SetHigh();
-    
+*/    
+    // Initialize off
     RLY_IGNITE_ON_SetLow();
     RLY_LAMP_ON_SetLow();
     RLY_STEP_SetLow();
-*/
+
     
     // Read out Persistent variables
-    horizSpeedIndex = EERS_Read(HORIZ_SPEED_INDEX);
+    horizSpeedIndex = EERS_Read(EE_HORIZ_SPEED_INDEX);
     if(horizSpeedIndex == 0xFFFFFFFF) {
         horizSpeedIndex = 3;
-        EERS_Write(HORIZ_SPEED_INDEX,horizSpeedIndex);
+        EERS_Write(EE_HORIZ_SPEED_INDEX,horizSpeedIndex);
     }
-    vertSpeedIndex = EERS_Read(VERT_SPEED_INDEX);
+    vertSpeedIndex = EERS_Read(EE_VERT_SPEED_INDEX);
     if(vertSpeedIndex == 0xFFFFFFFF) {
         vertSpeedIndex = 3;
-        EERS_Write(VERT_SPEED_INDEX,vertSpeedIndex);
+        EERS_Write(EE_VERT_SPEED_INDEX,vertSpeedIndex);
     }
-    focusSpeedIndex = EERS_Read(FOCUS_SPEED_INDEX);
+    focusSpeedIndex = EERS_Read(EE_FOCUS_SPEED_INDEX);
     if(focusSpeedIndex == 0xFFFFFFFF) {
         focusSpeedIndex = 6;  // Full speed...
-        EERS_Write(FOCUS_SPEED_INDEX,focusSpeedIndex);
+        EERS_Write(EE_FOCUS_SPEED_INDEX,focusSpeedIndex);
     }
+    xenonIgniteTime = EERS_Read(EE_XENON_IGNITE_TIME);
+    if(xenonIgniteTime == 0xFFFFFFFF) {
+        xenonIgniteTime = 300;  // [ms]
+        EERS_Write(EE_XENON_IGNITE_TIME,xenonIgniteTime);
+    } 
 
     
     // Init. all Motor Driver in lock - no motion
-    MD_setHoriz( CCW, 0);
-    MD_setVert( CCW, 0);
-    MD_setFocus( CCW, 0);
+    MD_setHoriz(0);
+    MD_setVert(0);
+    MD_setFocus(0);
+   
+    // Enable WDT
+    WDTCONbits.ON=1;
     
     
     // Main loop
     while (1)
     {
-        // Add your application code
-        if(LAMP_ON_GetValue()==1)
-            POWER_OK_SetHigh();
-        else
-            POWER_OK_SetLow();
+        
+    
+        // 10ms Timer Event
+        if(TimerEvent10ms) {
+            TimerEvent10ms = false;
+            UpdateTimers();
+
+            DB_DebounceSignal(LAMP_ON_GetValue(),&Lamp_ON_Signal);
+
+            // Lamp_ON_Ignition timer running?
+            if(myXenonIgniteTime!=0) {
+                if(myXenonIgniteTime>20) {
+                    myXenonIgniteTime-=10;
+                } else {
+                    RLY_IGNITE_ON_SetLow();
+                    myXenonIgniteTime=0;
+                }
+            }
+            
+            
+        }  //..if(my10msTimer)
+        
+        
+        // 50s Timer Event
+        if(TimerEvent50ms) {
+            TimerEvent50ms = false;
+
+            OP_STATUS_SetLow();
+
+        }  //..if(TimerEvent50ms)
+        
+        
+        // 1s Timer Event
+        if(TimerEvent1s) {
+            TimerEvent1s = false;
+            
+            OP_STATUS_SetHigh();
+            
+        }  //..if(TimerEvent1s)
+    
+
+        // Lamp_ON pressed and handled?
+        if(!Lamp_ON_Signal.handled) {
+            Lamp_ON_Signal.handled = true;
+            if(Lamp_ON_Signal.value==false) {
+                if(!Lamp_ON_Status) {
+                    Lamp_ON_Status=true;
+                    RLY_LAMP_ON_SetHigh();
+                    RLY_IGNITE_ON_SetHigh();
+                    myXenonIgniteTime = xenonIgniteTime+10;
+                } else {
+                    Lamp_ON_Status=false;
+                    RLY_LAMP_ON_SetLow();
+                    RLY_IGNITE_ON_SetLow();
+                }
+            }
+        }
+
+        
+        
+        // Guard the Watchdog
+        WDTCONbits.WDTCLRKEY=0x5743;  // Magic sequence to reset WDT
+                
         
     }
     return 1; 

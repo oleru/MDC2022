@@ -58,6 +58,11 @@
     extern "C" {
 #endif
 
+        
+extern volatile uint32_t myTime;
+extern volatile bool TimerEvent10ms;        
+
+
 /**
   @Summary
     Initializes the Core Timer peripheral

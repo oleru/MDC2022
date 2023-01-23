@@ -90,7 +90,10 @@ void __attribute__ ((vector(_CORE_TIMER_VECTOR), interrupt(IPL1SOFT))) _CORE_TIM
    _CP0_SET_COMPARE(compare);
 
    IFS0CLR= 1 << _IFS0_CTIF_POSITION;
+
    // Add your custom code here
+   myTime+=10;
+   TimerEvent10ms = true;
 
 }
 

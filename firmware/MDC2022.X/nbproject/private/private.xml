@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/mcc_generated_files/mccp2_compare.c</file>
+            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/EE_RegisterStorage.h</file>
             <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/main.c</file>
-            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/mcc_generated_files/mccp2_compare.h</file>
+            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/EE_RegisterStorage.c</file>
+            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/MD_MotorDrivers.h</file>
+            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/flash.c</file>
+            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/flash.h</file>
+            <file>file:/C:/Project/SeaLight/MDC2022/Source/firmware/MDC2022.X/MD_MotorDrivers.c</file>
         </group>
     </open-files>
 </project-private>

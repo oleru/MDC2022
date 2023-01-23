@@ -20,8 +20,8 @@
 
     Focus is connected to a DRV8876RGTR half H-Bridge driven with on 
     Direction bit and one PWM channel. Driver Power are read back on 
-    FB-analog signal where the output is 0.24% of total load 
-    (voltage on pin is A*270). NFAULT connected to a red led.  
+    FB-analog signal where the output is 0.1% of total load 
+    (voltage on pin is A*2490). NFAULT connected to a red led.  
  */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 /* ************************************************************************** */
 /* ************************************************************************** */
 
-#include <stdint.h>
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
 #include "mcc_generated_files/mccp1_compare.h"
@@ -57,8 +56,10 @@ extern "C" {
     /* ************************************************************************** */
     /* ************************************************************************** */
 
-#define CW 1
-#define CCW -1
+#define MD_CW 1
+#define MD_CCW -1
+#define MD_STOP -1
+#define MD_SPEED_STEPS 7
     
 
     // *****************************************************************************
@@ -77,7 +78,7 @@ extern "C" {
     
 /**
   @Function
-    void MD_setHoriz(int8_t dir, uint16_t speed) 
+    void MD_setHorizPWM(uint32_t dirAndSpeed) 
 
   @Summary
     Sets the Direction and Speed for the Motor Driver driving the Horizontal Motor.
@@ -89,25 +90,24 @@ extern "C" {
     SYSTEM_Initialize() function should have been called 
 
   @Param
-    dir - -1=CCW and !-1(any other value than -1)=CW.
-    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
+    dirAndSpeed - Values < 0 gives CCW direction, Values > gives CW direction. 0 = Stop.
+                  Absolute value set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
 	
   @Returns
     None.
 
   @Example 
     <code>
-        int8_t dir = CW;
-        uint16_t speed = 0x2000;
-        void setHorizMD( dir, speed );
+        uint32_t dirAndSpeed = -4000;  // CCW, Medium Speed 
+        MD_setHorizPWM( dirAndSpeed );
     <code>
 */
-void MD_setHoriz(int8_t dir, uint16_t speed);
+void MD_setHorizPWM(int32_t dirAndSpeed);
 
 
 /**
   @Function
-    void MD_setVert(int8_t dir, uint16_t speed) 
+    void MD_setVertPWM(uint32_t dirAndSpeed) 
 
   @Summary
     Sets the Direction and Speed for the Motor Driver driving the Vertical Motor.
@@ -119,25 +119,24 @@ void MD_setHoriz(int8_t dir, uint16_t speed);
     SYSTEM_Initialize() function should have been called 
 
   @Param
-    dir - -1=CCW and !-1(any other value than -1)=CW.
-    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
+    dirAndSpeed - Values < 0 gives CCW direction, Values > gives CW direction. 0 = Stop.
+                  Absolute value set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
 	
   @Returns
     None.
 
   @Example 
     <code>
-        int8_t dir = CW;
-        uint16_t speed = 0x2000;
-        void setVertMD( dir, speed );
+        uint32_t dirAndSpeed = -4000;  // CCW, Medium Speed 
+        MD_setVertPWM( dirAndSpeed );
     <code>
 */
-void MD_setVert(int8_t dir, uint16_t speed);
+void MD_setVertPWM(int32_t dirAndSpeed);
 
 
 /**
   @Function
-    void MD_setFocus(int8_t dir, uint16_t speed) 
+    void MD_setFocusPWM(uint32_t dirAndSpeed) 
 
   @Summary
     Sets the Direction and Speed for the Motor Driver driving the Focus Motor.
@@ -149,20 +148,106 @@ void MD_setVert(int8_t dir, uint16_t speed);
     SYSTEM_Initialize() function should have been called 
 
   @Param
-    dir - -1=CCW and !0(any other value than -1)=CW.
-    speed - set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
+    dirAndSpeed - Values < 0 gives CCW direction, Values > gives CW direction. 0 = Stop.
+                  Absolute value set the PWM for the H-Bridge [0-7FFF] = 0-100% speed.	
 	
   @Returns
     None.
 
   @Example 
     <code>
-        int8_t dir = CW;
-        uint16_t speed = 0x2000;
-        void setFocusMD( dir, speed );
+        uint32_t dirAndSpeed = -4000;  // CCW, Medium Speed 
+        MD_setFocusPWM( dirAndSpeed );
     <code>
 */
-void MD_setFocus(int8_t dir, uint16_t speed);
+void MD_setFocusPWM(int32_t dirAndSpeed);
+
+
+/**
+  @Function
+    void MD_setHoriz(int8_t dirAndIndex) 
+
+  @Summary
+    Wrapper function for the MD_setHorizPWM where the speed is selected from a preset table. 
+ 
+  @Description
+    Wrapper function for the MD_setHorizPWM where the speed is selected from a preset table.
+
+  @Preconditions
+    SYSTEM_Initialize() function should have been called 
+
+  @Param
+    dirAndIndex - Values < 0 gives CCW direction, Values > gives CW direction. 0 = Stop.
+                  Absolute value set the index for the used table MD_HorizSpeed[] for the speed set.	
+	
+  @Returns
+    None.
+
+  @Example 
+    <code>
+        int8_t dirAndIndex = -7;
+        MD_setHoriz( dirAndIndex );
+    <code>
+*/
+void MD_setHoriz(int8_t dirAndIndex);
+
+
+/**
+  @Function
+    void MD_setVert(int8_t dirAndIndex) 
+
+  @Summary
+    Wrapper function for the MD_setVertPWM where the speed is selected from a preset table. 
+ 
+  @Description
+    Wrapper function for the MD_setVertPWM where the speed is selected from a preset table.
+
+  @Preconditions
+    SYSTEM_Initialize() function should have been called 
+
+  @Param
+    dirAndIndex - Values < 0 gives CCW direction, Values > gives CW direction. 0 = Stop.
+                  Absolute value set the index for the used table MD_VertSpeed[] for the speed set.	
+	
+  @Returns
+    None.
+
+  @Example 
+    <code>
+        int8_t dirAndIndex = -7;
+        MD_setVert( dirAndIndex );
+    <code>
+*/
+void MD_setVert(int8_t dirAndIndex);
+
+
+/**
+  @Function
+    void MD_setFocus(int8_t dirAndIndex) 
+
+  @Summary
+    Wrapper function for the MD_setFocusPWM where the speed is selected from a preset table. 
+ 
+  @Description
+    Wrapper function for the MD_setFocusPWM where the speed is selected from a preset table.
+
+  @Preconditions
+    SYSTEM_Initialize() function should have been called 
+
+  @Param
+    dirAndIndex - Values < 0 gives CCW direction, Values > gives CW direction. 0 = Stop.
+                  Absolute value set the index for the used table MD_FocusSpeed[] for the speed set.	
+	
+  @Returns
+    None.
+
+  @Example 
+    <code>
+        int8_t dirAndIndex = -7;
+        MD_setFocus( dirAndIndex );
+    <code>
+*/
+void MD_setFocus(int8_t dirAndIndex);
 
 
 

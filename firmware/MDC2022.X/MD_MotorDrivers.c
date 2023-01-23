@@ -32,6 +32,8 @@
 /* ************************************************************************** */
 /* ************************************************************************** */
 
+#include <stdint.h>
+#include <stdlib.h>
 #include "MD_MotorDrivers.h"
 
 
@@ -42,7 +44,8 @@
 /* ************************************************************************** */
 
 // Preset PWM values 
-uint16_t MD_HorizSpeed[] = {
+int32_t MD_HorizSpeed[] = {
+    0,
     0x1249,
     0x2492,
     0x36DB,
@@ -52,7 +55,8 @@ uint16_t MD_HorizSpeed[] = {
     0x7FFF
 };
 
-uint16_t MD_VertSpeed[] = {
+int32_t MD_VertSpeed[] = {
+    0,
     0x1249,
     0x2492,
     0x36DB,
@@ -62,7 +66,8 @@ uint16_t MD_VertSpeed[] = {
     0x7FFF
 };
 
-uint16_t MD_FocusSpeed[] = {
+int32_t MD_FocusSpeed[] = {
+    0,
     0x1249,
     0x2492,
     0x36DB,
@@ -88,59 +93,106 @@ uint16_t MD_FocusSpeed[] = {
 /* ************************************************************************** */
 
 
-
-void MD_setHoriz(int8_t dir, uint16_t speed)
+void MD_setHorizPWM(int32_t dirAndSpeed)
 {
     // Set PWM channel depending on the Direction
-    if(dir!=CCW) {  // CW
+    if(dirAndSpeed>=0) {  // CW
 
         // Then set Speed
-        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, speed );        
+        MCCP1_COMPARE_DualEdgeBufferedConfig( 0, dirAndSpeed );        
         SCCP5_COMPARE_DualEdgeBufferedConfig( 0, 0 );
         
     } else {  // CCW
 
         // Then set Speed
         MCCP1_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
-        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, speed );
+        SCCP5_COMPARE_DualEdgeBufferedConfig( 0, abs(dirAndSpeed) );
 
     }
 
 }
 
 
-void MD_setVert(int8_t dir, uint16_t speed)
+void MD_setVertPWM(int32_t dirAndSpeed)
 {
     // Set PWM channel depending on the Direction
-    if(dir!=CCW) {  // CW
+    if(dirAndSpeed>=0) {  // CW
 
         // Then set Speed
-        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, speed );        
+        MCCP3_COMPARE_DualEdgeBufferedConfig( 0, dirAndSpeed );        
         SCCP4_COMPARE_DualEdgeBufferedConfig( 0, 0 );
         
     } else {  // CCW
 
         // Then set Speed
         MCCP3_COMPARE_DualEdgeBufferedConfig( 0, 0 );        
-        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, speed );
+        SCCP4_COMPARE_DualEdgeBufferedConfig( 0, abs(dirAndSpeed) );
 
     }
-
+    
 }
 
 
-void MD_setFocus(int8_t dir, uint16_t speed)
+void MD_setFocusPWM(int32_t dirAndSpeed)
 {
     // First set Direction
-    if(dir!=CCW) {
+    if(dirAndSpeed<0) {
         MD_FOCUS_DIR_SetHigh();
     } else {
         MD_FOCUS_DIR_SetLow();
     }
     
     // Then set Speed
-    MCCP2_COMPARE_DualEdgeBufferedConfig( 0, speed );
-        
+    MCCP2_COMPARE_DualEdgeBufferedConfig( 0, abs(dirAndSpeed) );
+    
+}
+
+
+void MD_setHoriz(int8_t dirAndIndex)
+{
+    int32_t mySpeed = 0;
+
+    if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
+        mySpeed = MD_HorizSpeed[abs(dirAndIndex)]; 
+    }
+    if(dirAndIndex<0) {
+        mySpeed = -mySpeed;
+    }
+    
+    MD_setHorizPWM(mySpeed);
+
+}
+
+
+void MD_setVert(int8_t dirAndIndex)
+{
+    int32_t mySpeed = 0;
+    
+    if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
+        mySpeed = MD_VertSpeed[abs(dirAndIndex)]; 
+    }
+    if(dirAndIndex<0) {
+        mySpeed = -mySpeed;
+    }
+    
+    MD_setVertPWM(mySpeed);
+ 
+}
+
+
+void MD_setFocus(int8_t dirAndIndex)
+{
+    uint16_t mySpeed = 0;
+    
+    if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
+        mySpeed = MD_FocusSpeed[abs(dirAndIndex)]; 
+    }
+    if(dirAndIndex<0) {
+        mySpeed = -mySpeed;
+    }
+    
+    MD_setFocusPWM(mySpeed);
+
 }
 
 

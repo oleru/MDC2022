@@ -204,9 +204,11 @@ extern "C" {
      */
     enum FLASH_DATA_IDs {
 
-        HORIZ_SPEED_INDEX=1,
-        VERT_SPEED_INDEX,
-        FOCUS_SPEED_INDEX
+        // Basic/R5 settings
+        EE_HORIZ_SPEED_INDEX=1,
+        EE_VERT_SPEED_INDEX,
+        EE_FOCUS_SPEED_INDEX,
+        EE_XENON_IGNITE_TIME
         
     };
 
