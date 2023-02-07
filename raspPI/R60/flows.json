@@ -1,0 +1,4325 @@
+[
+    {
+        "id": "0e892ddf76c780fa",
+        "type": "tab",
+        "label": "Initialize",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c978021d490da69f",
+        "type": "tab",
+        "label": "FINS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "403ca65b195d1cf2",
+        "type": "tab",
+        "label": "Registers",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3477a75557d00979",
+        "type": "tab",
+        "label": "IP Settings",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cef642f22a51c923",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "1cf52e38.3cfee2",
+        "type": "ui_group",
+        "name": "IP Settings",
+        "tab": "be53a269.02ec3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "be53a269.02ec3",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "settings",
+        "order": 2
+    },
+    {
+        "id": "ca54bb2b4d7100f8",
+        "type": "ui_tab",
+        "name": "Registers",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cb0bfbfe5c34d8b7",
+        "type": "ui_group",
+        "name": "D-Register",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "8e3f0b650d98dc09",
+        "type": "shared-state",
+        "name": "Horizontal_pos_act",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "-180",
+        "numMax": "180",
+        "unit": "deg",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "3c9cf2f8bc9a8795",
+        "type": "shared-state",
+        "name": "Vertical_pos_act",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "-30",
+        "numMax": "30",
+        "unit": "deg",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "91d4d80beb9e4ab9",
+        "type": "shared-state",
+        "name": "Horizontal_speed",
+        "lbl": "",
+        "tags": "H254",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "10",
+        "numMax": "100",
+        "unit": "",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "97a4150ea5f3f488",
+        "type": "ui_group",
+        "name": "H-Registers",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 4,
+        "disp": true,
+        "width": "7",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "b468320eb1681da1",
+        "type": "shared-state",
+        "name": "Vertical_speed",
+        "lbl": "",
+        "tags": "H256",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "10",
+        "numMax": "100",
+        "unit": "",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "f89ab6135ab55895",
+        "type": "bit-config",
+        "name": "MyDataStash",
+        "bits": [
+            {
+                "property": "Up",
+                "length": 1,
+                "shift": 0,
+                "type": "boolean"
+            },
+            {
+                "property": "Down",
+                "length": 1,
+                "shift": 1,
+                "type": "boolean"
+            },
+            {
+                "property": "Left",
+                "length": 1,
+                "shift": 2,
+                "type": "boolean"
+            },
+            {
+                "property": "Right",
+                "length": 1,
+                "shift": 3,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "1e88f97016719521",
+        "type": "ui_group",
+        "name": "Physical input",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "ed0b202d8f2d86ee",
+        "type": "ui_group",
+        "name": "Physical Output",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 2,
+        "disp": true,
+        "width": "5",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "44c84a439d2ed32c",
+        "type": "shared-state",
+        "name": "H150",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "04e632baa56226fb",
+        "type": "bit-config",
+        "name": "H150",
+        "bits": [
+            {
+                "property": "H150_0",
+                "length": 1,
+                "shift": 0,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_1",
+                "length": 1,
+                "shift": 1,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_2",
+                "length": 1,
+                "shift": 2,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_3",
+                "length": 1,
+                "shift": 3,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_4",
+                "length": 1,
+                "shift": 4,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_5",
+                "length": 1,
+                "shift": 5,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_6",
+                "length": 1,
+                "shift": 6,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_7",
+                "length": 1,
+                "shift": 7,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_8",
+                "length": 1,
+                "shift": 8,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_9",
+                "length": 1,
+                "shift": 9,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_10",
+                "length": 1,
+                "shift": 10,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_11",
+                "length": 1,
+                "shift": 11,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_12",
+                "length": 1,
+                "shift": 12,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "b3b9a9f62b40b8a8",
+        "type": "shared-state",
+        "name": "H151",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "bool",
+        "boolType": "num",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "0"
+    },
+    {
+        "id": "69c270ce9d052744",
+        "type": "shared-state",
+        "name": "H260",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "036df11f80e030cb",
+        "type": "shared-state",
+        "name": "H261",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "10",
+        "numMax": "100",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "bf88a43b5ef12a5f",
+        "type": "shared-state",
+        "name": "H270",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "1",
+        "numMin": "-30",
+        "numMax": "30",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "c8189687475b51d6",
+        "type": "inject",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "d70387dcf6d08819",
+                "ad8ad80cdfeade79",
+                "c1547374033d0085",
+                "97ee7e1687b68826"
+            ]
+        ]
+    },
+    {
+        "id": "d70387dcf6d08819",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Physical_input",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "fa95913b951f0ae7"
+            ]
+        ]
+    },
+    {
+        "id": "ad8ad80cdfeade79",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Physical_output",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "fa95913b951f0ae7"
+            ]
+        ]
+    },
+    {
+        "id": "fa95913b951f0ae7",
+        "type": "link out",
+        "z": "0e892ddf76c780fa",
+        "name": "link out Initialized",
+        "mode": "link",
+        "links": [
+            "0ce88f5727b60bd9"
+        ],
+        "x": 735,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "71e1c07fa0276701",
+        "type": "comment",
+        "z": "0e892ddf76c780fa",
+        "name": "Initialize some working variables",
+        "info": "",
+        "x": 190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c1547374033d0085",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Focus_Position",
+                "pt": "global",
+                "to": "0.0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "97ee7e1687b68826",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SL_Version",
+                "pt": "global",
+                "to": "100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01533fbb474b8035",
+        "type": "udp in",
+        "z": "c978021d490da69f",
+        "name": "FINS in",
+        "iface": "",
+        "port": "9600",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "ee3927427f858b8f",
+                "c65f7688fec0cee7"
+            ]
+        ]
+    },
+    {
+        "id": "80f1446c4921542a",
+        "type": "udp out",
+        "z": "c978021d490da69f",
+        "name": "FINS out",
+        "addr": "",
+        "iface": "",
+        "port": "9600",
+        "ipv": "udp4",
+        "outport": "9600",
+        "base64": false,
+        "multicast": "false",
+        "x": 420,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ee3927427f858b8f",
+        "type": "buffer-parser",
+        "z": "c978021d490da69f",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "buffer",
+                "name": "Header",
+                "offset": 0,
+                "length": 10,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "buffer",
+                "name": "Data",
+                "offset": 10,
+                "length": 500,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "return",
+        "multipleResult": true,
+        "fanOutMultipleResult": true,
+        "setTopic": false,
+        "outputs": 2,
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "4c3a6d9862b6395b"
+            ],
+            [
+                "6a100d7c610d108a"
+            ]
+        ]
+    },
+    {
+        "id": "4c3a6d9862b6395b",
+        "type": "buffer-parser",
+        "z": "c978021d490da69f",
+        "name": "Parse Header",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint8",
+                "name": "ICF",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "RSV",
+                "offset": 1,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "GCT",
+                "offset": 2,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "DNA",
+                "offset": 3,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "DA1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "DA2",
+                "offset": 5,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SNA",
+                "offset": 6,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SA1",
+                "offset": 7,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SA2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SID",
+                "offset": 9,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "403127e365d67dae"
+            ]
+        ]
+    },
+    {
+        "id": "403127e365d67dae",
+        "type": "buffer-maker",
+        "z": "c978021d490da69f",
+        "name": "",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "name": "ICF",
+                "type": "byte",
+                "length": 1,
+                "dataType": "num",
+                "data": "192"
+            },
+            {
+                "name": "RSV",
+                "type": "byte",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "GCT",
+                "type": "byte",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.GCT"
+            },
+            {
+                "name": "DNA",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SNA"
+            },
+            {
+                "name": "DA1",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SA1"
+            },
+            {
+                "name": "DA2",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SA2"
+            },
+            {
+                "name": "SNA",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.DNA"
+            },
+            {
+                "name": "SA1",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.DA1"
+            },
+            {
+                "name": "SA2",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.DA2"
+            },
+            {
+                "name": "SID",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SID"
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "3120c9a1cc96d2c1"
+            ]
+        ]
+    },
+    {
+        "id": "c65f7688fec0cee7",
+        "type": "change",
+        "z": "c978021d490da69f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "senderIP",
+                "pt": "flow",
+                "to": "ip",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3120c9a1cc96d2c1",
+        "type": "change",
+        "z": "c978021d490da69f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "replyHeader",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ba4a38b731a88bb",
+        "type": "comment",
+        "z": "c978021d490da69f",
+        "name": "Incomming FINS request",
+        "info": "",
+        "x": 170,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "be587bdfba6d4ac9",
+        "type": "comment",
+        "z": "c978021d490da69f",
+        "name": "Respond FINS request",
+        "info": "",
+        "x": 160,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6a100d7c610d108a",
+        "type": "buffer-parser",
+        "z": "c978021d490da69f",
+        "name": "Parse Data",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint16be",
+                "name": "CODE",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "buffer",
+                "name": "data",
+                "offset": 2,
+                "length": 500,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "9b5fc362371d7ab6",
+                "08b2f6cddc4f3571"
+            ]
+        ]
+    },
+    {
+        "id": "80ec45943c1f363b",
+        "type": "change",
+        "z": "c978021d490da69f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dataCode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b5fc362371d7ab6",
+        "type": "switch",
+        "z": "c978021d490da69f",
+        "name": "Split on Telegram Type",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "260",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "9f673f66bd5b5acb"
+            ]
+        ]
+    },
+    {
+        "id": "9f673f66bd5b5acb",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "0x0104 Msg",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0,0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\n// Cycle trough 0x0104 Request Message\nlet i = 0;\nfor (i = 0; i < inData.byteLength;i+=4) {\n\n    // msg.payload[1][i]\n    //var myData = Buffer.from([0, 0, 0]);\n    let myData = Buffer.allocUnsafe(3);\n    myData[0] = inData[i];\n    let addr = inData.readInt16BE(i+1);\n\n    // Look up data\n    if (inData[i] == 128) {  // CIO 0x80\n\n        if (addr == 0) {            // Physical Input\n            myData.writeInt16BE(global.get(\"Physical_input\"), 1);\n        } else if (addr == 100) {   // Physical Output\n            myData.writeInt16BE(global.get(\"Physical_output\"), 1);\n        }\n\n    } else if (inData[i] == 130) {  // D 0x82\n\n        if (addr == 100) {          // D100 - Hor_pos_act[-180,180]\n            myData.writeInt16BE(global.get(\"Horizontal_pos_act\"), 1);\n        } else if (addr == 200) {   // D200 - Vert_pos_act[-30,30]\n            myData.writeInt16BE(global.get(\"Vertical_pos_act\"), 1);\n        } else if (addr == 404) {   // D404 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"),0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0); \n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 405) {   // D405 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    } else if (inData[i] == 177) {  // W 0xB1\n\n        if (addr == 15) {           // W15\n                                              // W15.00 - Init_active\n                                              // W15.01 - Con_flag\n            myData.writeInt16BE(4, 1);  //myDataType[2] = 4;                    // W15.02/H150.00 - SL_mounted_0deg\n                                              // W15.03/H150.01 - SL_mounted_90deg\n                                              // W15.04/H150.02 - SL_mounted_180deg\n                                              // W15.05/H150.03 - SL_mounted_-90deg\n        }\n\n    } else if (inData[i] == 178) {  // H 0xB2\n\n        if (addr == 100) {          // H100 - SL_Version\n            myData.writeInt16BE(global.get(\"SL_Version\"), 1);\n        } else if (addr == 150) {   // H150\n            myData.writeInt16BE(global.get(\"H150\"), 1);\n        } else if (addr == 151) {   // H151\n            myData.writeInt16BE(global.get(\"H151\"), 1);\n        } else if (addr == 254) {   // H254 - Horizontal_speed\n            myData.writeUInt16BE(global.get(\"Horizontal_speed\"), 1);\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            myData.writeUInt16BE(global.get(\"Vertical_speed\"), 1);\n        } else if (addr == 260) {   // H260 - Slave_Speed_Hor\n            myData.writeUInt16BE(global.get(\"H260\"), 1);\n        } else if (addr == 261) {   // H261 - Slave_Speed_Vert\n            myData.writeUInt16BE(global.get(\"H261\"), 1);\n        } else if (addr == 270) {   // H270 - Vert_Pos_Init\n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0);\n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 271) {   // H271 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    }\n\n    myList.push(myData);\n\n}  //..for (i = 0;...\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 260,
+        "wires": [
+            [
+                "ef0e3003fcefb83c",
+                "3fe70d39221d10d8"
+            ]
+        ]
+    },
+    {
+        "id": "ef0e3003fcefb83c",
+        "type": "link out",
+        "z": "c978021d490da69f",
+        "name": "link out 0x0104",
+        "mode": "link",
+        "links": [
+            "b38fab0b68b3391b"
+        ],
+        "x": 1095,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b38fab0b68b3391b",
+        "type": "link in",
+        "z": "c978021d490da69f",
+        "name": "link in Respond FINS",
+        "links": [
+            "ef0e3003fcefb83c"
+        ],
+        "x": 105,
+        "y": 420,
+        "wires": [
+            [
+                "d839b1c6c6aca029"
+            ]
+        ]
+    },
+    {
+        "id": "d839b1c6c6aca029",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "Build response",
+        "func": "var Header = flow.get(\"replyHeader\");\nvar Code = flow.get(\"dataCode\");\nvar myList = [];\n\nmyList.push(Header, Code, msg.payload);\n\nvar telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, ip: flow.get(\"senderIP\") };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 420,
+        "wires": [
+            [
+                "80f1446c4921542a"
+            ]
+        ]
+    },
+    {
+        "id": "08b2f6cddc4f3571",
+        "type": "buffer-maker",
+        "z": "c978021d490da69f",
+        "name": "",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "name": "item1",
+                "type": "int16be",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload[0]"
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "80ec45943c1f363b"
+            ]
+        ]
+    },
+    {
+        "id": "3fe70d39221d10d8",
+        "type": "debug",
+        "z": "c978021d490da69f",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "51241242912be04c",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Horizontal_pos_act",
+        "label": "Horizontal_pos_act",
+        "tooltip": "",
+        "group": "cb0bfbfe5c34d8b7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": 1,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "51a0e0d0574f9091",
+                "6ef39e4da6185e10"
+            ]
+        ]
+    },
+    {
+        "id": "90f12d50612b3b25",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "8e3f0b650d98dc09",
+        "name": "Horizontal_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "51241242912be04c"
+            ]
+        ]
+    },
+    {
+        "id": "51a0e0d0574f9091",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "8e3f0b650d98dc09",
+        "name": "Horizontal_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 590,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6ef39e4da6185e10",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Horizontal_pos_act",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4dfdcad380dc91e8",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Horizontal_pos_act",
+        "label": "Vertical_pos_act",
+        "tooltip": "",
+        "group": "cb0bfbfe5c34d8b7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": 1,
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "b6cc9e16deb2393b",
+                "a7fc2d89607683ec"
+            ]
+        ]
+    },
+    {
+        "id": "8e5377bcea045208",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "3c9cf2f8bc9a8795",
+        "name": "Vertical_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "4dfdcad380dc91e8"
+            ]
+        ]
+    },
+    {
+        "id": "b6cc9e16deb2393b",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "3c9cf2f8bc9a8795",
+        "name": "Vertical_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 580,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a7fc2d89607683ec",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Vertical_pos_act",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "674d929d95e97f26",
+        "type": "comment",
+        "z": "403ca65b195d1cf2",
+        "name": "D-Registers",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4a33787283b10c54",
+        "type": "comment",
+        "z": "403ca65b195d1cf2",
+        "name": "H-Registers",
+        "info": "",
+        "x": 130,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a906d45412461268",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Horizontal_speed",
+        "label": "Horizontal_speed",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "100",
+        "step": 1,
+        "x": 350,
+        "y": 1060,
+        "wires": [
+            [
+                "0ecd2cd30df4570d",
+                "ac5cfb56d080e68e"
+            ]
+        ]
+    },
+    {
+        "id": "cfc64ece968b48f2",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "91d4d80beb9e4ab9",
+        "name": "Horizontal_speed",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 140,
+        "y": 1060,
+        "wires": [
+            [
+                "a906d45412461268"
+            ]
+        ]
+    },
+    {
+        "id": "0ecd2cd30df4570d",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "91d4d80beb9e4ab9",
+        "name": "Horizontal_speed",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 570,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "ac5cfb56d080e68e",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Horizontal_speed",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1217018862683ca2",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vertical_speed",
+        "label": "Vertical_speed",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "100",
+        "step": 1,
+        "x": 340,
+        "y": 1160,
+        "wires": [
+            [
+                "16b0679b4abe94ee",
+                "1d43ad7f0c54275e"
+            ]
+        ]
+    },
+    {
+        "id": "bd81da722fa681d6",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "b468320eb1681da1",
+        "name": "Vertical_speed",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 140,
+        "y": 1160,
+        "wires": [
+            [
+                "1217018862683ca2"
+            ]
+        ]
+    },
+    {
+        "id": "16b0679b4abe94ee",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "b468320eb1681da1",
+        "name": "Vertical_speed",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 560,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "1d43ad7f0c54275e",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Vertical_speed",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e92fc16128d164bc",
+        "type": "bit-decode",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "bits": "f89ab6135ab55895",
+        "x": 980,
+        "y": 1100,
+        "wires": [
+            [
+                "e5dd7d1e391fbb46",
+                "20a2a7790340b20f"
+            ]
+        ]
+    },
+    {
+        "id": "e5dd7d1e391fbb46",
+        "type": "bit-encode",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "bits": "f89ab6135ab55895",
+        "x": 980,
+        "y": 1180,
+        "wires": [
+            [
+                "20a2a7790340b20f"
+            ]
+        ]
+    },
+    {
+        "id": "4b058a2d69a53eaf",
+        "type": "inject",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 790,
+        "y": 1100,
+        "wires": [
+            [
+                "e92fc16128d164bc",
+                "20a2a7790340b20f"
+            ]
+        ]
+    },
+    {
+        "id": "20a2a7790340b20f",
+        "type": "debug",
+        "z": "403ca65b195d1cf2",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "fb98116f8b2bb2d4",
+        "type": "comment",
+        "z": "403ca65b195d1cf2",
+        "name": "System variables",
+        "info": "",
+        "x": 140,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "ec435d393b19bec8",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Vert_A",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Vert_A",
+        "x": 790,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "8c63cb42f56130ae",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 2,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Vert_B",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Vert_B",
+        "x": 790,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "9706f09d122ac64a",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 3,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Hor_A",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Hor_A",
+        "x": 790,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "25cd646e0ff42d07",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 4,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Hor_B",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Hor_B",
+        "x": 790,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "bdc97ef731c7b290",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 5,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos_In",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#8b0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos_In",
+        "x": 800,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "eea6ad49b11a68db",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 6,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos_Out",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#8b0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos_Out",
+        "x": 800,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "925f0c7c60cd9d2e",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 7,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "High_Temp_In_Drum",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#8b0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "High_Temp_In_Drum",
+        "x": 820,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "390f4c8c22c47790",
+        "type": "bit-sixteen",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "x": 520,
+        "y": 2540,
+        "wires": [
+            [
+                "ec435d393b19bec8"
+            ],
+            [
+                "8c63cb42f56130ae"
+            ],
+            [
+                "9706f09d122ac64a"
+            ],
+            [
+                "25cd646e0ff42d07"
+            ],
+            [
+                "bdc97ef731c7b290"
+            ],
+            [
+                "eea6ad49b11a68db"
+            ],
+            [
+                "925f0c7c60cd9d2e"
+            ],
+            [
+                "37c4e0138212c688"
+            ],
+            [
+                "9a90f24490635c20"
+            ],
+            [
+                "db994a942629259b"
+            ],
+            [
+                "857a0bc5daf858c8"
+            ],
+            [
+                "51478b5b575d0ade"
+            ],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "20315245fbe6712e",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get Physical_input",
+        "func": "\nreturn {payload: global.get(\"Physical_input\")};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 2540,
+        "wires": [
+            [
+                "390f4c8c22c47790"
+            ]
+        ]
+    },
+    {
+        "id": "37c4e0138212c688",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 8,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Ignite_Button",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Ignite_Button",
+        "x": 790,
+        "y": 2540,
+        "wires": []
+    },
+    {
+        "id": "9a90f24490635c20",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 9,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Left",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Left",
+        "x": 790,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "db994a942629259b",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 10,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Down",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Down",
+        "x": 800,
+        "y": 2620,
+        "wires": []
+    },
+    {
+        "id": "857a0bc5daf858c8",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 11,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Right",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Right",
+        "x": 800,
+        "y": 2660,
+        "wires": []
+    },
+    {
+        "id": "51478b5b575d0ade",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 12,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Up",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Up",
+        "x": 790,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "fe528a81e1b9dc47",
+        "type": "bit-sixteen",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "x": 520,
+        "y": 2940,
+        "wires": [
+            [
+                "4d6de685a59361cb"
+            ],
+            [
+                "0a04172238ce2050"
+            ],
+            [
+                "370f738e6f77dec0"
+            ],
+            [
+                "1a13b493560d7d45"
+            ],
+            [
+                "8038f6d2b963002d"
+            ],
+            [
+                "50467e2295d0d161"
+            ],
+            [
+                "d31a6f8c60d0d5b8"
+            ],
+            [
+                "190fb34e7e4eaeb1"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c30a321584e04874",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get Physical_output",
+        "func": "\nreturn {payload: global.get(\"Physical_output\")};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 2940,
+        "wires": [
+            [
+                "fe528a81e1b9dc47"
+            ]
+        ]
+    },
+    {
+        "id": "4d6de685a59361cb",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Direction_Hor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ffff00",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Direction_Hor",
+        "x": 800,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "370f738e6f77dec0",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Direction_Vert",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ffff00",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Direction_Vert",
+        "x": 800,
+        "y": 2860,
+        "wires": []
+    },
+    {
+        "id": "0a04172238ce2050",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "PWM_out_Hor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "PWM_out_Hor",
+        "x": 800,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "1a13b493560d7d45",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "PWM_out_Vert",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "PWM_out_Vert",
+        "x": 800,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "8038f6d2b963002d",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Neg",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#886625",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Neg",
+        "x": 790,
+        "y": 2940,
+        "wires": []
+    },
+    {
+        "id": "50467e2295d0d161",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#006400",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos",
+        "x": 790,
+        "y": 2980,
+        "wires": []
+    },
+    {
+        "id": "d31a6f8c60d0d5b8",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Ignitor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#00008a",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#61d7ff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Ignitor",
+        "x": 770,
+        "y": 3020,
+        "wires": []
+    },
+    {
+        "id": "190fb34e7e4eaeb1",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Light_On",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#575757",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffffff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Light_On",
+        "x": 780,
+        "y": 3060,
+        "wires": []
+    },
+    {
+        "id": "0ce88f5727b60bd9",
+        "type": "link in",
+        "z": "403ca65b195d1cf2",
+        "name": "link in Update CIO's",
+        "links": [
+            "fa95913b951f0ae7"
+        ],
+        "x": 175,
+        "y": 2740,
+        "wires": [
+            [
+                "20315245fbe6712e",
+                "c30a321584e04874"
+            ]
+        ]
+    },
+    {
+        "id": "5434d712ddeccf77",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "44c84a439d2ed32c",
+        "name": "H150",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "7b53a1d2899340a2"
+            ]
+        ]
+    },
+    {
+        "id": "7b53a1d2899340a2",
+        "type": "bit-sixteen",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "x": 260,
+        "y": 620,
+        "wires": [
+            [
+                "f26ac64723d76113"
+            ],
+            [
+                "d80f1677c42ce380"
+            ],
+            [
+                "0269d28f6b74333a"
+            ],
+            [
+                "48ac58cdaff0078b"
+            ],
+            [
+                "2d21f1182bd5bc58"
+            ],
+            [
+                "b8532c5ce32a0379"
+            ],
+            [
+                "dca43ffeb69cf369"
+            ],
+            [
+                "7f610eae02de4bd0"
+            ],
+            [
+                "51ffe29b48884ddb"
+            ],
+            [
+                "b31947b68092eb60"
+            ],
+            [
+                "f81a76a972388d81"
+            ],
+            [
+                "8a01440549348bbf"
+            ],
+            [
+                "a52a462f9ef61e7e"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f26ac64723d76113",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Mounted_0deg_Act",
+        "label": "SL_Mounted_0deg_Act",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            [
+                "a5ceacdcdc77ad01"
+            ]
+        ]
+    },
+    {
+        "id": "d80f1677c42ce380",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Mounted_90deg_Act",
+        "label": "SL_Mounted_90deg_Act",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "6b0cde990e226f3b"
+            ]
+        ]
+    },
+    {
+        "id": "0269d28f6b74333a",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Mounted_180deg_Act",
+        "label": "SL_Mounted_180deg_Act",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [
+                "71d7eb2bbde1588f"
+            ]
+        ]
+    },
+    {
+        "id": "48ac58cdaff0078b",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Mounted_Neg90deg_Act",
+        "label": "SL_Mounted_Neg90deg_Act",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "399ea485fed048d6"
+            ]
+        ]
+    },
+    {
+        "id": "a5ceacdcdc77ad01",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_0",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 380,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "6b0cde990e226f3b",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_1",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 420,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "71d7eb2bbde1588f",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_2",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "84798f786ae5711d",
+        "type": "bit-encode",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "bits": "04e632baa56226fb",
+        "x": 1180,
+        "y": 700,
+        "wires": [
+            [
+                "7439da390e02bd48",
+                "f0eab74acf400c93"
+            ]
+        ]
+    },
+    {
+        "id": "399ea485fed048d6",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_3",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 500,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "7b5c6ecd605d750c",
+        "type": "trigger",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "op1": "0",
+        "op2": "1",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "50",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1110,
+        "y": 600,
+        "wires": [
+            [],
+            [
+                "79dc0bbe52d948ce"
+            ]
+        ]
+    },
+    {
+        "id": "79dc0bbe52d948ce",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get H150.x",
+        "func": "let myObject = {};\n\nmyObject[\"H150_0\"] = flow.get(\"H150_0\");\nmyObject[\"H150_1\"] = flow.get(\"H150_1\");\nmyObject[\"H150_2\"] = flow.get(\"H150_2\");\nmyObject[\"H150_3\"] = flow.get(\"H150_3\");\nmyObject[\"H150_4\"] = flow.get(\"H150_4\");\nmyObject[\"H150_5\"] = flow.get(\"H150_5\");\nmyObject[\"H150_6\"] = flow.get(\"H150_6\");\nmyObject[\"H150_7\"] = flow.get(\"H150_7\");\nmyObject[\"H150_8\"] = flow.get(\"H150_8\");\nmyObject[\"H150_9\"] = flow.get(\"H150_9\");\nmyObject[\"H150_10\"] = flow.get(\"H150_10\");\nmyObject[\"H150_11\"] = flow.get(\"H150_11\");\nmyObject[\"H150_12\"] = flow.get(\"H150_12\");\n\nreturn {payload: myObject};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 660,
+        "wires": [
+            [
+                "84798f786ae5711d"
+            ]
+        ]
+    },
+    {
+        "id": "7439da390e02bd48",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "44c84a439d2ed32c",
+        "name": "H150",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 1350,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f0eab74acf400c93",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2d21f1182bd5bc58",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "Slave_Rev_Hor",
+        "label": "Slave_Rev_Hor",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 540,
+        "wires": [
+            [
+                "8ec235902f7acf2c"
+            ]
+        ]
+    },
+    {
+        "id": "8ec235902f7acf2c",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_4",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "b8532c5ce32a0379",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "Slave_Rev_Vert",
+        "label": "Slave_Rev_Vert",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "16ff6d28319bc8a7"
+            ]
+        ]
+    },
+    {
+        "id": "16ff6d28319bc8a7",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_5",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 580,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "dca43ffeb69cf369",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "Slave_Enable",
+        "label": "Slave_Enable",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "8e87d94b9be106cd"
+            ]
+        ]
+    },
+    {
+        "id": "8e87d94b9be106cd",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_6",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "7f610eae02de4bd0",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "Xenon_Enable",
+        "label": "Xenon_Enable",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 660,
+        "wires": [
+            [
+                "2ba4538b10ef6f2f"
+            ]
+        ]
+    },
+    {
+        "id": "2ba4538b10ef6f2f",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_7",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 660,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "51ffe29b48884ddb",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Mounted_Upside_Down",
+        "label": "SL_Mounted_Upside_Down",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 580,
+        "y": 700,
+        "wires": [
+            [
+                "bcef3ba9abb01775"
+            ]
+        ]
+    },
+    {
+        "id": "bcef3ba9abb01775",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_8",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 700,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "b31947b68092eb60",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "Main_Rev_Hor",
+        "label": "Main_Rev_Hor",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 740,
+        "wires": [
+            [
+                "b3097a3786de65de"
+            ]
+        ]
+    },
+    {
+        "id": "b3097a3786de65de",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_9",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 740,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "f81a76a972388d81",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "Main_Rev_Vert",
+        "label": "Main_Rev_Vert",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 780,
+        "wires": [
+            [
+                "d435e752d871c207"
+            ]
+        ]
+    },
+    {
+        "id": "d435e752d871c207",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_10",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 780,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "8a01440549348bbf",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Need_Reset",
+        "label": "SL_Need_Reset",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 820,
+        "wires": [
+            [
+                "7bdc51156db1aa6e"
+            ]
+        ]
+    },
+    {
+        "id": "7bdc51156db1aa6e",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_11",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a52a462f9ef61e7e",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "SL_Upside_Down_And_Zenon",
+        "label": "SL_Upside_Down_And_Zenon",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 590,
+        "y": 860,
+        "wires": [
+            [
+                "c2dde1439314b05e"
+            ]
+        ]
+    },
+    {
+        "id": "c2dde1439314b05e",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H150_12",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 860,
+        "wires": [
+            [
+                "7b5c6ecd605d750c"
+            ]
+        ]
+    },
+    {
+        "id": "21e1faeeb2874b7f",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "b3b9a9f62b40b8a8",
+        "name": "H151",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 920,
+        "wires": [
+            [
+                "c2344d1b5f03291f"
+            ]
+        ]
+    },
+    {
+        "id": "c2344d1b5f03291f",
+        "type": "ui_switch",
+        "z": "403ca65b195d1cf2",
+        "name": "EnTempAl",
+        "label": "EnTempAl",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 270,
+        "y": 920,
+        "wires": [
+            [
+                "bd43f80e52e7f470",
+                "27ea27dc3863efcd"
+            ]
+        ]
+    },
+    {
+        "id": "bd43f80e52e7f470",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H151",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27ea27dc3863efcd",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "b3b9a9f62b40b8a8",
+        "name": "H151",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 430,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "37cd520b0d741e97",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Slave_Speed_Hor",
+        "label": "Slave_Speed_Hor",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 1260,
+        "wires": [
+            [
+                "3c3a53fbff20943d",
+                "1b2412ad1176ef58"
+            ]
+        ]
+    },
+    {
+        "id": "2f0e9aaa31589c0b",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "69c270ce9d052744",
+        "name": "H260",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1260,
+        "wires": [
+            [
+                "37cd520b0d741e97"
+            ]
+        ]
+    },
+    {
+        "id": "3c3a53fbff20943d",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "69c270ce9d052744",
+        "name": "H260",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "1b2412ad1176ef58",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H260",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15a42d5ae2cb5249",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Slave_Speed_Vert",
+        "label": "Slave_Speed_Vert",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 1360,
+        "wires": [
+            [
+                "475953c8474cd36c",
+                "733e70620d8c7891"
+            ]
+        ]
+    },
+    {
+        "id": "b514e7c5883e8acb",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "036df11f80e030cb",
+        "name": "H261",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1360,
+        "wires": [
+            [
+                "15a42d5ae2cb5249"
+            ]
+        ]
+    },
+    {
+        "id": "475953c8474cd36c",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "036df11f80e030cb",
+        "name": "H261",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "733e70620d8c7891",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H261",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0214cfcdb98e623e",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Slave_Speed_Vert",
+        "label": "Slave_Speed_Vert",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 350,
+        "y": 1460,
+        "wires": [
+            [
+                "9d21fae90e3d276f",
+                "9ab04d56c9526dfc"
+            ]
+        ]
+    },
+    {
+        "id": "0eb3db8dbb25c054",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "036df11f80e030cb",
+        "name": "H261",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1460,
+        "wires": [
+            [
+                "0214cfcdb98e623e"
+            ]
+        ]
+    },
+    {
+        "id": "9d21fae90e3d276f",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "036df11f80e030cb",
+        "name": "H261",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "9ab04d56c9526dfc",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H261",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2df0e662d62f8c59",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_Pos_Init",
+        "label": "Vert_Pos_Init",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "0.1",
+        "className": "",
+        "x": 330,
+        "y": 1560,
+        "wires": [
+            [
+                "defb77415b5d7aef",
+                "852213fed4b3ee02"
+            ]
+        ]
+    },
+    {
+        "id": "b263d1b3609e99a5",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "bf88a43b5ef12a5f",
+        "name": "H270",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1560,
+        "wires": [
+            [
+                "2df0e662d62f8c59"
+            ]
+        ]
+    },
+    {
+        "id": "defb77415b5d7aef",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "bf88a43b5ef12a5f",
+        "name": "H270",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "852213fed4b3ee02",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H270",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "60cf137838c4a21c",
+        "type": "exec",
+        "z": "3477a75557d00979",
+        "command": "cat /etc/dhcpcd.conf",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "e95b586f0b3ee444"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e95b586f0b3ee444",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "parse response",
+        "func": "var lines = msg.payload.split(\"\\n\");\nvar data = [];\n\nfor(var i=0; i< lines.length; i++){\n    if(lines[i].indexOf(\"interface eth0\") != -1)\n        break;\n}\n\n//check if interface eth0 is disabled\nif(i < lines.length && lines[i].indexOf(\"#\") >= 0) flow.set('disabled', true);\nelse flow.set('disabled', false);\n\nnode.send({topic:'interface eth0', payload:flow.get('disabled')})\n\ni++;\n\nfor(i; i< lines.length; i++){\n   \n   //new interface, not eth0\n   if(lines[i].indexOf(\"static\") == -1)\n    break;\n    \n    var tmp = lines[i].split(\"=\");\n    if(tmp.length==2){\n        var prop = tmp[0].split(' ')[1].trim();\n        var value = tmp[1].trim();\n        \n        flow.set(prop, value);\n        node.send({topic:prop, payload:value})\n    }\n} ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "b3f3943746c6f292"
+            ]
+        ]
+    },
+    {
+        "id": "b3f3943746c6f292",
+        "type": "switch",
+        "z": "3477a75557d00979",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "interface eth0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ip_address",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "routers",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "domain_name_servers",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "72943047bac29a17"
+            ],
+            [
+                "ab6b81404d2b9b4a"
+            ],
+            [
+                "b59838aef9417930"
+            ],
+            [
+                "811ce494347ae195",
+                "280a5e7ea1ada9bf"
+            ]
+        ]
+    },
+    {
+        "id": "ab6b81404d2b9b4a",
+        "type": "ui_text_input",
+        "z": "3477a75557d00979",
+        "name": "ip_address",
+        "label": "IP",
+        "tooltip": "",
+        "group": "1cf52e38.3cfee2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "ip_address",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 628,
+        "y": 273,
+        "wires": [
+            [
+                "9a0c7244d0d076cb"
+            ]
+        ]
+    },
+    {
+        "id": "b59838aef9417930",
+        "type": "ui_text_input",
+        "z": "3477a75557d00979",
+        "name": "router",
+        "label": "Router",
+        "tooltip": "",
+        "group": "1cf52e38.3cfee2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "routers",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 608,
+        "y": 313,
+        "wires": [
+            [
+                "9a0c7244d0d076cb"
+            ]
+        ]
+    },
+    {
+        "id": "811ce494347ae195",
+        "type": "ui_text_input",
+        "z": "3477a75557d00979",
+        "name": "dns",
+        "label": "DNS",
+        "group": "1cf52e38.3cfee2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "domain_name_servers",
+        "x": 608,
+        "y": 353,
+        "wires": [
+            [
+                "9a0c7244d0d076cb"
+            ]
+        ]
+    },
+    {
+        "id": "bd3cf4400d799cfd",
+        "type": "exec",
+        "z": "3477a75557d00979",
+        "command": "sudo sed -i ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0bbf457250daf4fd",
+        "type": "ui_button",
+        "z": "3477a75557d00979",
+        "name": "reboot",
+        "group": "1cf52e38.3cfee2",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Reboot",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "By pressing OK the device will be rebooted. If settings are wrong this may cause the device to be unreachable",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 540,
+        "wires": [
+            [
+                "c4dc84d913c51d69"
+            ]
+        ]
+    },
+    {
+        "id": "5f2e156c00344b02",
+        "type": "exec",
+        "z": "3477a75557d00979",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "912efeef6ca7538d",
+        "type": "ui_button",
+        "z": "3477a75557d00979",
+        "name": "refresh",
+        "group": "1cf52e38.3cfee2",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Update",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "1acedd4ae79a532b",
+                "ecda2fd3d40ec4c2"
+            ]
+        ]
+    },
+    {
+        "id": "1acedd4ae79a532b",
+        "type": "delay",
+        "z": "3477a75557d00979",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "300",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "60cf137838c4a21c"
+            ]
+        ]
+    },
+    {
+        "id": "ecda2fd3d40ec4c2",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "send commands",
+        "func": "var properties = flow.get(\"properties\");\n\nvar disabled = flow.get(\"disabled\") ? '#' : '';\n\nif(disabled == '#'){\n    //enable interface (replace only first occurance)\n    var command = `'0,/#interface eth0/s//interface eth0/g;' /etc/dhcpcd.conf`;\n    node.send({payload: command})\n}\n\nfor(var i=0;i<properties.length;i++){\n    var p = properties[i];\n    \n    var old_value = flow.get(p);\n    var new_value = flow.get(p + \"_new\") || old_value;\n    \n    if (old_value && ((old_value != new_value) || disabled == '#')) {\n    //if (old_value && (old_value != new_value)) {\n        //enable interface (replace only first occurance)\n        var command = `'s?${disabled}static ${p}=${old_value}?static ${p}=${new_value}?g' /etc/dhcpcd.conf`;\n        //var command = `'s?${p}=${old_value}?${p}=${new_value}?g' /etc/dhcpcd.conf`;\n\n        node.send({payload: command})\n    }\n}\n\n//var command = `'s/192.168.68.208/192.168.68.205/g;' /etc/dhcpcd.conf`;\n//return { payload: command};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "bd3cf4400d799cfd"
+            ]
+        ]
+    },
+    {
+        "id": "c4dc84d913c51d69",
+        "type": "ui_toast",
+        "z": "3477a75557d00979",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "topic": "ATTENTION",
+        "name": "",
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "141c89d72f7786dd"
+            ]
+        ]
+    },
+    {
+        "id": "141c89d72f7786dd",
+        "type": "switch",
+        "z": "3477a75557d00979",
+        "name": "OK ?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OK",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "5f2e156c00344b02"
+            ]
+        ]
+    },
+    {
+        "id": "9a0c7244d0d076cb",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "store new",
+        "func": "flow.set(msg.topic+\"_new\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 818,
+        "y": 313,
+        "wires": [
+            [
+                "ab86800d097c059c"
+            ]
+        ]
+    },
+    {
+        "id": "e7bada7259644953",
+        "type": "inject",
+        "z": "3477a75557d00979",
+        "name": "init",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "6908daecadf1ad96"
+            ]
+        ]
+    },
+    {
+        "id": "6908daecadf1ad96",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "set properties",
+        "func": "var properties = ['routers', 'ip_address', 'domain_name_servers'];\n\nflow.set(\"properties\", properties);\n\n//init properties\nfor(var i=0;i<properties.length;i++){\n    var p = properties[i];\n    flow.set(p, null);\n    flow.set(p+\"_new\", null);\n}\n\nnode.send({payload: true});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "60cf137838c4a21c"
+            ]
+        ]
+    },
+    {
+        "id": "1590a675a60f2f41",
+        "type": "ui_toast",
+        "z": "3477a75557d00979",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 788,
+        "y": 393,
+        "wires": []
+    },
+    {
+        "id": "280a5e7ea1ada9bf",
+        "type": "change",
+        "z": "3477a75557d00979",
+        "name": "set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Settings updated. Reboot device to enable new ip",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 608,
+        "y": 393,
+        "wires": [
+            [
+                "1590a675a60f2f41"
+            ]
+        ]
+    },
+    {
+        "id": "72943047bac29a17",
+        "type": "ui_text",
+        "z": "3477a75557d00979",
+        "group": "1cf52e38.3cfee2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Static ip",
+        "format": "{{!msg.payload}}",
+        "layout": "row-spread",
+        "x": 614,
+        "y": 232,
+        "wires": []
+    },
+    {
+        "id": "84406f9db7c70b98",
+        "type": "ui_toast",
+        "z": "3477a75557d00979",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 1148,
+        "y": 313,
+        "wires": []
+    },
+    {
+        "id": "ab86800d097c059c",
+        "type": "change",
+        "z": "3477a75557d00979",
+        "name": "set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "New setting stored ",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 968,
+        "y": 313,
+        "wires": [
+            [
+                "84406f9db7c70b98"
+            ]
+        ]
+    }
+]

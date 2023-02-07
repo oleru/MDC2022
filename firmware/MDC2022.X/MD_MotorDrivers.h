@@ -59,8 +59,8 @@ extern "C" {
 #define MD_CW 1
 #define MD_CCW -1
 #define MD_STOP -1
-#define MD_SPEED_STEPS 7
-    
+#define MD_SPEED_STEPS 10
+#define MD_MAX_CHANGE_VALUE 3276    
 
     // *****************************************************************************
     // *****************************************************************************

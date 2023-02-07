@@ -45,36 +45,75 @@
 
 // Preset PWM values 
 int32_t MD_HorizSpeed[] = {
+    32767,
+    29490,
+    26213,
+    22936,
+    19659,
+    16382,
+    13105,
+    9828,
+    6551,
+    3274,
     0,
-    0x1249,
-    0x2492,
-    0x36DB,
-    0x4924,
-    0x5B6D,
-    0x6DB6,
-    0x7FFF
+    3274,
+    6551,
+    9828,
+    13105,
+    16382,
+    19659,
+    22936,
+    26213,
+    29490,
+    32767
 };
 
 int32_t MD_VertSpeed[] = {
+    32767,
+    29490,
+    26213,
+    22936,
+    19659,
+    16382,
+    13105,
+    9828,
+    6551,
+    3274,
     0,
-    0x1249,
-    0x2492,
-    0x36DB,
-    0x4924,
-    0x5B6D,
-    0x6DB6,
-    0x7FFF
+    3274,
+    6551,
+    9828,
+    13105,
+    16382,
+    19659,
+    22936,
+    26213,
+    29490,
+    32767
 };
 
 int32_t MD_FocusSpeed[] = {
+    32767,
+    29490,
+    26213,
+    22936,
+    19659,
+    16382,
+    13105,
+    9828,
+    6551,
+    3274,
     0,
-    0x1249,
-    0x2492,
-    0x36DB,
-    0x4924,
-    0x5B6D,
-    0x6DB6,
-    0x7FFF
+    3274,
+    6551,
+    9828,
+    13105,
+    16382,
+    19659,
+    22936,
+    26213,
+    29490,
+    32767
 };
 
 
@@ -97,14 +136,15 @@ void MD_setHorizPWM(int32_t dirAndSpeed)
 {
     static int32_t newDirAndSpeed;
 
-    // Leaky integrator (a=0.1)
-    if(dirAndSpeed!=0) {
-        newDirAndSpeed = 0.9*newDirAndSpeed + 0.1*dirAndSpeed;
+    // Smooth change filter 
+    if(abs(newDirAndSpeed-dirAndSpeed)>MD_MAX_CHANGE_VALUE) {
+        if(newDirAndSpeed<dirAndSpeed) {
+            newDirAndSpeed += MD_MAX_CHANGE_VALUE;
+        } else {
+            newDirAndSpeed -= MD_MAX_CHANGE_VALUE;
+        }
     } else {
-        newDirAndSpeed = 0.25*newDirAndSpeed;
-        if(abs(newDirAndSpeed)<100) {
-            newDirAndSpeed = 0;
-        }    
+        newDirAndSpeed = dirAndSpeed;
     }    
 
     // Set PWM channel depending on the Direction
@@ -129,14 +169,15 @@ void MD_setVertPWM(int32_t dirAndSpeed)
 {
     static int32_t newDirAndSpeed;
 
-    // Leaky integrator (a=0.1)
-    if(dirAndSpeed!=0) {
-        newDirAndSpeed = 0.9*newDirAndSpeed + 0.1*dirAndSpeed;
+    // Smooth change filter 
+    if(abs(newDirAndSpeed-dirAndSpeed)>MD_MAX_CHANGE_VALUE) {
+        if(newDirAndSpeed<dirAndSpeed) {
+            newDirAndSpeed += MD_MAX_CHANGE_VALUE;
+        } else {
+            newDirAndSpeed -= MD_MAX_CHANGE_VALUE;
+        }
     } else {
-        newDirAndSpeed = 0.25*newDirAndSpeed;
-        if(abs(newDirAndSpeed)<100) {
-            newDirAndSpeed = 0;
-        }    
+        newDirAndSpeed = dirAndSpeed;
     }    
 
     // Set PWM channel depending on the Direction
@@ -161,14 +202,15 @@ void MD_setFocusPWM(int32_t dirAndSpeed)
 {
     static int32_t newDirAndSpeed;
 
-    // Leaky integrator (a=0.1)
-    if(dirAndSpeed!=0) {
-        newDirAndSpeed = 0.9*newDirAndSpeed + 0.1*dirAndSpeed;
+    // Smooth change filter 
+    if(abs(newDirAndSpeed-dirAndSpeed)>MD_MAX_CHANGE_VALUE) {
+        if(newDirAndSpeed<dirAndSpeed) {
+            newDirAndSpeed += MD_MAX_CHANGE_VALUE;
+        } else {
+            newDirAndSpeed -= MD_MAX_CHANGE_VALUE;
+        }
     } else {
-        newDirAndSpeed = 0.25*newDirAndSpeed;
-        if(abs(newDirAndSpeed)<100) {
-            newDirAndSpeed = 0;
-        }    
+        newDirAndSpeed = dirAndSpeed;
     }    
 
     // First set Direction
@@ -189,7 +231,7 @@ void MD_setHoriz(int8_t dirAndIndex)
     int32_t mySpeed = 0;
 
     if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
-        mySpeed = MD_HorizSpeed[abs(dirAndIndex)]; 
+        mySpeed = MD_HorizSpeed[MD_SPEED_STEPS+dirAndIndex]; 
     }
     if(dirAndIndex<0) {
         mySpeed = -mySpeed;
@@ -205,7 +247,7 @@ void MD_setVert(int8_t dirAndIndex)
     int32_t mySpeed = 0;
     
     if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
-        mySpeed = MD_VertSpeed[abs(dirAndIndex)]; 
+        mySpeed = MD_VertSpeed[MD_SPEED_STEPS+dirAndIndex]; 
     }
     if(dirAndIndex<0) {
         mySpeed = -mySpeed;
@@ -221,7 +263,7 @@ void MD_setFocus(int8_t dirAndIndex)
     int32_t mySpeed = 0;
     
     if(abs(dirAndIndex)<=MD_SPEED_STEPS) {
-        mySpeed = MD_FocusSpeed[abs(dirAndIndex)]; 
+        mySpeed = MD_FocusSpeed[MD_SPEED_STEPS+dirAndIndex]; 
     }
     if(dirAndIndex<0) {
         mySpeed = -mySpeed;
