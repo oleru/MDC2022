@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "b9ddffdb26b3e388",
+        "type": "tab",
+        "label": "System variable",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "3477a75557d00979",
         "type": "tab",
         "label": "IP Settings",
@@ -157,7 +165,7 @@
     {
         "id": "cb0bfbfe5c34d8b7",
         "type": "ui_group",
-        "name": "D-Register",
+        "name": "D-Registers",
         "tab": "ca54bb2b4d7100f8",
         "order": 3,
         "disp": true,
@@ -468,6 +476,221 @@
         "saveInterval": "10000"
     },
     {
+        "id": "a4c9974355d7b1d6",
+        "type": "shared-state",
+        "name": "H302",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "b88a1ce1ef4ee0bb",
+        "type": "shared-state",
+        "name": "H304",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "8cefaa648711b976",
+        "type": "shared-state",
+        "name": "H306",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "8ecc628bbe067acf",
+        "type": "shared-state",
+        "name": "H308",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "cf02f8410e93897e",
+        "type": "shared-state",
+        "name": "H310",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "2b5214e17f0ae4ca",
+        "type": "shared-state",
+        "name": "H312",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "344d0bfbfcf2dee6",
+        "type": "shared-state",
+        "name": "H314",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "0fb8cbfcaec49402",
+        "type": "shared-state",
+        "name": "H316",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "4fe244e7732e901a",
+        "type": "shared-state",
+        "name": "H318",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "164388bdf01ff86a",
+        "type": "shared-state",
+        "name": "H320",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "25f1f120bb9ecb0f",
+        "type": "shared-state",
+        "name": "H322",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "2875dcb753f08298",
+        "type": "shared-state",
+        "name": "H324",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "197273c11f4bb4b3",
+        "type": "ui_group",
+        "name": "W-Registers",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
         "id": "c8189687475b51d6",
         "type": "inject",
         "z": "0e892ddf76c780fa",
@@ -495,7 +718,10 @@
                 "d70387dcf6d08819",
                 "ad8ad80cdfeade79",
                 "c1547374033d0085",
-                "97ee7e1687b68826"
+                "97ee7e1687b68826",
+                "209d95409dbd9acd",
+                "49dba494e54601ee",
+                "c656767c4249c290"
             ]
         ]
     },
@@ -560,7 +786,8 @@
         "name": "link out Initialized",
         "mode": "link",
         "links": [
-            "0ce88f5727b60bd9"
+            "0ce88f5727b60bd9",
+            "a96755cd56d4acae"
         ],
         "x": 735,
         "y": 140,
@@ -624,6 +851,813 @@
         "y": 260,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "209d95409dbd9acd",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H326",
+                "pt": "global",
+                "to": "732",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "49dba494e54601ee",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H328",
+                "pt": "global",
+                "to": "732",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c656767c4249c290",
+        "type": "buffer-maker",
+        "z": "0e892ddf76c780fa",
+        "name": "All W-Registers",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "name": "W0",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W1",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W2",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W10",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W11",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W13",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W15",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W20",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W30",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W31",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W32",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W33",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W50",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W51",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W52",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W53",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W54",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W56",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W70",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W100",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W105",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W110",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "15"
+            },
+            {
+                "name": "W150",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W152",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W153",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W160",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W163",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W164",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W170",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W206",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W208",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W210",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W212",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W220",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W230",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W300",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W301",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W309",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W310",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W311",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W312",
+                "type": "int16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "W320",
+                "type": "uint16le",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "a438a0f07e30b689"
+            ]
+        ]
+    },
+    {
+        "id": "7a9c7433a34a85e8",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "regW",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 380,
+        "wires": [
+            [
+                "fa95913b951f0ae7"
+            ]
+        ]
+    },
+    {
+        "id": "a438a0f07e30b689",
+        "type": "buffer-parser",
+        "z": "0e892ddf76c780fa",
+        "name": "Make it an Object",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint16le",
+                "name": "W0",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W1",
+                "offset": 2,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W2",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W10",
+                "offset": 6,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W11",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W13",
+                "offset": 10,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W15",
+                "offset": 12,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W20",
+                "offset": 14,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W30",
+                "offset": 16,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W31",
+                "offset": 18,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W32",
+                "offset": 20,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W33",
+                "offset": 22,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W50",
+                "offset": 24,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W51",
+                "offset": 26,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W52",
+                "offset": 28,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W53",
+                "offset": 30,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W54",
+                "offset": 32,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W56",
+                "offset": 34,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W70",
+                "offset": 36,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W100",
+                "offset": 38,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W105",
+                "offset": 40,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W110",
+                "offset": 42,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W150",
+                "offset": 44,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W152",
+                "offset": 46,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W153",
+                "offset": 48,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W160",
+                "offset": 50,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W163",
+                "offset": 52,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W164",
+                "offset": 54,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W170",
+                "offset": 56,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W206",
+                "offset": 58,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W208",
+                "offset": 60,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W210",
+                "offset": 62,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W212",
+                "offset": 64,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W220",
+                "offset": 66,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W230",
+                "offset": 68,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W300",
+                "offset": 70,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W301",
+                "offset": 72,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W309",
+                "offset": 74,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W310",
+                "offset": 76,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W311",
+                "offset": 78,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16le",
+                "name": "W312",
+                "offset": 80,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "W320",
+                "offset": 82,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 380,
+        "wires": [
+            [
+                "7a9c7433a34a85e8"
+            ]
         ]
     },
     {
@@ -1111,7 +2145,7 @@
         "type": "function",
         "z": "c978021d490da69f",
         "name": "0x0104 Msg",
-        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0,0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\n// Cycle trough 0x0104 Request Message\nlet i = 0;\nfor (i = 0; i < inData.byteLength;i+=4) {\n\n    // msg.payload[1][i]\n    //var myData = Buffer.from([0, 0, 0]);\n    let myData = Buffer.allocUnsafe(3);\n    myData[0] = inData[i];\n    let addr = inData.readInt16BE(i+1);\n\n    // Look up data\n    if (inData[i] == 128) {  // CIO 0x80\n\n        if (addr == 0) {            // Physical Input\n            myData.writeInt16BE(global.get(\"Physical_input\"), 1);\n        } else if (addr == 100) {   // Physical Output\n            myData.writeInt16BE(global.get(\"Physical_output\"), 1);\n        }\n\n    } else if (inData[i] == 130) {  // D 0x82\n\n        if (addr == 100) {          // D100 - Hor_pos_act[-180,180]\n            myData.writeInt16BE(global.get(\"Horizontal_pos_act\"), 1);\n        } else if (addr == 200) {   // D200 - Vert_pos_act[-30,30]\n            myData.writeInt16BE(global.get(\"Vertical_pos_act\"), 1);\n        } else if (addr == 404) {   // D404 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"),0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0); \n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 405) {   // D405 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    } else if (inData[i] == 177) {  // W 0xB1\n\n        if (addr == 15) {           // W15\n                                              // W15.00 - Init_active\n                                              // W15.01 - Con_flag\n            myData.writeInt16BE(4, 1);  //myDataType[2] = 4;                    // W15.02/H150.00 - SL_mounted_0deg\n                                              // W15.03/H150.01 - SL_mounted_90deg\n                                              // W15.04/H150.02 - SL_mounted_180deg\n                                              // W15.05/H150.03 - SL_mounted_-90deg\n        }\n\n    } else if (inData[i] == 178) {  // H 0xB2\n\n        if (addr == 100) {          // H100 - SL_Version\n            myData.writeInt16BE(global.get(\"SL_Version\"), 1);\n        } else if (addr == 150) {   // H150\n            myData.writeInt16BE(global.get(\"H150\"), 1);\n        } else if (addr == 151) {   // H151\n            myData.writeInt16BE(global.get(\"H151\"), 1);\n        } else if (addr == 254) {   // H254 - Horizontal_speed\n            myData.writeUInt16BE(global.get(\"Horizontal_speed\"), 1);\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            myData.writeUInt16BE(global.get(\"Vertical_speed\"), 1);\n        } else if (addr == 260) {   // H260 - Slave_Speed_Hor\n            myData.writeUInt16BE(global.get(\"H260\"), 1);\n        } else if (addr == 261) {   // H261 - Slave_Speed_Vert\n            myData.writeUInt16BE(global.get(\"H261\"), 1);\n        } else if (addr == 270) {   // H270 - Vert_Pos_Init\n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0);\n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 271) {   // H271 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    }\n\n    myList.push(myData);\n\n}  //..for (i = 0;...\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0,0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\n// Cycle trough 0x0104 Request Message\nlet i = 0;\nfor (i = 0; i < inData.byteLength;i+=4) {\n\n    // msg.payload[1][i]\n    //var myData = Buffer.from([0, 0, 0]);\n    let myData = Buffer.allocUnsafe(3);\n    myData[0] = inData[i];\n    let addr = inData.readInt16BE(i+1);\n\n    // Look up data\n    if (inData[i] == 128) {  // CIO 0x80\n\n        if (addr == 0) {            // Physical Input\n            myData.writeInt16BE(global.get(\"Physical_input\"), 1);\n        } else if (addr == 100) {   // Physical Output\n            myData.writeInt16BE(global.get(\"Physical_output\"), 1);\n        }\n\n    } else if (inData[i] == 130) {  // D 0x82\n\n        if (addr == 100) {          // D100 - Hor_pos_act[-180,180]\n            myData.writeInt16BE(global.get(\"Horizontal_pos_act\"), 1);\n        } else if (addr == 200) {   // D200 - Vert_pos_act[-30,30]\n            myData.writeInt16BE(global.get(\"Vertical_pos_act\"), 1);\n        } else if (addr == 404) {   // D404 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"),0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0); \n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 405) {   // D405 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    } else if (inData[i] == 177) {  // W 0xB1\n\n        let regW = global.get(\"regW\");\n\n        if (addr == 1) {            // W1 - (W1.0 Blocked_Hor)\n            myData.writeInt16BE(regW.W1, 1);\n        } else if (addr == 2) {     // W2 - (W2.5 Reset_Init_Error)\n            myData.writeInt16BE(regW.W2, 1);\n        } else if (addr == 11) {    // W11 - (W11.0 Blocked_Vert)\n            myData.writeInt16BE(regW.W11, 1);\n        } else if (addr == 15) {           // W15\n                                              // W15.00 - Init_active\n                                              // W15.01 - Con_flag\n            myData.writeInt16BE(4, 1);  //myDataType[2] = 4;                    // W15.02/H150.00 - SL_mounted_0deg\n                                              // W15.03/H150.01 - SL_mounted_90deg\n                                              // W15.04/H150.02 - SL_mounted_180deg\n                                              // W15.05/H150.03 - SL_mounted_-90deg\n        }\n\n    } else if (inData[i] == 178) {  // H 0xB2\n\n        if (addr == 100) {          // H100 - SL_Version\n            myData.writeInt16BE(global.get(\"SL_Version\"), 1);\n        } else if (addr == 150) {   // H150\n            myData.writeInt16BE(global.get(\"H150\"), 1);\n        } else if (addr == 151) {   // H151\n            myData.writeInt16BE(global.get(\"H151\"), 1);\n        } else if (addr == 254) {   // H254 - Horizontal_speed\n            myData.writeUInt16BE(global.get(\"Horizontal_speed\"), 1);\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            myData.writeUInt16BE(global.get(\"Vertical_speed\"), 1);\n        } else if (addr == 260) {   // H260 - Slave_Speed_Hor\n            myData.writeUInt16BE(global.get(\"H260\"), 1);\n        } else if (addr == 261) {   // H261 - Slave_Speed_Vert\n            myData.writeUInt16BE(global.get(\"H261\"), 1);\n        } else if (addr == 270) {   // H270 - Vert_Pos_Init\n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0);\n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 271) {   // H271 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        } else if (addr == 302) {   // H302 - Hor_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H302\"), 1);\n        } else if (addr == 304) {   // H304 - Hor_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H304\"), 1);\n        } else if (addr == 306) {   // H306 - Vert_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H306\"), 1);\n        } else if (addr == 308) {   // H308 - Vert_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H308\"), 1);\n        } else if (addr == 310) {   // H310 - Hor_Home1\n            myData.writeInt16BE(global.get(\"H310\"), 1);\n        } else if (addr == 312) {   // H312 - Vert_Home1\n            myData.writeInt16BE(global.get(\"H312\"), 1);\n        } else if (addr == 314) {   // H314 - Hor_Home2\n            myData.writeInt16BE(global.get(\"H314\"), 1);\n        } else if (addr == 316) {   // H316 - Vert_Home2\n            myData.writeInt16BE(global.get(\"H316\"), 1);\n        } else if (addr == 318) {   // H318 - Hor_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H318\"), 1);\n        } else if (addr == 320) {   // H320 - Hor_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H320\"), 1);\n        } else if (addr == 322) {   // H322 - Vert_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H322\"), 1);\n        } else if (addr == 324) {   // H324 - Vert_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H324\"), 1);\n        } else if (addr == 326) {   // H326 - PWM_Frekv_Hort\n            myData.writeInt16BE(global.get(\"H326\"), 1);\n        } else if (addr == 328) {   // H328 - PWM_Frekv_Vert\n            myData.writeInt16BE(global.get(\"H328\"), 1);\n        }\n\n    }\n\n    myList.push(myData);\n\n}  //..for (i = 0;...\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1219,8 +2253,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 300,
+        "x": 1160,
+        "y": 320,
         "wires": []
     },
     {
@@ -1649,783 +2683,6 @@
         "x": 1180,
         "y": 1100,
         "wires": []
-    },
-    {
-        "id": "fb98116f8b2bb2d4",
-        "type": "comment",
-        "z": "403ca65b195d1cf2",
-        "name": "System variables",
-        "info": "",
-        "x": 140,
-        "y": 2220,
-        "wires": []
-    },
-    {
-        "id": "ec435d393b19bec8",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Puls_Vert_A",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Puls_Vert_A",
-        "x": 790,
-        "y": 2260,
-        "wires": []
-    },
-    {
-        "id": "8c63cb42f56130ae",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 2,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Puls_Vert_B",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Puls_Vert_B",
-        "x": 790,
-        "y": 2300,
-        "wires": []
-    },
-    {
-        "id": "9706f09d122ac64a",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 3,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Puls_Hor_A",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Puls_Hor_A",
-        "x": 790,
-        "y": 2340,
-        "wires": []
-    },
-    {
-        "id": "25cd646e0ff42d07",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 4,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Puls_Hor_B",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Puls_Hor_B",
-        "x": 790,
-        "y": 2380,
-        "wires": []
-    },
-    {
-        "id": "bdc97ef731c7b290",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 5,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Focus_Pos_In",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#8b0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Focus_Pos_In",
-        "x": 800,
-        "y": 2420,
-        "wires": []
-    },
-    {
-        "id": "eea6ad49b11a68db",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 6,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Focus_Pos_Out",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#8b0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Focus_Pos_Out",
-        "x": 800,
-        "y": 2460,
-        "wires": []
-    },
-    {
-        "id": "925f0c7c60cd9d2e",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 7,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "High_Temp_In_Drum",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#8b0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#ff0000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "High_Temp_In_Drum",
-        "x": 820,
-        "y": 2500,
-        "wires": []
-    },
-    {
-        "id": "390f4c8c22c47790",
-        "type": "bit-sixteen",
-        "z": "403ca65b195d1cf2",
-        "name": "",
-        "x": 520,
-        "y": 2540,
-        "wires": [
-            [
-                "ec435d393b19bec8"
-            ],
-            [
-                "8c63cb42f56130ae"
-            ],
-            [
-                "9706f09d122ac64a"
-            ],
-            [
-                "25cd646e0ff42d07"
-            ],
-            [
-                "bdc97ef731c7b290"
-            ],
-            [
-                "eea6ad49b11a68db"
-            ],
-            [
-                "925f0c7c60cd9d2e"
-            ],
-            [
-                "37c4e0138212c688"
-            ],
-            [
-                "9a90f24490635c20"
-            ],
-            [
-                "db994a942629259b"
-            ],
-            [
-                "857a0bc5daf858c8"
-            ],
-            [
-                "51478b5b575d0ade"
-            ],
-            [],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "20315245fbe6712e",
-        "type": "function",
-        "z": "403ca65b195d1cf2",
-        "name": "get Physical_input",
-        "func": "\nreturn {payload: global.get(\"Physical_input\")};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 2540,
-        "wires": [
-            [
-                "390f4c8c22c47790"
-            ]
-        ]
-    },
-    {
-        "id": "37c4e0138212c688",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 8,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Ignite_Button",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Ignite_Button",
-        "x": 790,
-        "y": 2540,
-        "wires": []
-    },
-    {
-        "id": "9a90f24490635c20",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 9,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Joystick_Left",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Joystick_Left",
-        "x": 790,
-        "y": 2580,
-        "wires": []
-    },
-    {
-        "id": "db994a942629259b",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 10,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Joystick_Down",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Joystick_Down",
-        "x": 800,
-        "y": 2620,
-        "wires": []
-    },
-    {
-        "id": "857a0bc5daf858c8",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 11,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Joystick_Right",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Joystick_Right",
-        "x": 800,
-        "y": 2660,
-        "wires": []
-    },
-    {
-        "id": "51478b5b575d0ade",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 12,
-        "group": "1e88f97016719521",
-        "width": 0,
-        "height": 0,
-        "label": "Joystick_Up",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Joystick_Up",
-        "x": 790,
-        "y": 2700,
-        "wires": []
-    },
-    {
-        "id": "fe528a81e1b9dc47",
-        "type": "bit-sixteen",
-        "z": "403ca65b195d1cf2",
-        "name": "",
-        "x": 520,
-        "y": 2940,
-        "wires": [
-            [
-                "4d6de685a59361cb"
-            ],
-            [
-                "0a04172238ce2050"
-            ],
-            [
-                "370f738e6f77dec0"
-            ],
-            [
-                "1a13b493560d7d45"
-            ],
-            [
-                "8038f6d2b963002d"
-            ],
-            [
-                "50467e2295d0d161"
-            ],
-            [
-                "d31a6f8c60d0d5b8"
-            ],
-            [
-                "190fb34e7e4eaeb1"
-            ],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "c30a321584e04874",
-        "type": "function",
-        "z": "403ca65b195d1cf2",
-        "name": "get Physical_output",
-        "func": "\nreturn {payload: global.get(\"Physical_output\")};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 2940,
-        "wires": [
-            [
-                "fe528a81e1b9dc47"
-            ]
-        ]
-    },
-    {
-        "id": "4d6de685a59361cb",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "Direction_Hor",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ffff00",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Direction_Hor",
-        "x": 800,
-        "y": 2780,
-        "wires": []
-    },
-    {
-        "id": "370f738e6f77dec0",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "Direction_Vert",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ffff00",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Direction_Vert",
-        "x": 800,
-        "y": 2860,
-        "wires": []
-    },
-    {
-        "id": "0a04172238ce2050",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "PWM_out_Hor",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "PWM_out_Hor",
-        "x": 800,
-        "y": 2820,
-        "wires": []
-    },
-    {
-        "id": "1a13b493560d7d45",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "PWM_out_Vert",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#008000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#90ee90",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "PWM_out_Vert",
-        "x": 800,
-        "y": 2900,
-        "wires": []
-    },
-    {
-        "id": "8038f6d2b963002d",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "Focus_Neg",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#886625",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#ffff00",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Focus_Neg",
-        "x": 790,
-        "y": 2940,
-        "wires": []
-    },
-    {
-        "id": "50467e2295d0d161",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "Focus_Pos",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#006400",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Focus_Pos",
-        "x": 790,
-        "y": 2980,
-        "wires": []
-    },
-    {
-        "id": "d31a6f8c60d0d5b8",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "Ignitor",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#00008a",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#61d7ff",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Ignitor",
-        "x": 770,
-        "y": 3020,
-        "wires": []
-    },
-    {
-        "id": "190fb34e7e4eaeb1",
-        "type": "ui_led",
-        "z": "403ca65b195d1cf2",
-        "order": 1,
-        "group": "ed0b202d8f2d86ee",
-        "width": 0,
-        "height": 0,
-        "label": "Light_On",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#575757",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#ffffff",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Light_On",
-        "x": 780,
-        "y": 3060,
-        "wires": []
-    },
-    {
-        "id": "0ce88f5727b60bd9",
-        "type": "link in",
-        "z": "403ca65b195d1cf2",
-        "name": "link in Update CIO's",
-        "links": [
-            "fa95913b951f0ae7"
-        ],
-        "x": 175,
-        "y": 2740,
-        "wires": [
-            [
-                "20315245fbe6712e",
-                "c30a321584e04874"
-            ]
-        ]
     },
     {
         "id": "5434d712ddeccf77",
@@ -3812,6 +4069,3606 @@
         ]
     },
     {
+        "id": "5aa3ca9ea931f901",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Hor_Sweep_Limit_Neg",
+        "label": "Hor_Sweep_Limit_Neg",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": "1",
+        "className": "",
+        "x": 330,
+        "y": 1660,
+        "wires": [
+            [
+                "657cd9fa091b407d",
+                "e69018c7c0394d14"
+            ]
+        ]
+    },
+    {
+        "id": "44205bb5243ed9aa",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "a4c9974355d7b1d6",
+        "name": "H302",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1660,
+        "wires": [
+            [
+                "5aa3ca9ea931f901"
+            ]
+        ]
+    },
+    {
+        "id": "657cd9fa091b407d",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "a4c9974355d7b1d6",
+        "name": "H302",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "e69018c7c0394d14",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H302",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5def756c1facd93",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Hor_Sweep_Limit_Pos",
+        "label": "Hor_Sweep_Limit_Pos",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": "1",
+        "className": "",
+        "x": 320,
+        "y": 1760,
+        "wires": [
+            [
+                "55284184e636578c",
+                "96fef144eb11db06"
+            ]
+        ]
+    },
+    {
+        "id": "0c51e7e922bf3b9b",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "b88a1ce1ef4ee0bb",
+        "name": "H304",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1760,
+        "wires": [
+            [
+                "e5def756c1facd93"
+            ]
+        ]
+    },
+    {
+        "id": "55284184e636578c",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "b88a1ce1ef4ee0bb",
+        "name": "H304",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "96fef144eb11db06",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H304",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b55e62cef2cc72ac",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_Sweep_Limit_Neg",
+        "label": "Vert_Sweep_Limit_Neg",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "1",
+        "className": "",
+        "x": 330,
+        "y": 1860,
+        "wires": [
+            [
+                "d402dd8c8d5bc817",
+                "12d6e43561eead52"
+            ]
+        ]
+    },
+    {
+        "id": "1c891b1447cdfd2e",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "8cefaa648711b976",
+        "name": "H306",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1860,
+        "wires": [
+            [
+                "b55e62cef2cc72ac"
+            ]
+        ]
+    },
+    {
+        "id": "d402dd8c8d5bc817",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "8cefaa648711b976",
+        "name": "H306",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "12d6e43561eead52",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H306",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27b9d931c7d88425",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_Sweep_Limit_Pos",
+        "label": "Vert_Sweep_Limit_Pos",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "1",
+        "className": "",
+        "x": 330,
+        "y": 1960,
+        "wires": [
+            [
+                "66881e383f59eb84",
+                "150aab0693292922"
+            ]
+        ]
+    },
+    {
+        "id": "0e50bbe054175378",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "8ecc628bbe067acf",
+        "name": "H308",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 1960,
+        "wires": [
+            [
+                "27b9d931c7d88425"
+            ]
+        ]
+    },
+    {
+        "id": "66881e383f59eb84",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "8ecc628bbe067acf",
+        "name": "H308",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "150aab0693292922",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H308",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0233a41614caedb2",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Hor_Home1",
+        "label": "Hor_Home1",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": "1",
+        "className": "",
+        "x": 290,
+        "y": 2060,
+        "wires": [
+            [
+                "f626151d2ac000bb",
+                "1c40eb707d3ddb62"
+            ]
+        ]
+    },
+    {
+        "id": "b222d5a5ea71bd8e",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "cf02f8410e93897e",
+        "name": "H310",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2060,
+        "wires": [
+            [
+                "0233a41614caedb2"
+            ]
+        ]
+    },
+    {
+        "id": "f626151d2ac000bb",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "cf02f8410e93897e",
+        "name": "H310",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "1c40eb707d3ddb62",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H310",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9d2e05fd4bf9a01",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_Home1",
+        "label": "Vert_Home1",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "1",
+        "className": "",
+        "x": 290,
+        "y": 2160,
+        "wires": [
+            [
+                "e029787b64b0c6e7",
+                "e53aae8451bb8fb3"
+            ]
+        ]
+    },
+    {
+        "id": "c0d00464ec3789b3",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "2b5214e17f0ae4ca",
+        "name": "H312",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2160,
+        "wires": [
+            [
+                "e9d2e05fd4bf9a01"
+            ]
+        ]
+    },
+    {
+        "id": "e029787b64b0c6e7",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "2b5214e17f0ae4ca",
+        "name": "H312",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "e53aae8451bb8fb3",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H312",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca99db1bc3f65625",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Hor_Home2",
+        "label": "Hor_Home2",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": "1",
+        "className": "",
+        "x": 290,
+        "y": 2260,
+        "wires": [
+            [
+                "afa8e54bfdc0582f",
+                "afbad56b5b30e882"
+            ]
+        ]
+    },
+    {
+        "id": "3af797f14695de99",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "344d0bfbfcf2dee6",
+        "name": "H314",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2260,
+        "wires": [
+            [
+                "ca99db1bc3f65625"
+            ]
+        ]
+    },
+    {
+        "id": "afa8e54bfdc0582f",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "344d0bfbfcf2dee6",
+        "name": "H314",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "afbad56b5b30e882",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H314",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71ce88dda4dfac9e",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_Home2",
+        "label": "Vert_Home2",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "1",
+        "className": "",
+        "x": 290,
+        "y": 2360,
+        "wires": [
+            [
+                "4579d0a3d2c7e0d1",
+                "50814410fcc7a140"
+            ]
+        ]
+    },
+    {
+        "id": "e164db7d6214facc",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "0fb8cbfcaec49402",
+        "name": "H316",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2360,
+        "wires": [
+            [
+                "71ce88dda4dfac9e"
+            ]
+        ]
+    },
+    {
+        "id": "4579d0a3d2c7e0d1",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "0fb8cbfcaec49402",
+        "name": "H316",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "50814410fcc7a140",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H316",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "77577c625eb12928",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Hor_User_Limit_Neg",
+        "label": "Hor_User_Limit_Neg",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": "1",
+        "className": "",
+        "x": 320,
+        "y": 2460,
+        "wires": [
+            [
+                "36199fe11bbb37ad",
+                "d0522b46b259a637"
+            ]
+        ]
+    },
+    {
+        "id": "6219818777018c9a",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "4fe244e7732e901a",
+        "name": "H318",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2460,
+        "wires": [
+            [
+                "77577c625eb12928"
+            ]
+        ]
+    },
+    {
+        "id": "36199fe11bbb37ad",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "4fe244e7732e901a",
+        "name": "H318",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "d0522b46b259a637",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H318",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5af24ade5edaf1b4",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Hor_User_Limit_Pos",
+        "label": "Hor_User_Limit_Pos",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": "1",
+        "className": "",
+        "x": 320,
+        "y": 2560,
+        "wires": [
+            [
+                "c66eca3a1f03b03f",
+                "e2a171a31a2c8866"
+            ]
+        ]
+    },
+    {
+        "id": "01dda41fc1863562",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "164388bdf01ff86a",
+        "name": "H320",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2560,
+        "wires": [
+            [
+                "5af24ade5edaf1b4"
+            ]
+        ]
+    },
+    {
+        "id": "c66eca3a1f03b03f",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "164388bdf01ff86a",
+        "name": "H320",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2600,
+        "wires": []
+    },
+    {
+        "id": "e2a171a31a2c8866",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H320",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6eb2edccd45d7ee5",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_User_Limit_Neg",
+        "label": "Vert_User_Limit_Neg",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "1",
+        "className": "",
+        "x": 320,
+        "y": 2660,
+        "wires": [
+            [
+                "05d2e86d3622524e",
+                "f6fdf11c8daef6db"
+            ]
+        ]
+    },
+    {
+        "id": "293aa34f8d096e9e",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "25f1f120bb9ecb0f",
+        "name": "H322",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2660,
+        "wires": [
+            [
+                "6eb2edccd45d7ee5"
+            ]
+        ]
+    },
+    {
+        "id": "05d2e86d3622524e",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "25f1f120bb9ecb0f",
+        "name": "H322",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "f6fdf11c8daef6db",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H322",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "812c1568dfc629b4",
+        "type": "ui_numeric",
+        "z": "403ca65b195d1cf2",
+        "name": "Vert_User_Limit_Pos",
+        "label": "Vert_User_Limit_Pos",
+        "tooltip": "",
+        "group": "97a4150ea5f3f488",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": "1",
+        "className": "",
+        "x": 320,
+        "y": 2760,
+        "wires": [
+            [
+                "ac6767943c407665",
+                "a9ba838038dfc1af"
+            ]
+        ]
+    },
+    {
+        "id": "7642d585d4783da7",
+        "type": "get-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "2875dcb753f08298",
+        "name": "H324",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 110,
+        "y": 2760,
+        "wires": [
+            [
+                "812c1568dfc629b4"
+            ]
+        ]
+    },
+    {
+        "id": "ac6767943c407665",
+        "type": "set-shared-state",
+        "z": "403ca65b195d1cf2",
+        "state": "2875dcb753f08298",
+        "name": "H324",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 530,
+        "y": 2800,
+        "wires": []
+    },
+    {
+        "id": "a9ba838038dfc1af",
+        "type": "change",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "H324",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cdc687549c415cf3",
+        "type": "comment",
+        "z": "403ca65b195d1cf2",
+        "name": "W-Registers",
+        "info": "",
+        "x": 130,
+        "y": 2900,
+        "wires": []
+    },
+    {
+        "id": "68a20904fcc0cccc",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W1.0",
+        "func": "let regW = global.get(\"regW\");\nreturn {payload: (((regW.W1&0x0001)!==0)?true:false)};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 2960,
+        "wires": [
+            [
+                "b029158a1e786a0a"
+            ]
+        ]
+    },
+    {
+        "id": "a96755cd56d4acae",
+        "type": "link in",
+        "z": "403ca65b195d1cf2",
+        "name": "link in Update W-Registers",
+        "links": [
+            "fa95913b951f0ae7"
+        ],
+        "x": 165,
+        "y": 3880,
+        "wires": [
+            [
+                "68a20904fcc0cccc",
+                "8e96888c0e1a8412",
+                "6ef9eda99abf3e68",
+                "3af2ef6301e45d1a",
+                "228d45893cd3ba60",
+                "5689f0c7c6bf02d9",
+                "e8da1d9ae53b3bd2",
+                "0b9a0d1a0ee688d1",
+                "96eb0e4800ab5151",
+                "dbd19b8c9e3fb9c9",
+                "376ff50b1c5a723c",
+                "07383963cf73868c",
+                "e09d7a227f9e6006"
+            ]
+        ]
+    },
+    {
+        "id": "b029158a1e786a0a",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 1,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Blocked_Hor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Blocked_Hor",
+        "x": 790,
+        "y": 2960,
+        "wires": []
+    },
+    {
+        "id": "8e96888c0e1a8412",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W2.5",
+        "func": "let regW = global.get(\"regW\");\nreturn { payload: ((regW.W2&0x0020)?true:false)};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 3000,
+        "wires": [
+            [
+                "1f3a455c83bc2226"
+            ]
+        ]
+    },
+    {
+        "id": "1f3a455c83bc2226",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 2,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Reset_Init_Error",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Reset_Init_Error",
+        "x": 800,
+        "y": 3000,
+        "wires": []
+    },
+    {
+        "id": "6ef9eda99abf3e68",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W11.0",
+        "func": "let regW = global.get(\"regW\");\nreturn { payload: ((regW.W11&0x0001)?true:false)};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 3040,
+        "wires": [
+            [
+                "98f0ec9ed8ff6d67"
+            ]
+        ]
+    },
+    {
+        "id": "98f0ec9ed8ff6d67",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 3,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Blocked_Vert",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Blocked_Vert",
+        "x": 790,
+        "y": 3040,
+        "wires": []
+    },
+    {
+        "id": "3af2ef6301e45d1a",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W15.2-.5",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W15 & 0x0004) ? true : false) },\n    { payload: ((regW.W15 & 0x0008) ? true : false) },\n    { payload: ((regW.W15 & 0x0010) ? true : false) },\n    { payload: ((regW.W15 & 0x0020) ? true : false) }\n];",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 3140,
+        "wires": [
+            [
+                "23d8e446243461d9"
+            ],
+            [
+                "a2514da815301c4e"
+            ],
+            [
+                "d86387043111b809"
+            ],
+            [
+                "6168550d3b826469"
+            ]
+        ]
+    },
+    {
+        "id": "23d8e446243461d9",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 4,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "SL_Mounted_0deg",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SL_Mounted_0deg",
+        "x": 810,
+        "y": 3080,
+        "wires": []
+    },
+    {
+        "id": "a2514da815301c4e",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 5,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "SL_Mounted_90deg",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SL_Mounted_90deg",
+        "x": 820,
+        "y": 3120,
+        "wires": []
+    },
+    {
+        "id": "d86387043111b809",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 6,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "SL_Mounted_180deg",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SL_Mounted_180deg",
+        "x": 820,
+        "y": 3160,
+        "wires": []
+    },
+    {
+        "id": "6168550d3b826469",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 7,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "SL_Mounted_Neg90deg",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SL_Mounted_Neg90deg",
+        "x": 830,
+        "y": 3200,
+        "wires": []
+    },
+    {
+        "id": "228d45893cd3ba60",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W20.0, .1 og .3",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W20 & 0x0001) ? true : false) },\n    { payload: ((regW.W20 & 0x0002) ? true : false) },\n    { payload: ((regW.W20 & 0x0008) ? true : false) }\n];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 3280,
+        "wires": [
+            [
+                "4fb3c2886bc369b7"
+            ],
+            [
+                "519216f7215d7211"
+            ],
+            [
+                "5dbe9c714c2b696c"
+            ]
+        ]
+    },
+    {
+        "id": "4fb3c2886bc369b7",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 8,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos_Panel",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos_Panel",
+        "x": 810,
+        "y": 3240,
+        "wires": []
+    },
+    {
+        "id": "519216f7215d7211",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 9,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Neg_Panel",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Neg_Panel",
+        "x": 810,
+        "y": 3280,
+        "wires": []
+    },
+    {
+        "id": "5dbe9c714c2b696c",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 10,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Reset_Pos",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Reset_Pos",
+        "x": 790,
+        "y": 3320,
+        "wires": []
+    },
+    {
+        "id": "5689f0c7c6bf02d9",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W21.4",
+        "func": "let regW = global.get(\"regW\");\nreturn {payload: (((regW.W21&0x0010)!==0)?true:false)};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 3360,
+        "wires": [
+            [
+                "86fe9747c9238f01"
+            ]
+        ]
+    },
+    {
+        "id": "86fe9747c9238f01",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 11,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "ResetPosition",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "ResetPosition",
+        "x": 800,
+        "y": 3360,
+        "wires": []
+    },
+    {
+        "id": "e8da1d9ae53b3bd2",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W30.0-.2",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W30 & 0x0001) ? true : false) },\n    { payload: ((regW.W30 & 0x0002) ? true : false) },\n    { payload: ((regW.W30 & 0x0004) ? true : false) }\n];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 3440,
+        "wires": [
+            [
+                "d658118146c8db3d"
+            ],
+            [
+                "a84c0fa366f189b9"
+            ],
+            [
+                "1b8e53e3a14450d2"
+            ]
+        ]
+    },
+    {
+        "id": "d658118146c8db3d",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 12,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "High Temp In Drum",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "HighTempInDrum",
+        "x": 810,
+        "y": 3400,
+        "wires": []
+    },
+    {
+        "id": "a84c0fa366f189b9",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 13,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "SL Need Reset",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SLNeedReset",
+        "x": 800,
+        "y": 3440,
+        "wires": []
+    },
+    {
+        "id": "1b8e53e3a14450d2",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 14,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Battery error in PLC",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "BatteryErrorInPLC",
+        "x": 810,
+        "y": 3480,
+        "wires": []
+    },
+    {
+        "id": "970bf765f4550f35",
+        "type": "bit-sixteen",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "x": 500,
+        "y": 3660,
+        "wires": [
+            [
+                "1509ea6d05304ebc"
+            ],
+            [
+                "73d9433cef8b459f"
+            ],
+            [
+                "57b4faa486c4d032"
+            ],
+            [
+                "88a0b9f205d076e5"
+            ],
+            [
+                "1ff0691eb7bf8675"
+            ],
+            [
+                "d0659eccf66a0d6c"
+            ],
+            [
+                "3540c837b94db78d"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "65e10b21256b6ee1",
+        "type": "bit-sixteen",
+        "z": "403ca65b195d1cf2",
+        "name": "",
+        "x": 500,
+        "y": 4020,
+        "wires": [
+            [
+                "e14a14e7eeb7ee40"
+            ],
+            [
+                "58f53004aa54a35d"
+            ],
+            [
+                "27e0a5a05e29ba66"
+            ],
+            [
+                "7d15325578846ec3"
+            ],
+            [
+                "b51c304b819a30bd"
+            ],
+            [
+                "6d4b72778ca67dbd"
+            ],
+            [
+                "5c87dc95ae890611"
+            ],
+            [
+                "61921cd20cfcb1de"
+            ],
+            [
+                "772f310cf83c40c1"
+            ],
+            [
+                "0789705ef517bcad"
+            ],
+            [
+                "1c8daa08d59b3516"
+            ],
+            [
+                "cb73e8bb04c707d3"
+            ],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0b9a0d1a0ee688d1",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W31",
+        "func": "let regW = global.get(\"regW\");\n\nreturn {payload: regW.W31};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 3660,
+        "wires": [
+            [
+                "970bf765f4550f35"
+            ]
+        ]
+    },
+    {
+        "id": "1509ea6d05304ebc",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 15,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Blocked Horizontal",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "BlockedHorizontal",
+        "x": 810,
+        "y": 3520,
+        "wires": []
+    },
+    {
+        "id": "73d9433cef8b459f",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 16,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Blocked Vertical",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "BlockedVertical",
+        "x": 800,
+        "y": 3560,
+        "wires": []
+    },
+    {
+        "id": "57b4faa486c4d032",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 17,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Init Error",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "InitError",
+        "x": 780,
+        "y": 3600,
+        "wires": []
+    },
+    {
+        "id": "88a0b9f205d076e5",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 18,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Init Error Vertical",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "InitErrorVertical",
+        "x": 800,
+        "y": 3640,
+        "wires": []
+    },
+    {
+        "id": "1ff0691eb7bf8675",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 19,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Init Error Horizontal",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "InitErrorHorizontal",
+        "x": 810,
+        "y": 3680,
+        "wires": []
+    },
+    {
+        "id": "d0659eccf66a0d6c",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 20,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Init Error Focus positiv",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "InitErrorFocusPositiv",
+        "x": 820,
+        "y": 3720,
+        "wires": []
+    },
+    {
+        "id": "3540c837b94db78d",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 21,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Init Error Focus negativ",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "InitErrorFocusNegativ",
+        "x": 820,
+        "y": 3760,
+        "wires": []
+    },
+    {
+        "id": "96eb0e4800ab5151",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W32",
+        "func": "let regW = global.get(\"regW\");\n\nreturn {payload: regW.W32};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 4020,
+        "wires": [
+            [
+                "65e10b21256b6ee1"
+            ]
+        ]
+    },
+    {
+        "id": "e14a14e7eeb7ee40",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 22,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Max lamp-strike",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "MaxLampStrike",
+        "x": 800,
+        "y": 3800,
+        "wires": []
+    },
+    {
+        "id": "58f53004aa54a35d",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 23,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Max lamp lifetime",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "MaxLampLifetime",
+        "x": 810,
+        "y": 3840,
+        "wires": []
+    },
+    {
+        "id": "27e0a5a05e29ba66",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 24,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave double command",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SlaveDoubleCommand",
+        "x": 830,
+        "y": 3880,
+        "wires": []
+    },
+    {
+        "id": "7d15325578846ec3",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 25,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave long time horizontal",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SlaveLongTimeHorizontal",
+        "x": 830,
+        "y": 3920,
+        "wires": []
+    },
+    {
+        "id": "b51c304b819a30bd",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 26,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave long time vertical",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SlaveLongTimeVertical",
+        "x": 820,
+        "y": 3960,
+        "wires": []
+    },
+    {
+        "id": "6d4b72778ca67dbd",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 27,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Soft JS in panel double command",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SoftJSInPanelDoubleCommand",
+        "x": 850,
+        "y": 4000,
+        "wires": []
+    },
+    {
+        "id": "5c87dc95ae890611",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 28,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Soft JS long time horizontal",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SoftJSLongTimeHorizontal",
+        "x": 840,
+        "y": 4040,
+        "wires": []
+    },
+    {
+        "id": "61921cd20cfcb1de",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 29,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Soft JS long time vertical",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "SoftJSLongTimeVertical",
+        "x": 830,
+        "y": 4080,
+        "wires": []
+    },
+    {
+        "id": "772f310cf83c40c1",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 30,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "JS Panel double command",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "JSPanelDoubleCommand",
+        "x": 830,
+        "y": 4120,
+        "wires": []
+    },
+    {
+        "id": "0789705ef517bcad",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 31,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "JS Panel long time horizontal",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "JSPanelLongTimeHorizontal",
+        "x": 840,
+        "y": 4160,
+        "wires": []
+    },
+    {
+        "id": "1c8daa08d59b3516",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 32,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "JS Panel long time vertical",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "JSPanelLongTimeVertical",
+        "x": 830,
+        "y": 4200,
+        "wires": []
+    },
+    {
+        "id": "cb73e8bb04c707d3",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 33,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Focus double command",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "FocusDoubleCommand",
+        "x": 830,
+        "y": 4240,
+        "wires": []
+    },
+    {
+        "id": "dbd19b8c9e3fb9c9",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W70.0-.3 og .6",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W70 & 0x0001) ? true : false) },\n    { payload: ((regW.W70 & 0x0002) ? true : false) },\n    { payload: ((regW.W70 & 0x0004) ? true : false) },\n    { payload: ((regW.W70 & 0x0008) ? true : false) },\n    { payload: ((regW.W70 & 0x0040) ? true : false) }\n];",
+        "outputs": 5,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 4360,
+        "wires": [
+            [
+                "106594b9272cceac"
+            ],
+            [
+                "62af646a0d87a707"
+            ],
+            [
+                "29b3e273762775a2"
+            ],
+            [
+                "803dc721619fb6cc"
+            ],
+            [
+                "dd05756b8e31d4e5"
+            ]
+        ]
+    },
+    {
+        "id": "106594b9272cceac",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 34,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave_Hor_CCW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Slave_Hor_CCW",
+        "x": 810,
+        "y": 4280,
+        "wires": []
+    },
+    {
+        "id": "62af646a0d87a707",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 35,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave_Hor_CW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Slave_Hor_CW",
+        "x": 800,
+        "y": 4320,
+        "wires": []
+    },
+    {
+        "id": "803dc721619fb6cc",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 37,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave_Vert_CW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Slave_Vert_CW",
+        "x": 800,
+        "y": 4400,
+        "wires": []
+    },
+    {
+        "id": "29b3e273762775a2",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 36,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Slave_Vert_CCW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Slave_Vert_CCW",
+        "x": 810,
+        "y": 4360,
+        "wires": []
+    },
+    {
+        "id": "dd05756b8e31d4e5",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 38,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Ignite_from_Panel",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Ignite_from_Panel",
+        "x": 810,
+        "y": 4440,
+        "wires": []
+    },
+    {
+        "id": "376ff50b1c5a723c",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W100.2-.3",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W100 & 0x0004) ? true : false) },\n    { payload: ((regW.W100 & 0x0008) ? true : false) }\n];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 4500,
+        "wires": [
+            [
+                "512cf753dc629e34"
+            ],
+            [
+                "626989eee4fde99c"
+            ]
+        ]
+    },
+    {
+        "id": "512cf753dc629e34",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 39,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Vert_Sweep_CCW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Vert_Sweep_CCW",
+        "x": 810,
+        "y": 4480,
+        "wires": []
+    },
+    {
+        "id": "626989eee4fde99c",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 40,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Vert_Sweep_CW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Vert_Sweep_CW",
+        "x": 810,
+        "y": 4520,
+        "wires": []
+    },
+    {
+        "id": "07383963cf73868c",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W105.2-.3",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W105 & 0x0004) ? true : false) },\n    { payload: ((regW.W105 & 0x0008) ? true : false) }\n];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 4580,
+        "wires": [
+            [
+                "5c50588029e0189d"
+            ],
+            [
+                "825a64a569e16668"
+            ]
+        ]
+    },
+    {
+        "id": "5c50588029e0189d",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 41,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Hor_Sweep_CCW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Hor_Sweep_CCW",
+        "x": 810,
+        "y": 4560,
+        "wires": []
+    },
+    {
+        "id": "825a64a569e16668",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 42,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Hor_Sweep_CW",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Hor_Sweep_CW",
+        "x": 810,
+        "y": 4600,
+        "wires": []
+    },
+    {
+        "id": "e09d7a227f9e6006",
+        "type": "function",
+        "z": "403ca65b195d1cf2",
+        "name": "get W110.0 og .2-.3",
+        "func": "let regW = global.get(\"regW\");\nreturn [\n    { payload: ((regW.W110 & 0x0001) ? true : false) },\n    { payload: ((regW.W110 & 0x0004) ? true : false) },\n    { payload: ((regW.W110 & 0x0008) ? true : false) }\n];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 4660,
+        "wires": [
+            [
+                "ddae1bf49bcf71bb"
+            ],
+            [
+                "944a6e72e6d2ac73"
+            ],
+            [
+                "8065244cc2775a85"
+            ]
+        ]
+    },
+    {
+        "id": "944a6e72e6d2ac73",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 44,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Vert_Left_Limit",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Vert_Left_Limit",
+        "x": 800,
+        "y": 4680,
+        "wires": []
+    },
+    {
+        "id": "8065244cc2775a85",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 45,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Home2_Order",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Home2_Order",
+        "x": 800,
+        "y": 4720,
+        "wires": []
+    },
+    {
+        "id": "ddae1bf49bcf71bb",
+        "type": "ui_led",
+        "z": "403ca65b195d1cf2",
+        "order": 43,
+        "group": "197273c11f4bb4b3",
+        "width": 0,
+        "height": 0,
+        "label": "Home1_Order",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Home1_Order",
+        "x": 800,
+        "y": 4640,
+        "wires": []
+    },
+    {
+        "id": "fb98116f8b2bb2d4",
+        "type": "comment",
+        "z": "b9ddffdb26b3e388",
+        "name": "System variables",
+        "info": "",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ec435d393b19bec8",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Vert_A",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Vert_A",
+        "x": 790,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8c63cb42f56130ae",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 2,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Vert_B",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Vert_B",
+        "x": 790,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9706f09d122ac64a",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 3,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Hor_A",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Hor_A",
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "25cd646e0ff42d07",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 4,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Puls_Hor_B",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Puls_Hor_B",
+        "x": 790,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bdc97ef731c7b290",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 5,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos_In",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#8b0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos_In",
+        "x": 800,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "eea6ad49b11a68db",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 6,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos_Out",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#8b0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos_Out",
+        "x": 800,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "925f0c7c60cd9d2e",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 7,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "High_Temp_In_Drum",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#8b0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "High_Temp_In_Drum",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "390f4c8c22c47790",
+        "type": "bit-sixteen",
+        "z": "b9ddffdb26b3e388",
+        "name": "",
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "ec435d393b19bec8"
+            ],
+            [
+                "8c63cb42f56130ae"
+            ],
+            [
+                "9706f09d122ac64a"
+            ],
+            [
+                "25cd646e0ff42d07"
+            ],
+            [
+                "bdc97ef731c7b290"
+            ],
+            [
+                "eea6ad49b11a68db"
+            ],
+            [
+                "925f0c7c60cd9d2e"
+            ],
+            [
+                "37c4e0138212c688"
+            ],
+            [
+                "9a90f24490635c20"
+            ],
+            [
+                "db994a942629259b"
+            ],
+            [
+                "857a0bc5daf858c8"
+            ],
+            [
+                "51478b5b575d0ade"
+            ],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "20315245fbe6712e",
+        "type": "function",
+        "z": "b9ddffdb26b3e388",
+        "name": "get Physical_input",
+        "func": "\nreturn {payload: global.get(\"Physical_input\")};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "390f4c8c22c47790"
+            ]
+        ]
+    },
+    {
+        "id": "37c4e0138212c688",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 8,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Ignite_Button",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Ignite_Button",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9a90f24490635c20",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 9,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Left",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Left",
+        "x": 790,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "db994a942629259b",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 10,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Down",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Down",
+        "x": 800,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "857a0bc5daf858c8",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 11,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Right",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Right",
+        "x": 800,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "51478b5b575d0ade",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 12,
+        "group": "1e88f97016719521",
+        "width": 0,
+        "height": 0,
+        "label": "Joystick_Up",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Joystick_Up",
+        "x": 790,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "fe528a81e1b9dc47",
+        "type": "bit-sixteen",
+        "z": "b9ddffdb26b3e388",
+        "name": "",
+        "x": 520,
+        "y": 800,
+        "wires": [
+            [
+                "4d6de685a59361cb"
+            ],
+            [
+                "0a04172238ce2050"
+            ],
+            [
+                "370f738e6f77dec0"
+            ],
+            [
+                "1a13b493560d7d45"
+            ],
+            [
+                "8038f6d2b963002d"
+            ],
+            [
+                "50467e2295d0d161"
+            ],
+            [
+                "d31a6f8c60d0d5b8"
+            ],
+            [
+                "190fb34e7e4eaeb1"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c30a321584e04874",
+        "type": "function",
+        "z": "b9ddffdb26b3e388",
+        "name": "get Physical_output",
+        "func": "\nreturn {payload: global.get(\"Physical_output\")};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 800,
+        "wires": [
+            [
+                "fe528a81e1b9dc47"
+            ]
+        ]
+    },
+    {
+        "id": "4d6de685a59361cb",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Direction_Hor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ffff00",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Direction_Hor",
+        "x": 800,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "370f738e6f77dec0",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Direction_Vert",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ffff00",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Direction_Vert",
+        "x": 800,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "0a04172238ce2050",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "PWM_out_Hor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "PWM_out_Hor",
+        "x": 800,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "1a13b493560d7d45",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "PWM_out_Vert",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#90ee90",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "PWM_out_Vert",
+        "x": 800,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "8038f6d2b963002d",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Neg",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#886625",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffff00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Neg",
+        "x": 790,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "50467e2295d0d161",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Focus_Pos",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#006400",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Focus_Pos",
+        "x": 790,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "d31a6f8c60d0d5b8",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Ignitor",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#00008a",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#61d7ff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Ignitor",
+        "x": 770,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "190fb34e7e4eaeb1",
+        "type": "ui_led",
+        "z": "b9ddffdb26b3e388",
+        "order": 1,
+        "group": "ed0b202d8f2d86ee",
+        "width": 0,
+        "height": 0,
+        "label": "Light_On",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#575757",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ffffff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Light_On",
+        "x": 780,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "0ce88f5727b60bd9",
+        "type": "link in",
+        "z": "b9ddffdb26b3e388",
+        "name": "link in Update CIO's",
+        "links": [
+            "fa95913b951f0ae7"
+        ],
+        "x": 175,
+        "y": 600,
+        "wires": [
+            [
+                "20315245fbe6712e",
+                "c30a321584e04874"
+            ]
+        ]
+    },
+    {
         "id": "60cf137838c4a21c",
         "type": "exec",
         "z": "3477a75557d00979",
@@ -3958,6 +7815,7 @@
         "z": "3477a75557d00979",
         "name": "dns",
         "label": "DNS",
+        "tooltip": "",
         "group": "1cf52e38.3cfee2",
         "order": 4,
         "width": 0,
@@ -3966,6 +7824,9 @@
         "mode": "text",
         "delay": "0",
         "topic": "domain_name_servers",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
         "x": 608,
         "y": 353,
         "wires": [
