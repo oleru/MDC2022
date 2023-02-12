@@ -1,0 +1,1843 @@
+[
+    {
+        "id": "0e892ddf76c780fa",
+        "type": "tab",
+        "label": "Initialize",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c978021d490da69f",
+        "type": "tab",
+        "label": "FINS",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3477a75557d00979",
+        "type": "tab",
+        "label": "IP Settings",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "91d22f72dfbb50b9",
+        "type": "tab",
+        "label": "R50",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cef642f22a51c923",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "1cf52e38.3cfee2",
+        "type": "ui_group",
+        "name": "IP Settings",
+        "tab": "be53a269.02ec3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "be53a269.02ec3",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "settings",
+        "order": 2
+    },
+    {
+        "id": "ca54bb2b4d7100f8",
+        "type": "ui_tab",
+        "name": "Registers",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cb0bfbfe5c34d8b7",
+        "type": "ui_group",
+        "name": "D-Registers",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "8e3f0b650d98dc09",
+        "type": "shared-state",
+        "name": "Horizontal_pos_act",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "-180",
+        "numMax": "180",
+        "unit": "deg",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "3c9cf2f8bc9a8795",
+        "type": "shared-state",
+        "name": "Vertical_pos_act",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "-30",
+        "numMax": "30",
+        "unit": "deg",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "91d4d80beb9e4ab9",
+        "type": "shared-state",
+        "name": "Horizontal_speed",
+        "lbl": "",
+        "tags": "H254",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "10",
+        "numMax": "100",
+        "unit": "",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "97a4150ea5f3f488",
+        "type": "ui_group",
+        "name": "H-Registers",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 4,
+        "disp": true,
+        "width": "7",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "b468320eb1681da1",
+        "type": "shared-state",
+        "name": "Vertical_speed",
+        "lbl": "",
+        "tags": "H256",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "0",
+        "numMin": "10",
+        "numMax": "100",
+        "unit": "",
+        "saveInterval": "60000"
+    },
+    {
+        "id": "f89ab6135ab55895",
+        "type": "bit-config",
+        "name": "MyDataStash",
+        "bits": [
+            {
+                "property": "Up",
+                "length": 1,
+                "shift": 0,
+                "type": "boolean"
+            },
+            {
+                "property": "Down",
+                "length": 1,
+                "shift": 1,
+                "type": "boolean"
+            },
+            {
+                "property": "Left",
+                "length": 1,
+                "shift": 2,
+                "type": "boolean"
+            },
+            {
+                "property": "Right",
+                "length": 1,
+                "shift": 3,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "1e88f97016719521",
+        "type": "ui_group",
+        "name": "Physical input",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "ed0b202d8f2d86ee",
+        "type": "ui_group",
+        "name": "Physical Output",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 2,
+        "disp": true,
+        "width": "5",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "44c84a439d2ed32c",
+        "type": "shared-state",
+        "name": "H150",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "04e632baa56226fb",
+        "type": "bit-config",
+        "name": "H150",
+        "bits": [
+            {
+                "property": "H150_0",
+                "length": 1,
+                "shift": 0,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_1",
+                "length": 1,
+                "shift": 1,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_2",
+                "length": 1,
+                "shift": 2,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_3",
+                "length": 1,
+                "shift": 3,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_4",
+                "length": 1,
+                "shift": 4,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_5",
+                "length": 1,
+                "shift": 5,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_6",
+                "length": 1,
+                "shift": 6,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_7",
+                "length": 1,
+                "shift": 7,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_8",
+                "length": 1,
+                "shift": 8,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_9",
+                "length": 1,
+                "shift": 9,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_10",
+                "length": 1,
+                "shift": 10,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_11",
+                "length": 1,
+                "shift": 11,
+                "type": "boolean"
+            },
+            {
+                "property": "H150_12",
+                "length": 1,
+                "shift": 12,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "b3b9a9f62b40b8a8",
+        "type": "shared-state",
+        "name": "H151",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "bool",
+        "boolType": "num",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "0"
+    },
+    {
+        "id": "69c270ce9d052744",
+        "type": "shared-state",
+        "name": "H260",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "036df11f80e030cb",
+        "type": "shared-state",
+        "name": "H261",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "10",
+        "numMax": "100",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "bf88a43b5ef12a5f",
+        "type": "shared-state",
+        "name": "H270",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "1",
+        "numMin": "-30",
+        "numMax": "30",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "a4c9974355d7b1d6",
+        "type": "shared-state",
+        "name": "H302",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "b88a1ce1ef4ee0bb",
+        "type": "shared-state",
+        "name": "H304",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "8cefaa648711b976",
+        "type": "shared-state",
+        "name": "H306",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "8ecc628bbe067acf",
+        "type": "shared-state",
+        "name": "H308",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "cf02f8410e93897e",
+        "type": "shared-state",
+        "name": "H310",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "2b5214e17f0ae4ca",
+        "type": "shared-state",
+        "name": "H312",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "344d0bfbfcf2dee6",
+        "type": "shared-state",
+        "name": "H314",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "0fb8cbfcaec49402",
+        "type": "shared-state",
+        "name": "H316",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "4fe244e7732e901a",
+        "type": "shared-state",
+        "name": "H318",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "164388bdf01ff86a",
+        "type": "shared-state",
+        "name": "H320",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "25f1f120bb9ecb0f",
+        "type": "shared-state",
+        "name": "H322",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "2875dcb753f08298",
+        "type": "shared-state",
+        "name": "H324",
+        "lbl": "",
+        "tags": "",
+        "historyCount": "2",
+        "dataType": "num",
+        "boolType": "bool",
+        "boolStrTrue": "",
+        "boolStrFalse": "",
+        "precision": "",
+        "numMin": "",
+        "numMax": "",
+        "unit": "",
+        "saveInterval": "10000"
+    },
+    {
+        "id": "197273c11f4bb4b3",
+        "type": "ui_group",
+        "name": "W-Registers",
+        "tab": "ca54bb2b4d7100f8",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "71e1c07fa0276701",
+        "type": "comment",
+        "z": "0e892ddf76c780fa",
+        "name": "Initialize some working variables",
+        "info": "",
+        "x": 190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "01533fbb474b8035",
+        "type": "udp in",
+        "z": "c978021d490da69f",
+        "name": "FINS in",
+        "iface": "",
+        "port": "9600",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "ee3927427f858b8f",
+                "c65f7688fec0cee7"
+            ]
+        ]
+    },
+    {
+        "id": "80f1446c4921542a",
+        "type": "udp out",
+        "z": "c978021d490da69f",
+        "name": "FINS out",
+        "addr": "",
+        "iface": "",
+        "port": "9600",
+        "ipv": "udp4",
+        "outport": "9600",
+        "base64": false,
+        "multicast": "false",
+        "x": 420,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ee3927427f858b8f",
+        "type": "buffer-parser",
+        "z": "c978021d490da69f",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "buffer",
+                "name": "Header",
+                "offset": 0,
+                "length": 10,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "buffer",
+                "name": "Data",
+                "offset": 10,
+                "length": 500,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "return",
+        "multipleResult": true,
+        "fanOutMultipleResult": true,
+        "setTopic": false,
+        "outputs": 2,
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "4c3a6d9862b6395b"
+            ],
+            [
+                "6a100d7c610d108a"
+            ]
+        ]
+    },
+    {
+        "id": "4c3a6d9862b6395b",
+        "type": "buffer-parser",
+        "z": "c978021d490da69f",
+        "name": "Parse Header",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint8",
+                "name": "ICF",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "RSV",
+                "offset": 1,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "GCT",
+                "offset": 2,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "DNA",
+                "offset": 3,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "DA1",
+                "offset": 4,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "DA2",
+                "offset": 5,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SNA",
+                "offset": 6,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SA1",
+                "offset": 7,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SA2",
+                "offset": 8,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "SID",
+                "offset": 9,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "403127e365d67dae"
+            ]
+        ]
+    },
+    {
+        "id": "403127e365d67dae",
+        "type": "buffer-maker",
+        "z": "c978021d490da69f",
+        "name": "",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "name": "ICF",
+                "type": "byte",
+                "length": 1,
+                "dataType": "num",
+                "data": "192"
+            },
+            {
+                "name": "RSV",
+                "type": "byte",
+                "length": 1,
+                "dataType": "num",
+                "data": "0"
+            },
+            {
+                "name": "GCT",
+                "type": "byte",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.GCT"
+            },
+            {
+                "name": "DNA",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SNA"
+            },
+            {
+                "name": "DA1",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SA1"
+            },
+            {
+                "name": "DA2",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SA2"
+            },
+            {
+                "name": "SNA",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.DNA"
+            },
+            {
+                "name": "SA1",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.DA1"
+            },
+            {
+                "name": "SA2",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.DA2"
+            },
+            {
+                "name": "SID",
+                "type": "uint8",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload.SID"
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "3120c9a1cc96d2c1"
+            ]
+        ]
+    },
+    {
+        "id": "c65f7688fec0cee7",
+        "type": "change",
+        "z": "c978021d490da69f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "senderIP",
+                "pt": "flow",
+                "to": "ip",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3120c9a1cc96d2c1",
+        "type": "change",
+        "z": "c978021d490da69f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "replyHeader",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ba4a38b731a88bb",
+        "type": "comment",
+        "z": "c978021d490da69f",
+        "name": "Incomming FINS request",
+        "info": "",
+        "x": 170,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "be587bdfba6d4ac9",
+        "type": "comment",
+        "z": "c978021d490da69f",
+        "name": "Respond FINS request",
+        "info": "",
+        "x": 160,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6a100d7c610d108a",
+        "type": "buffer-parser",
+        "z": "c978021d490da69f",
+        "name": "Parse Data",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint16be",
+                "name": "CODE",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "buffer",
+                "name": "data",
+                "offset": 2,
+                "length": 500,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "9b5fc362371d7ab6",
+                "08b2f6cddc4f3571"
+            ]
+        ]
+    },
+    {
+        "id": "80ec45943c1f363b",
+        "type": "change",
+        "z": "c978021d490da69f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dataCode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b5fc362371d7ab6",
+        "type": "switch",
+        "z": "c978021d490da69f",
+        "name": "Split on Telegram Type",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "258",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "260",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8961",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "763ddf50270dd6d9"
+            ],
+            [
+                "9f673f66bd5b5acb"
+            ],
+            [
+                "11a1b50fac873c15"
+            ]
+        ]
+    },
+    {
+        "id": "9f673f66bd5b5acb",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "0x0104 - Multiple Memory Area Read",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0,0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\n// Cycle trough 0x0104 Request Message\nlet i = 0;\nfor (i = 0; i < inData.byteLength;i+=4) {\n\n    // msg.payload[1][i]\n    //var myData = Buffer.from([0, 0, 0]);\n    let myData = Buffer.allocUnsafe(3);\n    myData[0] = inData[i];\n    let addr = inData.readInt16BE(i+1);\n\n    // Look up data\n    if (inData[i] == 128) {  // CIO 0x80\n\n        if (addr == 0) {            // Physical Input\n            myData.writeInt16BE(global.get(\"Physical_input\"), 1);\n        } else if (addr == 100) {   // Physical Output\n            myData.writeInt16BE(global.get(\"Physical_output\"), 1);\n        }\n\n    } else if (inData[i] == 130) {  // D 0x82\n\n        if (addr == 100) {          // D100 - Hor_pos_act[-180,180]\n            myData.writeInt16BE(global.get(\"Horizontal_pos_act\"), 1);\n        } else if (addr == 200) {   // D200 - Vert_pos_act[-30,30]\n            myData.writeInt16BE(global.get(\"Vertical_pos_act\"), 1);\n        } else if (addr == 404) {   // D404 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"),0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0); \n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 405) {   // D405 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    } else if (inData[i] == 177) {  // W 0xB1\n\n        let regW = global.get(\"regW\");\n\n        if (addr == 1) {            // W1 - (W1.0 Blocked_Hor)\n            myData.writeInt16BE(regW.W1, 1);\n        } else if (addr == 2) {     // W2 - (W2.5 Reset_Init_Error)\n            myData.writeInt16BE(regW.W2, 1);\n        } else if (addr == 11) {    // W11 - (W11.0 Blocked_Vert)\n            myData.writeInt16BE(regW.W11, 1);\n        } else if (addr == 20) {    // W20\n            myData.writeInt16BE(regW.W20, 1);\n        } else if (addr == 21) {    // W21\n            myData.writeInt16BE(regW.W21, 1);\n        } else if (addr == 30) {    // W30 - Alarm_A\n            myData.writeInt16BE(regW.W30, 1);\n        } else if (addr == 31) {    // W31 - Alarm_B\n            myData.writeInt16BE(regW.W31, 1);\n        } else if (addr == 32) {    // W32 - Alarm_C\n            myData.writeInt16BE(regW.W32, 1);\n        } else if (addr == 70) {    // W70\n            myData.writeInt16BE(regW.W70, 1);\n        } else if (addr == 100) {    // W100\n            myData.writeInt16BE(regW.W100, 1);\n        } else if (addr == 105) {    // W105\n            myData.writeInt16BE(regW.W105, 1);\n        } else if (addr == 110) {    // W110\n            myData.writeInt16BE(regW.W110, 1);\n        }\n\n    } else if (inData[i] == 178) {  // H 0xB2\n\n        if (addr == 100) {          // H100 - SL_Version\n            myData.writeInt16BE(global.get(\"SL_Version\"), 1);\n        } else if (addr == 150) {   // H150\n            myData.writeInt16BE(global.get(\"H150\"), 1);\n        } else if (addr == 151) {   // H151\n            myData.writeInt16BE(global.get(\"H151\"), 1);\n        } else if (addr == 254) {   // H254 - Horizontal_speed\n            myData.writeUInt16BE(global.get(\"Horizontal_speed\"), 1);\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            myData.writeUInt16BE(global.get(\"Vertical_speed\"), 1);\n        } else if (addr == 260) {   // H260 - Slave_Speed_Hor\n            myData.writeUInt16BE(global.get(\"H260\"), 1);\n        } else if (addr == 261) {   // H261 - Slave_Speed_Vert\n            myData.writeUInt16BE(global.get(\"H261\"), 1);\n        } else if (addr == 270) {   // H270 - Vert_Pos_Init\n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0);\n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 271) {   // H271 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        } else if (addr == 302) {   // H302 - Hor_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H302\"), 1);\n        } else if (addr == 304) {   // H304 - Hor_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H304\"), 1);\n        } else if (addr == 306) {   // H306 - Vert_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H306\"), 1);\n        } else if (addr == 308) {   // H308 - Vert_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H308\"), 1);\n        } else if (addr == 310) {   // H310 - Hor_Home1\n            myData.writeInt16BE(global.get(\"H310\"), 1);\n        } else if (addr == 312) {   // H312 - Vert_Home1\n            myData.writeInt16BE(global.get(\"H312\"), 1);\n        } else if (addr == 314) {   // H314 - Hor_Home2\n            myData.writeInt16BE(global.get(\"H314\"), 1);\n        } else if (addr == 316) {   // H316 - Vert_Home2\n            myData.writeInt16BE(global.get(\"H316\"), 1);\n        } else if (addr == 318) {   // H318 - Hor_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H318\"), 1);\n        } else if (addr == 320) {   // H320 - Hor_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H320\"), 1);\n        } else if (addr == 322) {   // H322 - Vert_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H322\"), 1);\n        } else if (addr == 324) {   // H324 - Vert_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H324\"), 1);\n        } else if (addr == 326) {   // H326 - PWM_Frekv_Hort\n            myData.writeInt16BE(global.get(\"H326\"), 1);\n        } else if (addr == 328) {   // H328 - PWM_Frekv_Vert\n            myData.writeInt16BE(global.get(\"H328\"), 1);\n        }\n\n    }\n\n    myList.push(myData);\n\n}  //..for (i = 0;...\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: telegram.byteLength };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 340,
+        "wires": [
+            [
+                "ef0e3003fcefb83c"
+            ]
+        ]
+    },
+    {
+        "id": "ef0e3003fcefb83c",
+        "type": "link out",
+        "z": "c978021d490da69f",
+        "name": "link out Parsed telegrams",
+        "mode": "link",
+        "links": [
+            "b38fab0b68b3391b"
+        ],
+        "x": 1235,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b38fab0b68b3391b",
+        "type": "link in",
+        "z": "c978021d490da69f",
+        "name": "link in Respond FINS",
+        "links": [
+            "ef0e3003fcefb83c"
+        ],
+        "x": 105,
+        "y": 600,
+        "wires": [
+            [
+                "d839b1c6c6aca029"
+            ]
+        ]
+    },
+    {
+        "id": "d839b1c6c6aca029",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "Build response",
+        "func": "var Header = flow.get(\"replyHeader\");\nvar Code = flow.get(\"dataCode\");\nvar myList = [];\n\nmyList.push(Header, Code, msg.payload);\n\nvar telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, ip: flow.get(\"senderIP\") };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 600,
+        "wires": [
+            [
+                "80f1446c4921542a"
+            ]
+        ]
+    },
+    {
+        "id": "08b2f6cddc4f3571",
+        "type": "buffer-maker",
+        "z": "c978021d490da69f",
+        "name": "",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "name": "item1",
+                "type": "int16be",
+                "length": 1,
+                "dataType": "msg",
+                "data": "payload[0]"
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "80ec45943c1f363b"
+            ]
+        ]
+    },
+    {
+        "id": "11a1b50fac873c15",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "0x2301 - Forced Set/Reset",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0, 0]);\n// Padding \nvar myPadding = Buffer.from([0, 0, 0, 0]);\nlet myList = [];\nlet inData = msg.payload[1];\nlet noOfBits = inData.readUInt16BE(0);\nlet regW = global.get(\"regW\");\n\nmyList.push(myDataType);\n\n\n// Cycle trough 0x2301 Forced Set/Reset Message\nlet i = 2;\nfor (; i < inData.byteLength;i+=6) {\n\n    let setResetSpes = inData.readUInt16BE(i);\n    let memAreaCode = inData.readUInt8(i + 2);\n    let addr = inData.readUInt16BE(i + 3);\n    let bitFlag = inData.readUInt8(i + 4);\n\n    // Look up data\n    if (memAreaCode == 49) {          // CS1 0x31\n\n        if (addr == 0) {              // W0\n\n            // W0.0 - SoftJS_Hor_CCW_input (JS Left)\n            // W0.1 - SoftJS_Hor_CW_Input (JS Right)\n            // W0.7 - Hor_Sweep_Panel\n            if (setResetSpes & 0x0001) {\n                regW.W0 |= (0x0001 << bitFlag);  // Set W0.bitFlag\n            } else {\n                regW.W0 &= ~(0x0001 << bitFlag);  // Clear W0.bitFlag\n            }\n\n        } else if (addr == 10) {       // W10\n\n            // W10.0 - SoftJS_Vert_CCW_input (JS Down)\n            // W10.1 - SoftJS_Vert_CW_input (JS Up)\n            if (setResetSpes & 0x0001) {\n                regW.W10 |= (0x0001 << bitFlag);  // Set W10.bitFlag\n            } else {\n                regW.W10 &= ~(0x0001 << bitFlag);  // Clear W10.bitFlag\n            }\n\n        } else if (addr == 20) {       // W20\n\n            // W20.0 - Focus_Pos_Panel\n            // W20.1 - Focus_Neg_Panel\n            if (setResetSpes & 0x0001) {\n                regW.W20 |= (0x0001 << bitFlag);  // Set W20.bitFlag\n            } else {\n                regW.W20 &= ~(0x0001 << bitFlag);  // Clear W20.bitFlag\n            }\n\n        } else if (addr == 70) {      // W70\n\n            // W70.6 - Ignite_from_Panel\n            if (setResetSpes & 0x0001) {\n                regW.W70 |= (0x0001 << bitFlag);  // Set W70.bitFlag\n            } else {\n                regW.W70 &= ~(0x0001 << bitFlag);  // Clear W70.bitFlag\n            }\n\n        } else if (addr == 110) {      // W110\n\n            // W110.0 - Home1_Order\n            if (setResetSpes & 0x0001) {\n                regW.W110 |= (0x0001 << bitFlag);  // Set W110.bitFlag\n            } else {\n                regW.W110 &= ~(0x0001 << bitFlag);  // Clear W110.bitFlag\n            }\n\n        }\n\n    }\n\n}  //..for (i = 2;...\n\nglobal.set(\"regW\", regW);\n\nmyList.push(myPadding);\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 380,
+        "wires": [
+            [
+                "ef0e3003fcefb83c"
+            ]
+        ]
+    },
+    {
+        "id": "763ddf50270dd6d9",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "0x0102 - Memory Area Write",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0, 0]);\n// Padding \nvar myPadding = Buffer.from([0, 0, 0, 0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\nlet memAreaCode = inData.readUInt8(0);\nlet addr = inData.readUInt16BE(1);\nlet bitFlag = inData.readUInt8(3);\nlet numOfItems = inData.readUInt16BE(4);\n\n\n// Cycle trough 0x0102 Memory Area Write Data\nlet i = 6;\nfor (; i < inData.byteLength;i+=2) {\n\n\n    // Look up data\n    if (memAreaCode == 258) {          // H 0xB2\n\n        if (addr == 254) {          // H254 - Horizontal_speed\n            global.set(\"Horizontal_speed\", inData.readUInt16BE(i));\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            global.set(\"Vertical_speed\", inData.readUInt16BE(i));\n        }\n\n    }\n\n}  //..for (i = 2;...\n\n\nmyList.push(myPadding);\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "ef0e3003fcefb83c"
+            ]
+        ]
+    },
+    {
+        "id": "60cf137838c4a21c",
+        "type": "exec",
+        "z": "3477a75557d00979",
+        "command": "cat /etc/dhcpcd.conf",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "e95b586f0b3ee444"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e95b586f0b3ee444",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "parse response",
+        "func": "var lines = msg.payload.split(\"\\n\");\nvar data = [];\n\nfor(var i=0; i< lines.length; i++){\n    if(lines[i].indexOf(\"interface eth0\") != -1)\n        break;\n}\n\n//check if interface eth0 is disabled\nif(i < lines.length && lines[i].indexOf(\"#\") >= 0) flow.set('disabled', true);\nelse flow.set('disabled', false);\n\nnode.send({topic:'interface eth0', payload:flow.get('disabled')})\n\ni++;\n\nfor(i; i< lines.length; i++){\n   \n   //new interface, not eth0\n   if(lines[i].indexOf(\"static\") == -1)\n    break;\n    \n    var tmp = lines[i].split(\"=\");\n    if(tmp.length==2){\n        var prop = tmp[0].split(' ')[1].trim();\n        var value = tmp[1].trim();\n        \n        flow.set(prop, value);\n        node.send({topic:prop, payload:value})\n    }\n} ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "b3f3943746c6f292"
+            ]
+        ]
+    },
+    {
+        "id": "b3f3943746c6f292",
+        "type": "switch",
+        "z": "3477a75557d00979",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "interface eth0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ip_address",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "routers",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "domain_name_servers",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 4,
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "72943047bac29a17"
+            ],
+            [
+                "ab6b81404d2b9b4a"
+            ],
+            [
+                "b59838aef9417930"
+            ],
+            [
+                "811ce494347ae195",
+                "280a5e7ea1ada9bf"
+            ]
+        ]
+    },
+    {
+        "id": "ab6b81404d2b9b4a",
+        "type": "ui_text_input",
+        "z": "3477a75557d00979",
+        "name": "ip_address",
+        "label": "IP",
+        "tooltip": "",
+        "group": "1cf52e38.3cfee2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "ip_address",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 628,
+        "y": 273,
+        "wires": [
+            [
+                "9a0c7244d0d076cb"
+            ]
+        ]
+    },
+    {
+        "id": "b59838aef9417930",
+        "type": "ui_text_input",
+        "z": "3477a75557d00979",
+        "name": "router",
+        "label": "Router",
+        "tooltip": "",
+        "group": "1cf52e38.3cfee2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "routers",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 608,
+        "y": 313,
+        "wires": [
+            [
+                "9a0c7244d0d076cb"
+            ]
+        ]
+    },
+    {
+        "id": "811ce494347ae195",
+        "type": "ui_text_input",
+        "z": "3477a75557d00979",
+        "name": "dns",
+        "label": "DNS",
+        "tooltip": "",
+        "group": "1cf52e38.3cfee2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "domain_name_servers",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 608,
+        "y": 353,
+        "wires": [
+            [
+                "9a0c7244d0d076cb"
+            ]
+        ]
+    },
+    {
+        "id": "bd3cf4400d799cfd",
+        "type": "exec",
+        "z": "3477a75557d00979",
+        "command": "sudo sed -i ",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0bbf457250daf4fd",
+        "type": "ui_button",
+        "z": "3477a75557d00979",
+        "name": "reboot",
+        "group": "1cf52e38.3cfee2",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Reboot",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "By pressing OK the device will be rebooted. If settings are wrong this may cause the device to be unreachable",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 540,
+        "wires": [
+            [
+                "c4dc84d913c51d69"
+            ]
+        ]
+    },
+    {
+        "id": "5f2e156c00344b02",
+        "type": "exec",
+        "z": "3477a75557d00979",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "912efeef6ca7538d",
+        "type": "ui_button",
+        "z": "3477a75557d00979",
+        "name": "refresh",
+        "group": "1cf52e38.3cfee2",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Update",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "1acedd4ae79a532b",
+                "ecda2fd3d40ec4c2"
+            ]
+        ]
+    },
+    {
+        "id": "1acedd4ae79a532b",
+        "type": "delay",
+        "z": "3477a75557d00979",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "300",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "60cf137838c4a21c"
+            ]
+        ]
+    },
+    {
+        "id": "ecda2fd3d40ec4c2",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "send commands",
+        "func": "var properties = flow.get(\"properties\");\n\nvar disabled = flow.get(\"disabled\") ? '#' : '';\n\nif(disabled == '#'){\n    //enable interface (replace only first occurance)\n    var command = `'0,/#interface eth0/s//interface eth0/g;' /etc/dhcpcd.conf`;\n    node.send({payload: command})\n}\n\nfor(var i=0;i<properties.length;i++){\n    var p = properties[i];\n    \n    var old_value = flow.get(p);\n    var new_value = flow.get(p + \"_new\") || old_value;\n    \n    if (old_value && ((old_value != new_value) || disabled == '#')) {\n    //if (old_value && (old_value != new_value)) {\n        //enable interface (replace only first occurance)\n        var command = `'s?${disabled}static ${p}=${old_value}?static ${p}=${new_value}?g' /etc/dhcpcd.conf`;\n        //var command = `'s?${p}=${old_value}?${p}=${new_value}?g' /etc/dhcpcd.conf`;\n\n        node.send({payload: command})\n    }\n}\n\n//var command = `'s/192.168.68.208/192.168.68.205/g;' /etc/dhcpcd.conf`;\n//return { payload: command};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "bd3cf4400d799cfd"
+            ]
+        ]
+    },
+    {
+        "id": "c4dc84d913c51d69",
+        "type": "ui_toast",
+        "z": "3477a75557d00979",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "topic": "ATTENTION",
+        "name": "",
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "141c89d72f7786dd"
+            ]
+        ]
+    },
+    {
+        "id": "141c89d72f7786dd",
+        "type": "switch",
+        "z": "3477a75557d00979",
+        "name": "OK ?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "OK",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "5f2e156c00344b02"
+            ]
+        ]
+    },
+    {
+        "id": "9a0c7244d0d076cb",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "store new",
+        "func": "flow.set(msg.topic+\"_new\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 818,
+        "y": 313,
+        "wires": [
+            [
+                "ab86800d097c059c"
+            ]
+        ]
+    },
+    {
+        "id": "e7bada7259644953",
+        "type": "inject",
+        "z": "3477a75557d00979",
+        "name": "init",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "6908daecadf1ad96"
+            ]
+        ]
+    },
+    {
+        "id": "6908daecadf1ad96",
+        "type": "function",
+        "z": "3477a75557d00979",
+        "name": "set properties",
+        "func": "var properties = ['routers', 'ip_address', 'domain_name_servers'];\n\nflow.set(\"properties\", properties);\n\n//init properties\nfor(var i=0;i<properties.length;i++){\n    var p = properties[i];\n    flow.set(p, null);\n    flow.set(p+\"_new\", null);\n}\n\nnode.send({payload: true});\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "60cf137838c4a21c"
+            ]
+        ]
+    },
+    {
+        "id": "1590a675a60f2f41",
+        "type": "ui_toast",
+        "z": "3477a75557d00979",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 788,
+        "y": 393,
+        "wires": []
+    },
+    {
+        "id": "280a5e7ea1ada9bf",
+        "type": "change",
+        "z": "3477a75557d00979",
+        "name": "set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Settings updated. Reboot device to enable new ip",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 608,
+        "y": 393,
+        "wires": [
+            [
+                "1590a675a60f2f41"
+            ]
+        ]
+    },
+    {
+        "id": "72943047bac29a17",
+        "type": "ui_text",
+        "z": "3477a75557d00979",
+        "group": "1cf52e38.3cfee2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Static ip",
+        "format": "{{!msg.payload}}",
+        "layout": "row-spread",
+        "x": 614,
+        "y": 232,
+        "wires": []
+    },
+    {
+        "id": "84406f9db7c70b98",
+        "type": "ui_toast",
+        "z": "3477a75557d00979",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 1148,
+        "y": 313,
+        "wires": []
+    },
+    {
+        "id": "ab86800d097c059c",
+        "type": "change",
+        "z": "3477a75557d00979",
+        "name": "set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "New setting stored ",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 968,
+        "y": 313,
+        "wires": [
+            [
+                "84406f9db7c70b98"
+            ]
+        ]
+    }
+]
