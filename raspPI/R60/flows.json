@@ -1693,7 +1693,7 @@
         "base64": false,
         "multicast": "false",
         "x": 420,
-        "y": 420,
+        "y": 600,
         "wires": []
     },
     {
@@ -2035,7 +2035,7 @@
         "name": "Respond FINS request",
         "info": "",
         "x": 160,
-        "y": 360,
+        "y": 540,
         "wires": []
     },
     {
@@ -2125,18 +2125,34 @@
         "rules": [
             {
                 "t": "eq",
+                "v": "258",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
                 "v": "260",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8961",
                 "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 260,
+        "outputs": 3,
+        "x": 680,
+        "y": 340,
         "wires": [
             [
+                "763ddf50270dd6d9"
+            ],
+            [
                 "9f673f66bd5b5acb"
+            ],
+            [
+                "11a1b50fac873c15"
             ]
         ]
     },
@@ -2144,19 +2160,18 @@
         "id": "9f673f66bd5b5acb",
         "type": "function",
         "z": "c978021d490da69f",
-        "name": "0x0104 Msg",
-        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0,0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\n// Cycle trough 0x0104 Request Message\nlet i = 0;\nfor (i = 0; i < inData.byteLength;i+=4) {\n\n    // msg.payload[1][i]\n    //var myData = Buffer.from([0, 0, 0]);\n    let myData = Buffer.allocUnsafe(3);\n    myData[0] = inData[i];\n    let addr = inData.readInt16BE(i+1);\n\n    // Look up data\n    if (inData[i] == 128) {  // CIO 0x80\n\n        if (addr == 0) {            // Physical Input\n            myData.writeInt16BE(global.get(\"Physical_input\"), 1);\n        } else if (addr == 100) {   // Physical Output\n            myData.writeInt16BE(global.get(\"Physical_output\"), 1);\n        }\n\n    } else if (inData[i] == 130) {  // D 0x82\n\n        if (addr == 100) {          // D100 - Hor_pos_act[-180,180]\n            myData.writeInt16BE(global.get(\"Horizontal_pos_act\"), 1);\n        } else if (addr == 200) {   // D200 - Vert_pos_act[-30,30]\n            myData.writeInt16BE(global.get(\"Vertical_pos_act\"), 1);\n        } else if (addr == 404) {   // D404 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"),0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0); \n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 405) {   // D405 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    } else if (inData[i] == 177) {  // W 0xB1\n\n        let regW = global.get(\"regW\");\n\n        if (addr == 1) {            // W1 - (W1.0 Blocked_Hor)\n            myData.writeInt16BE(regW.W1, 1);\n        } else if (addr == 2) {     // W2 - (W2.5 Reset_Init_Error)\n            myData.writeInt16BE(regW.W2, 1);\n        } else if (addr == 11) {    // W11 - (W11.0 Blocked_Vert)\n            myData.writeInt16BE(regW.W11, 1);\n        } else if (addr == 15) {           // W15\n                                              // W15.00 - Init_active\n                                              // W15.01 - Con_flag\n            myData.writeInt16BE(4, 1);  //myDataType[2] = 4;                    // W15.02/H150.00 - SL_mounted_0deg\n                                              // W15.03/H150.01 - SL_mounted_90deg\n                                              // W15.04/H150.02 - SL_mounted_180deg\n                                              // W15.05/H150.03 - SL_mounted_-90deg\n        }\n\n    } else if (inData[i] == 178) {  // H 0xB2\n\n        if (addr == 100) {          // H100 - SL_Version\n            myData.writeInt16BE(global.get(\"SL_Version\"), 1);\n        } else if (addr == 150) {   // H150\n            myData.writeInt16BE(global.get(\"H150\"), 1);\n        } else if (addr == 151) {   // H151\n            myData.writeInt16BE(global.get(\"H151\"), 1);\n        } else if (addr == 254) {   // H254 - Horizontal_speed\n            myData.writeUInt16BE(global.get(\"Horizontal_speed\"), 1);\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            myData.writeUInt16BE(global.get(\"Vertical_speed\"), 1);\n        } else if (addr == 260) {   // H260 - Slave_Speed_Hor\n            myData.writeUInt16BE(global.get(\"H260\"), 1);\n        } else if (addr == 261) {   // H261 - Slave_Speed_Vert\n            myData.writeUInt16BE(global.get(\"H261\"), 1);\n        } else if (addr == 270) {   // H270 - Vert_Pos_Init\n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0);\n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 271) {   // H271 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        } else if (addr == 302) {   // H302 - Hor_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H302\"), 1);\n        } else if (addr == 304) {   // H304 - Hor_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H304\"), 1);\n        } else if (addr == 306) {   // H306 - Vert_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H306\"), 1);\n        } else if (addr == 308) {   // H308 - Vert_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H308\"), 1);\n        } else if (addr == 310) {   // H310 - Hor_Home1\n            myData.writeInt16BE(global.get(\"H310\"), 1);\n        } else if (addr == 312) {   // H312 - Vert_Home1\n            myData.writeInt16BE(global.get(\"H312\"), 1);\n        } else if (addr == 314) {   // H314 - Hor_Home2\n            myData.writeInt16BE(global.get(\"H314\"), 1);\n        } else if (addr == 316) {   // H316 - Vert_Home2\n            myData.writeInt16BE(global.get(\"H316\"), 1);\n        } else if (addr == 318) {   // H318 - Hor_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H318\"), 1);\n        } else if (addr == 320) {   // H320 - Hor_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H320\"), 1);\n        } else if (addr == 322) {   // H322 - Vert_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H322\"), 1);\n        } else if (addr == 324) {   // H324 - Vert_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H324\"), 1);\n        } else if (addr == 326) {   // H326 - PWM_Frekv_Hort\n            myData.writeInt16BE(global.get(\"H326\"), 1);\n        } else if (addr == 328) {   // H328 - PWM_Frekv_Vert\n            myData.writeInt16BE(global.get(\"H328\"), 1);\n        }\n\n    }\n\n    myList.push(myData);\n\n}  //..for (i = 0;...\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "name": "0x0104 - Multiple Memory Area Read",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0,0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\n// Cycle trough 0x0104 Request Message\nlet i = 0;\nfor (i = 0; i < inData.byteLength;i+=4) {\n\n    // msg.payload[1][i]\n    //var myData = Buffer.from([0, 0, 0]);\n    let myData = Buffer.allocUnsafe(3);\n    myData[0] = inData[i];\n    let addr = inData.readInt16BE(i+1);\n\n    // Look up data\n    if (inData[i] == 128) {  // CIO 0x80\n\n        if (addr == 0) {            // Physical Input\n            myData.writeInt16BE(global.get(\"Physical_input\"), 1);\n        } else if (addr == 100) {   // Physical Output\n            myData.writeInt16BE(global.get(\"Physical_output\"), 1);\n        }\n\n    } else if (inData[i] == 130) {  // D 0x82\n\n        if (addr == 100) {          // D100 - Hor_pos_act[-180,180]\n            myData.writeInt16BE(global.get(\"Horizontal_pos_act\"), 1);\n        } else if (addr == 200) {   // D200 - Vert_pos_act[-30,30]\n            myData.writeInt16BE(global.get(\"Vertical_pos_act\"), 1);\n        } else if (addr == 404) {   // D404 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"),0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0); \n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 405) {   // D405 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"Focus_Position\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        }\n\n    } else if (inData[i] == 177) {  // W 0xB1\n\n        let regW = global.get(\"regW\");\n\n        if (addr == 1) {            // W1 - (W1.0 Blocked_Hor)\n            myData.writeInt16BE(regW.W1, 1);\n        } else if (addr == 2) {     // W2 - (W2.5 Reset_Init_Error)\n            myData.writeInt16BE(regW.W2, 1);\n        } else if (addr == 11) {    // W11 - (W11.0 Blocked_Vert)\n            myData.writeInt16BE(regW.W11, 1);\n        } else if (addr == 20) {    // W20\n            myData.writeInt16BE(regW.W20, 1);\n        } else if (addr == 21) {    // W21\n            myData.writeInt16BE(regW.W21, 1);\n        } else if (addr == 30) {    // W30 - Alarm_A\n            myData.writeInt16BE(regW.W30, 1);\n        } else if (addr == 31) {    // W31 - Alarm_B\n            myData.writeInt16BE(regW.W31, 1);\n        } else if (addr == 32) {    // W32 - Alarm_C\n            myData.writeInt16BE(regW.W32, 1);\n        } else if (addr == 70) {    // W70\n            myData.writeInt16BE(regW.W70, 1);\n        } else if (addr == 100) {    // W100\n            myData.writeInt16BE(regW.W100, 1);\n        } else if (addr == 105) {    // W105\n            myData.writeInt16BE(regW.W105, 1);\n        } else if (addr == 110) {    // W110\n            myData.writeInt16BE(regW.W110, 1);\n        }\n\n    } else if (inData[i] == 178) {  // H 0xB2\n\n        if (addr == 100) {          // H100 - SL_Version\n            myData.writeInt16BE(global.get(\"SL_Version\"), 1);\n        } else if (addr == 150) {   // H150\n            myData.writeInt16BE(global.get(\"H150\"), 1);\n        } else if (addr == 151) {   // H151\n            myData.writeInt16BE(global.get(\"H151\"), 1);\n        } else if (addr == 254) {   // H254 - Horizontal_speed\n            myData.writeUInt16BE(global.get(\"Horizontal_speed\"), 1);\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            myData.writeUInt16BE(global.get(\"Vertical_speed\"), 1);\n        } else if (addr == 260) {   // H260 - Slave_Speed_Hor\n            myData.writeUInt16BE(global.get(\"H260\"), 1);\n        } else if (addr == 261) {   // H261 - Slave_Speed_Vert\n            myData.writeUInt16BE(global.get(\"H261\"), 1);\n        } else if (addr == 270) {   // H270 - Vert_Pos_Init\n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosHi = myFocusPos.readUInt16BE(0);\n            myData.writeUInt16BE(myFocusPosHi, 1);\n        } else if (addr == 271) {   // H271 \n            let myFocusPos = Buffer.allocUnsafe(4);  // Placeholder for the Float value [HiWord,LoWord]\n            myFocusPos.writeFloatBE(global.get(\"H270\"), 0);\n            let myFocusPosLo = myFocusPos.readUInt16BE(2);\n            myData.writeUInt16BE(myFocusPosLo, 1);\n        } else if (addr == 302) {   // H302 - Hor_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H302\"), 1);\n        } else if (addr == 304) {   // H304 - Hor_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H304\"), 1);\n        } else if (addr == 306) {   // H306 - Vert_Sweep_Limit_Neg\n            myData.writeInt16BE(global.get(\"H306\"), 1);\n        } else if (addr == 308) {   // H308 - Vert_Sweep_Limit_Pos\n            myData.writeInt16BE(global.get(\"H308\"), 1);\n        } else if (addr == 310) {   // H310 - Hor_Home1\n            myData.writeInt16BE(global.get(\"H310\"), 1);\n        } else if (addr == 312) {   // H312 - Vert_Home1\n            myData.writeInt16BE(global.get(\"H312\"), 1);\n        } else if (addr == 314) {   // H314 - Hor_Home2\n            myData.writeInt16BE(global.get(\"H314\"), 1);\n        } else if (addr == 316) {   // H316 - Vert_Home2\n            myData.writeInt16BE(global.get(\"H316\"), 1);\n        } else if (addr == 318) {   // H318 - Hor_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H318\"), 1);\n        } else if (addr == 320) {   // H320 - Hor_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H320\"), 1);\n        } else if (addr == 322) {   // H322 - Vert_User_Limit_Neg\n            myData.writeInt16BE(global.get(\"H322\"), 1);\n        } else if (addr == 324) {   // H324 - Vert_User_Limit_Pos\n            myData.writeInt16BE(global.get(\"H324\"), 1);\n        } else if (addr == 326) {   // H326 - PWM_Frekv_Hort\n            myData.writeInt16BE(global.get(\"H326\"), 1);\n        } else if (addr == 328) {   // H328 - PWM_Frekv_Vert\n            myData.writeInt16BE(global.get(\"H328\"), 1);\n        }\n\n    }\n\n    myList.push(myData);\n\n}  //..for (i = 0;...\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: telegram.byteLength };",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 970,
-        "y": 260,
+        "y": 340,
         "wires": [
             [
-                "ef0e3003fcefb83c",
-                "3fe70d39221d10d8"
+                "ef0e3003fcefb83c"
             ]
         ]
     },
@@ -2164,13 +2179,13 @@
         "id": "ef0e3003fcefb83c",
         "type": "link out",
         "z": "c978021d490da69f",
-        "name": "link out 0x0104",
+        "name": "link out Parsed telegrams",
         "mode": "link",
         "links": [
             "b38fab0b68b3391b"
         ],
-        "x": 1095,
-        "y": 260,
+        "x": 1235,
+        "y": 340,
         "wires": []
     },
     {
@@ -2182,7 +2197,7 @@
             "ef0e3003fcefb83c"
         ],
         "x": 105,
-        "y": 420,
+        "y": 600,
         "wires": [
             [
                 "d839b1c6c6aca029"
@@ -2201,7 +2216,7 @@
         "finalize": "",
         "libs": [],
         "x": 240,
-        "y": 420,
+        "y": 600,
         "wires": [
             [
                 "80f1446c4921542a"
@@ -2241,21 +2256,42 @@
         ]
     },
     {
-        "id": "3fe70d39221d10d8",
-        "type": "debug",
+        "id": "11a1b50fac873c15",
+        "type": "function",
         "z": "c978021d490da69f",
-        "name": "debug 3",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 320,
-        "wires": []
+        "name": "0x2301 - Forced Set/Reset",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0, 0]);\n// Padding \nvar myPadding = Buffer.from([0, 0, 0, 0]);\nlet myList = [];\nlet inData = msg.payload[1];\nlet noOfBits = inData.readUInt16BE(0);\nlet regW = global.get(\"regW\");\n\nmyList.push(myDataType);\n\n\n// Cycle trough 0x2301 Forced Set/Reset Message\nlet i = 2;\nfor (; i < inData.byteLength;i+=6) {\n\n    let setResetSpes = inData.readUInt16BE(i);\n    let memAreaCode = inData.readUInt8(i + 2);\n    let addr = inData.readUInt16BE(i + 3);\n    let bitFlag = inData.readUInt8(i + 4);\n\n    // Look up data\n    if (memAreaCode == 49) {          // CS1 0x31\n\n        if (addr == 0) {              // W0\n\n            // W0.0 - SoftJS_Hor_CCW_input (JS Left)\n            // W0.1 - SoftJS_Hor_CW_Input (JS Right)\n            // W0.7 - Hor_Sweep_Panel\n            if (setResetSpes & 0x0001) {\n                regW.W0 |= (0x0001 << bitFlag);  // Set W0.bitFlag\n            } else {\n                regW.W0 &= ~(0x0001 << bitFlag);  // Clear W0.bitFlag\n            }\n\n        } else if (addr == 10) {       // W10\n\n            // W10.0 - SoftJS_Vert_CCW_input (JS Down)\n            // W10.1 - SoftJS_Vert_CW_input (JS Up)\n            if (setResetSpes & 0x0001) {\n                regW.W10 |= (0x0001 << bitFlag);  // Set W10.bitFlag\n            } else {\n                regW.W10 &= ~(0x0001 << bitFlag);  // Clear W10.bitFlag\n            }\n\n        } else if (addr == 20) {       // W20\n\n            // W20.0 - Focus_Pos_Panel\n            // W20.1 - Focus_Neg_Panel\n            if (setResetSpes & 0x0001) {\n                regW.W20 |= (0x0001 << bitFlag);  // Set W20.bitFlag\n            } else {\n                regW.W20 &= ~(0x0001 << bitFlag);  // Clear W20.bitFlag\n            }\n\n        } else if (addr == 70) {      // W70\n\n            // W70.6 - Ignite_from_Panel\n            if (setResetSpes & 0x0001) {\n                regW.W70 |= (0x0001 << bitFlag);  // Set W70.bitFlag\n            } else {\n                regW.W70 &= ~(0x0001 << bitFlag);  // Clear W70.bitFlag\n            }\n\n        } else if (addr == 110) {      // W110\n\n            // W110.0 - Home1_Order\n            if (setResetSpes & 0x0001) {\n                regW.W110 |= (0x0001 << bitFlag);  // Set W110.bitFlag\n            } else {\n                regW.W110 &= ~(0x0001 << bitFlag);  // Clear W110.bitFlag\n            }\n\n        }\n\n    }\n\n}  //..for (i = 2;...\n\nglobal.set(\"regW\", regW);\n\nmyList.push(myPadding);\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 380,
+        "wires": [
+            [
+                "ef0e3003fcefb83c"
+            ]
+        ]
+    },
+    {
+        "id": "763ddf50270dd6d9",
+        "type": "function",
+        "z": "c978021d490da69f",
+        "name": "0x0102 - Memory Area Write",
+        "func": "// Start with Response \"Normal completion\" \nvar myDataType = Buffer.from([0, 0]);\n// Padding \nvar myPadding = Buffer.from([0, 0, 0, 0]);\nlet myList = [];\nlet inData = msg.payload[1];\n\nmyList.push(myDataType);\n\nlet memAreaCode = inData.readUInt8(0);\nlet addr = inData.readUInt16BE(1);\nlet bitFlag = inData.readUInt8(3);\nlet numOfItems = inData.readUInt16BE(4);\n\n\n// Cycle trough 0x0102 Memory Area Write Data\nlet i = 6;\nfor (; i < inData.byteLength;i+=2) {\n\n\n    // Look up data\n    if (memAreaCode == 258) {          // H 0xB2\n\n        if (addr == 254) {          // H254 - Horizontal_speed\n            global.set(\"Horizontal_speed\", inData.readUInt16BE(i));\n        } else if (addr == 256) {   // H256 - Vertical_speed\n            global.set(\"Vertical_speed\", inData.readUInt16BE(i));\n        }\n\n    }\n\n}  //..for (i = 2;...\n\n\nmyList.push(myPadding);\n\nlet telegram = Buffer.concat(myList);\n\nreturn { payload: telegram, len: inData.byteLength };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "ef0e3003fcefb83c"
+            ]
+        ]
     },
     {
         "id": "51241242912be04c",
