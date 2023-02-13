@@ -262,6 +262,61 @@
         "saveInterval": "0"
     },
     {
+        "id": "58278f54b45791c3",
+        "type": "bit-config",
+        "name": "SLStatus",
+        "bits": [
+            {
+                "property": "lamp",
+                "length": 1,
+                "shift": 0,
+                "type": "boolean"
+            },
+            {
+                "property": "endStopHorCW",
+                "length": 1,
+                "shift": 1,
+                "type": "boolean"
+            },
+            {
+                "property": "endStopHorCCW",
+                "length": 1,
+                "shift": 2,
+                "type": "boolean"
+            },
+            {
+                "property": "endStopVertCW",
+                "length": 1,
+                "shift": 3,
+                "type": "boolean"
+            },
+            {
+                "property": "endStopVertCCW",
+                "length": 1,
+                "shift": 4,
+                "type": "boolean"
+            },
+            {
+                "property": "endStopFocusOut",
+                "length": 1,
+                "shift": 5,
+                "type": "boolean"
+            },
+            {
+                "property": "endStopFocusIn",
+                "length": 1,
+                "shift": 6,
+                "type": "number"
+            },
+            {
+                "property": "alarm",
+                "length": 1,
+                "shift": 7,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
         "id": "71e1c07fa0276701",
         "type": "comment",
         "z": "0e892ddf76c780fa",
@@ -270,6 +325,89 @@
         "x": 190,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "c99ed8d23cbbbed8",
+        "type": "change",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "46fd59168f0ccbe5"
+            ]
+        ]
+    },
+    {
+        "id": "1b7138a041c1485c",
+        "type": "inject",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "273782cdd02af2c0"
+            ]
+        ]
+    },
+    {
+        "id": "46fd59168f0ccbe5",
+        "type": "link out",
+        "z": "0e892ddf76c780fa",
+        "name": "link out Init",
+        "mode": "link",
+        "links": [
+            "40fc6ac57c2d5a33"
+        ],
+        "x": 655,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "273782cdd02af2c0",
+        "type": "bit-decode",
+        "z": "0e892ddf76c780fa",
+        "name": "",
+        "bits": "58278f54b45791c3",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "c99ed8d23cbbbed8"
+            ]
+        ]
     },
     {
         "id": "6bd3e02d89632b59",
@@ -289,23 +427,6 @@
                 "46eaedefebb7b58d"
             ]
         ]
-    },
-    {
-        "id": "98bf0bf771780650",
-        "type": "debug",
-        "z": "91d22f72dfbb50b9",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "46eaedefebb7b58d",
@@ -341,7 +462,6 @@
         "y": 140,
         "wires": [
             [
-                "98bf0bf771780650",
                 "3c8b379194985de1"
             ]
         ]
@@ -463,7 +583,6 @@
         "y": 300,
         "wires": [
             [
-                "98bf0bf771780650",
                 "af5488ec16239369"
             ]
         ]
@@ -473,7 +592,7 @@
         "type": "ui_numeric",
         "z": "91d22f72dfbb50b9",
         "name": "",
-        "label": "numeric",
+        "label": "SL ID",
         "tooltip": "",
         "group": "2fb0e214ac192375",
         "order": 0,
@@ -488,7 +607,7 @@
         "max": "9",
         "step": 1,
         "className": "",
-        "x": 280,
+        "x": 370,
         "y": 580,
         "wires": [
             [
@@ -516,7 +635,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
+        "x": 670,
         "y": 580,
         "wires": [
             []
@@ -532,7 +651,7 @@
         "triggerOnChange": true,
         "provideOutput": false,
         "outputs": 0,
-        "x": 430,
+        "x": 650,
         "y": 620,
         "wires": []
     },
@@ -544,7 +663,7 @@
         "name": "SL",
         "triggerOnInit": true,
         "triggerOnChange": true,
-        "x": 110,
+        "x": 230,
         "y": 580,
         "wires": [
             [
@@ -574,7 +693,8 @@
         "wires": [
             [
                 "1088ed69ab71e7f3",
-                "604d0341d8d9e76f"
+                "604d0341d8d9e76f",
+                "260ac8efd2414188"
             ]
         ]
     },
@@ -739,6 +859,811 @@
                 "8850b6098ad7af06",
                 "dbe61a1a6579c334",
                 "634e01825ac08e70"
+            ]
+        ]
+    },
+    {
+        "id": "5a56f1b169344326",
+        "type": "ui_numeric",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "Horizontal Heading",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-180",
+        "max": "180",
+        "step": 1,
+        "className": "",
+        "x": 410,
+        "y": 700,
+        "wires": [
+            [
+                "02aa7b6a8bb5c234",
+                "2da08aea908ce547"
+            ]
+        ]
+    },
+    {
+        "id": "feaf00c3c1f7c003",
+        "type": "get-shared-state",
+        "z": "91d22f72dfbb50b9",
+        "state": "8e3f0b650d98dc09",
+        "name": "Horizontal_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 190,
+        "y": 700,
+        "wires": [
+            [
+                "5a56f1b169344326"
+            ]
+        ]
+    },
+    {
+        "id": "02aa7b6a8bb5c234",
+        "type": "set-shared-state",
+        "z": "91d22f72dfbb50b9",
+        "state": "8e3f0b650d98dc09",
+        "name": "Horizontal_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 690,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "2da08aea908ce547",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Horizontal_pos_act",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8e8ebb06f4f04f4",
+        "type": "ui_numeric",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "Vertical Heading",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "30",
+        "step": 1,
+        "className": "",
+        "x": 400,
+        "y": 820,
+        "wires": [
+            [
+                "a8325dfaeb07004c",
+                "06e7334bc6d93351"
+            ]
+        ]
+    },
+    {
+        "id": "7316b6c71490841f",
+        "type": "get-shared-state",
+        "z": "91d22f72dfbb50b9",
+        "state": "3c9cf2f8bc9a8795",
+        "name": "Vertical_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 180,
+        "y": 820,
+        "wires": [
+            [
+                "c8e8ebb06f4f04f4"
+            ]
+        ]
+    },
+    {
+        "id": "a8325dfaeb07004c",
+        "type": "set-shared-state",
+        "z": "91d22f72dfbb50b9",
+        "state": "3c9cf2f8bc9a8795",
+        "name": "Vertical_pos_act",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 680,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "06e7334bc6d93351",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Vertical_pos_act",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b6e8e9c16c9bd79",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "LAMP",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 370,
+        "y": 960,
+        "wires": [
+            [
+                "f83bce599238ed68"
+            ]
+        ]
+    },
+    {
+        "id": "9fe4d3a796e9cfc8",
+        "type": "function",
+        "z": "91d22f72dfbb50b9",
+        "name": "Fan Out SLStatus",
+        "func": "return [\n    { payload: msg.payload.lamp },\n    { payload: msg.payload.endStopHorCW },\n    { payload: msg.payload.endStopHorCCW },\n    { payload: msg.payload.endStopVertCW },\n    { payload: msg.payload.endStopVertCCW },\n    { payload: msg.payload.endStopFocusOut },\n    { payload: msg.payload.endStopFocusIn },\n    { payload: msg.payload.alarm }\n];",
+        "outputs": 8,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 1100,
+        "wires": [
+            [
+                "0b6e8e9c16c9bd79"
+            ],
+            [
+                "3af097141a79a207"
+            ],
+            [
+                "39fe26eda41991d5"
+            ],
+            [
+                "3e87405f53e60149"
+            ],
+            [
+                "d85eefd0ae256c99"
+            ],
+            [
+                "4062beaffd946a1d"
+            ],
+            [
+                "64b695a445c6abd6"
+            ],
+            [
+                "81c447951ee1bffb"
+            ]
+        ]
+    },
+    {
+        "id": "3af097141a79a207",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "EndStopHorCW",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 400,
+        "y": 1020,
+        "wires": [
+            [
+                "cb3284b9b175bb8a"
+            ]
+        ]
+    },
+    {
+        "id": "39fe26eda41991d5",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "EndStopHorCCW",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 410,
+        "y": 1080,
+        "wires": [
+            [
+                "37a7537afd53def2"
+            ]
+        ]
+    },
+    {
+        "id": "3e87405f53e60149",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "EndStopVertCW",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 400,
+        "y": 1140,
+        "wires": [
+            [
+                "1352b8961e73485b"
+            ]
+        ]
+    },
+    {
+        "id": "d85eefd0ae256c99",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "EndStopVertCCW",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 410,
+        "y": 1200,
+        "wires": [
+            [
+                "5e8d524534040ed2"
+            ]
+        ]
+    },
+    {
+        "id": "4062beaffd946a1d",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "EndStopFocusOut",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 410,
+        "y": 1260,
+        "wires": [
+            [
+                "28a9bb3b58458270"
+            ]
+        ]
+    },
+    {
+        "id": "64b695a445c6abd6",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "EndStopFocusIn",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 410,
+        "y": 1320,
+        "wires": [
+            [
+                "ab950b592bccc87c"
+            ]
+        ]
+    },
+    {
+        "id": "81c447951ee1bffb",
+        "type": "ui_switch",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "label": "Alarm",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 370,
+        "y": 1380,
+        "wires": [
+            [
+                "cface1767c7073b5"
+            ]
+        ]
+    },
+    {
+        "id": "40fc6ac57c2d5a33",
+        "type": "link in",
+        "z": "91d22f72dfbb50b9",
+        "name": "link in SLStatus",
+        "links": [
+            "46fd59168f0ccbe5"
+        ],
+        "x": 185,
+        "y": 980,
+        "wires": [
+            [
+                "9fe4d3a796e9cfc8"
+            ]
+        ]
+    },
+    {
+        "id": "f83bce599238ed68",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.lamp",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 960,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "cb3284b9b175bb8a",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.endStopHorCW",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 1020,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "37a7537afd53def2",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.endStopHorCCW",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 1080,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "1352b8961e73485b",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.endStopVertCW",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 1140,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "5e8d524534040ed2",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.endStopVertCCW",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 1200,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "cface1767c7073b5",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.alarm",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 1380,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "ab950b592bccc87c",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.endStopFocusIn",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 1320,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "28a9bb3b58458270",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatus.endStopFocusOut",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 1260,
+        "wires": [
+            [
+                "da38a1fc6e5c626c"
+            ]
+        ]
+    },
+    {
+        "id": "fe0ec0475fed2046",
+        "type": "bit-encode",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "bits": "58278f54b45791c3",
+        "x": 1170,
+        "y": 1180,
+        "wires": [
+            [
+                "aee71959dd151efd"
+            ]
+        ]
+    },
+    {
+        "id": "da38a1fc6e5c626c",
+        "type": "function",
+        "z": "91d22f72dfbb50b9",
+        "name": "get SLStatus",
+        "func": "\nreturn {payload: global.get(\"SLStatus\")};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1120,
+        "wires": [
+            [
+                "fe0ec0475fed2046"
+            ]
+        ]
+    },
+    {
+        "id": "aee71959dd151efd",
+        "type": "change",
+        "z": "91d22f72dfbb50b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SLStatusByte",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55e870a4106f816b",
+        "type": "udp out",
+        "z": "91d22f72dfbb50b9",
+        "name": "R50 Respons Telegram",
+        "addr": "255.255.255.255",
+        "iface": "",
+        "port": "2101",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "broad",
+        "x": 1090,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "260ac8efd2414188",
+        "type": "function",
+        "z": "91d22f72dfbb50b9",
+        "name": "Build Status Telegram 07",
+        "func": "\nfunction decimalToHex(d, padding) {\n\n    if (d < 0) {\n        if (padding == 2) {\n            d = 0xFF + d + 1;\n        } else if (padding == 4) {\n            d = 0xFFFF + d + 1;\n        }\n    }\n    \n    var hex = Number(d).toString(16).toUpperCase();\n    padding = typeof (padding) === \"undefined\" || padding === null ? padding = 2 : padding;\n\n    while (hex.length < padding) {\n        hex = \"0\" + hex;\n    }\n\n    return hex;\n}\n\nlet Telegram07 = String.fromCharCode(0x1B) + \"07\";\nTelegram07 += decimalToHex(global.get(\"SL\"),2);\nTelegram07 += \"0E\";\nTelegram07 += decimalToHex(global.get(\"Horizontal_pos_act\"), 4);\nTelegram07 += decimalToHex(global.get(\"Vertical_pos_act\"), 4);\nTelegram07 += decimalToHex(global.get(\"SLStatusByte\"), 4);\n\n// Calculate CRC\nlet buff = Buffer.from(Telegram07, \"utf-8\");\nlet CS = 0;\nCS = buff[0];\nfor (let i = 1; i < buff.length; i++) {\n    CS ^= buff[i];\n}\nTelegram07 += decimalToHex(CS, 2);\n\nTelegram07 += String.fromCharCode(0x0D);\n\nreturn { payload: Telegram07};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 420,
+        "wires": [
+            [
+                "55e870a4106f816b"
             ]
         ]
     },
