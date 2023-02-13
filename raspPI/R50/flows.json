@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "ee2f8ce4b930d2a0",
+        "type": "tab",
+        "label": "R50 - Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "c978021d490da69f",
         "type": "tab",
         "label": "FINS",
@@ -424,7 +432,8 @@
         "y": 140,
         "wires": [
             [
-                "46eaedefebb7b58d"
+                "46eaedefebb7b58d",
+                "088bcec157c4f675"
             ]
         ]
     },
@@ -476,16 +485,24 @@
         "rules": [
             {
                 "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
                 "v": "8",
                 "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
-        "x": 220,
-        "y": 300,
+        "outputs": 2,
+        "x": 160,
+        "y": 240,
         "wires": [
+            [
+                "d7f6395f2c147e57"
+            ],
             [
                 "c2f6e87530349492"
             ]
@@ -580,94 +597,10 @@
         "setTopic": true,
         "outputs": 1,
         "x": 450,
-        "y": 300,
+        "y": 480,
         "wires": [
             [
                 "af5488ec16239369"
-            ]
-        ]
-    },
-    {
-        "id": "dad6d2af822a5603",
-        "type": "ui_numeric",
-        "z": "91d22f72dfbb50b9",
-        "name": "",
-        "label": "SL ID",
-        "tooltip": "",
-        "group": "2fb0e214ac192375",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "wrap": true,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "{{value}}",
-        "min": "1",
-        "max": "9",
-        "step": 1,
-        "className": "",
-        "x": 370,
-        "y": 580,
-        "wires": [
-            [
-                "c74bf7aa87e31554",
-                "6a2475f35973f41c"
-            ]
-        ]
-    },
-    {
-        "id": "c74bf7aa87e31554",
-        "type": "change",
-        "z": "91d22f72dfbb50b9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "SL",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 670,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6a2475f35973f41c",
-        "type": "set-shared-state",
-        "z": "91d22f72dfbb50b9",
-        "state": "f5321b6a2e1b0a9d",
-        "name": "SL",
-        "triggerOnInit": true,
-        "triggerOnChange": true,
-        "provideOutput": false,
-        "outputs": 0,
-        "x": 650,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "2a8000612c90a32d",
-        "type": "get-shared-state",
-        "z": "91d22f72dfbb50b9",
-        "state": "f5321b6a2e1b0a9d",
-        "name": "SL",
-        "triggerOnInit": true,
-        "triggerOnChange": true,
-        "x": 230,
-        "y": 580,
-        "wires": [
-            [
-                "dad6d2af822a5603"
             ]
         ]
     },
@@ -689,7 +622,7 @@
         "repair": false,
         "outputs": 1,
         "x": 640,
-        "y": 300,
+        "y": 480,
         "wires": [
             [
                 "1088ed69ab71e7f3",
@@ -709,16 +642,6 @@
         "wires": []
     },
     {
-        "id": "be8fcc8acfddb9b5",
-        "type": "comment",
-        "z": "91d22f72dfbb50b9",
-        "name": "Dashboard",
-        "info": "",
-        "x": 120,
-        "y": 520,
-        "wires": []
-    },
-    {
         "id": "1088ed69ab71e7f3",
         "type": "function",
         "z": "91d22f72dfbb50b9",
@@ -730,7 +653,7 @@
         "finalize": "",
         "libs": [],
         "x": 800,
-        "y": 300,
+        "y": 480,
         "wires": [
             [
                 "bcb81c94f34df875"
@@ -779,7 +702,7 @@
         "showGlow": true,
         "name": "Lamp",
         "x": 1050,
-        "y": 360,
+        "y": 540,
         "wires": []
     },
     {
@@ -796,7 +719,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 1080,
-        "y": 240,
+        "y": 420,
         "wires": []
     },
     {
@@ -813,7 +736,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 1070,
-        "y": 280,
+        "y": 460,
         "wires": []
     },
     {
@@ -830,7 +753,7 @@
         "layout": "row-spread",
         "className": "",
         "x": 1070,
-        "y": 320,
+        "y": 500,
         "wires": []
     },
     {
@@ -851,7 +774,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 820,
-        "y": 360,
+        "y": 540,
         "wires": [
             [],
             [
@@ -863,9 +786,236 @@
         ]
     },
     {
+        "id": "55e870a4106f816b",
+        "type": "udp out",
+        "z": "91d22f72dfbb50b9",
+        "name": "R50 Respons Telegram",
+        "addr": "255.255.255.255",
+        "iface": "",
+        "port": "2101",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "broad",
+        "x": 310,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "260ac8efd2414188",
+        "type": "function",
+        "z": "91d22f72dfbb50b9",
+        "name": "Build Status Telegram 07",
+        "func": "\nfunction decimalToHex(d, padding) {\n\n    if (d < 0) {\n        if (padding == 2) {\n            d = 0xFF + d + 1;\n        } else if (padding == 4) {\n            d = 0xFFFF + d + 1;\n        }\n    }\n    \n    var hex = Number(d).toString(16).toUpperCase();\n    padding = typeof (padding) === \"undefined\" || padding === null ? padding = 2 : padding;\n\n    while (hex.length < padding) {\n        hex = \"0\" + hex;\n    }\n\n    return hex;\n}\n\nlet Telegram07 = String.fromCharCode(0x1B) + \"07\";\nTelegram07 += decimalToHex(global.get(\"SL\"),2);\nTelegram07 += \"0E\";\nTelegram07 += decimalToHex(global.get(\"Horizontal_pos_act\"), 4);\nTelegram07 += decimalToHex(global.get(\"Vertical_pos_act\"), 4);\nTelegram07 += decimalToHex(global.get(\"SLStatusByte\"), 4);\n\n// Calculate CRC\nlet buff = Buffer.from(Telegram07, \"utf-8\");\nlet CS = 0;\nCS = buff[0];\nfor (let i = 1; i < buff.length; i++) {\n    CS ^= buff[i];\n}\nTelegram07 += decimalToHex(CS, 2);\n\nTelegram07 += String.fromCharCode(0x0D);\n\nreturn { payload: Telegram07};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "4db046209627e716"
+            ]
+        ]
+    },
+    {
+        "id": "088bcec157c4f675",
+        "type": "debug",
+        "z": "91d22f72dfbb50b9",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b5957aa5fdc72f5d",
+        "type": "link in",
+        "z": "91d22f72dfbb50b9",
+        "name": "link in R50 Respons Telegram",
+        "links": [
+            "4db046209627e716",
+            "5276e03cac070e45"
+        ],
+        "x": 145,
+        "y": 960,
+        "wires": [
+            [
+                "55e870a4106f816b"
+            ]
+        ]
+    },
+    {
+        "id": "4db046209627e716",
+        "type": "link out",
+        "z": "91d22f72dfbb50b9",
+        "name": "link out Status Telegram 07",
+        "mode": "link",
+        "links": [
+            "b5957aa5fdc72f5d"
+        ],
+        "x": 635,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d7f6395f2c147e57",
+        "type": "function",
+        "z": "91d22f72dfbb50b9",
+        "name": "Build Ping ACK Telegram 02",
+        "func": "\nfunction decimalToHex(d, padding) {\n\n    if (d < 0) {\n        if (padding == 2) {\n            d = 0xFF + d + 1;\n        } else if (padding == 4) {\n            d = 0xFFFF + d + 1;\n        }\n    }\n    \n    var hex = Number(d).toString(16).toUpperCase();\n    padding = typeof (padding) === \"undefined\" || padding === null ? padding = 2 : padding;\n\n    while (hex.length < padding) {\n        hex = \"0\" + hex;\n    }\n\n    return hex;\n}\n\nlet Telegram02 = String.fromCharCode(0x1B) + \"02\";\nTelegram02 += decimalToHex(global.get(\"SL\"),2);\nTelegram02 += \"0E000100010001\";\n\n// Calculate CRC\nlet buff = Buffer.from(Telegram02, \"utf-8\");\nlet CS = 0;\nCS = buff[0];\nfor (let i = 1; i < buff.length; i++) {\n    CS ^= buff[i];\n}\nTelegram02 += decimalToHex(CS, 2);\n\nTelegram02 += String.fromCharCode(0x0D);\n\nreturn { payload: Telegram02};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "5276e03cac070e45"
+            ]
+        ]
+    },
+    {
+        "id": "5276e03cac070e45",
+        "type": "link out",
+        "z": "91d22f72dfbb50b9",
+        "name": "link out Ping ACK Telegram 02",
+        "mode": "link",
+        "links": [
+            "b5957aa5fdc72f5d"
+        ],
+        "x": 655,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6291cd052b5ca7b7",
+        "type": "comment",
+        "z": "91d22f72dfbb50b9",
+        "name": "Ping Telegram 01",
+        "info": "",
+        "x": 440,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cc08fb1e54985847",
+        "type": "comment",
+        "z": "91d22f72dfbb50b9",
+        "name": "Searchlight Command Telegram 08",
+        "info": "",
+        "x": 500,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "dad6d2af822a5603",
+        "type": "ui_numeric",
+        "z": "ee2f8ce4b930d2a0",
+        "name": "",
+        "label": "SL ID",
+        "tooltip": "",
+        "group": "2fb0e214ac192375",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": true,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "9",
+        "step": 1,
+        "className": "",
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "c74bf7aa87e31554",
+                "6a2475f35973f41c"
+            ]
+        ]
+    },
+    {
+        "id": "c74bf7aa87e31554",
+        "type": "change",
+        "z": "ee2f8ce4b930d2a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SL",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a2475f35973f41c",
+        "type": "set-shared-state",
+        "z": "ee2f8ce4b930d2a0",
+        "state": "f5321b6a2e1b0a9d",
+        "name": "SL",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "provideOutput": false,
+        "outputs": 0,
+        "x": 650,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2a8000612c90a32d",
+        "type": "get-shared-state",
+        "z": "ee2f8ce4b930d2a0",
+        "state": "f5321b6a2e1b0a9d",
+        "name": "SL",
+        "triggerOnInit": true,
+        "triggerOnChange": true,
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "dad6d2af822a5603"
+            ]
+        ]
+    },
+    {
+        "id": "be8fcc8acfddb9b5",
+        "type": "comment",
+        "z": "ee2f8ce4b930d2a0",
+        "name": "Dashboard",
+        "info": "",
+        "x": 120,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "5a56f1b169344326",
         "type": "ui_numeric",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "Horizontal Heading",
         "tooltip": "",
@@ -883,7 +1033,7 @@
         "step": 1,
         "className": "",
         "x": 410,
-        "y": 700,
+        "y": 260,
         "wires": [
             [
                 "02aa7b6a8bb5c234",
@@ -894,13 +1044,13 @@
     {
         "id": "feaf00c3c1f7c003",
         "type": "get-shared-state",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "state": "8e3f0b650d98dc09",
         "name": "Horizontal_pos_act",
         "triggerOnInit": true,
         "triggerOnChange": true,
         "x": 190,
-        "y": 700,
+        "y": 260,
         "wires": [
             [
                 "5a56f1b169344326"
@@ -910,7 +1060,7 @@
     {
         "id": "02aa7b6a8bb5c234",
         "type": "set-shared-state",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "state": "8e3f0b650d98dc09",
         "name": "Horizontal_pos_act",
         "triggerOnInit": true,
@@ -918,13 +1068,13 @@
         "provideOutput": false,
         "outputs": 0,
         "x": 690,
-        "y": 740,
+        "y": 300,
         "wires": []
     },
     {
         "id": "2da08aea908ce547",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -941,7 +1091,7 @@
         "to": "",
         "reg": false,
         "x": 730,
-        "y": 700,
+        "y": 260,
         "wires": [
             []
         ]
@@ -949,7 +1099,7 @@
     {
         "id": "c8e8ebb06f4f04f4",
         "type": "ui_numeric",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "Vertical Heading",
         "tooltip": "",
@@ -967,7 +1117,7 @@
         "step": 1,
         "className": "",
         "x": 400,
-        "y": 820,
+        "y": 380,
         "wires": [
             [
                 "a8325dfaeb07004c",
@@ -978,13 +1128,13 @@
     {
         "id": "7316b6c71490841f",
         "type": "get-shared-state",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "state": "3c9cf2f8bc9a8795",
         "name": "Vertical_pos_act",
         "triggerOnInit": true,
         "triggerOnChange": true,
         "x": 180,
-        "y": 820,
+        "y": 380,
         "wires": [
             [
                 "c8e8ebb06f4f04f4"
@@ -994,7 +1144,7 @@
     {
         "id": "a8325dfaeb07004c",
         "type": "set-shared-state",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "state": "3c9cf2f8bc9a8795",
         "name": "Vertical_pos_act",
         "triggerOnInit": true,
@@ -1002,13 +1152,13 @@
         "provideOutput": false,
         "outputs": 0,
         "x": 680,
-        "y": 860,
+        "y": 420,
         "wires": []
     },
     {
         "id": "06e7334bc6d93351",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1025,7 +1175,7 @@
         "to": "",
         "reg": false,
         "x": 720,
-        "y": 820,
+        "y": 380,
         "wires": [
             []
         ]
@@ -1033,7 +1183,7 @@
     {
         "id": "0b6e8e9c16c9bd79",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "LAMP",
         "tooltip": "",
@@ -1057,7 +1207,7 @@
         "animate": false,
         "className": "",
         "x": 370,
-        "y": 960,
+        "y": 520,
         "wires": [
             [
                 "f83bce599238ed68"
@@ -1067,7 +1217,7 @@
     {
         "id": "9fe4d3a796e9cfc8",
         "type": "function",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "Fan Out SLStatus",
         "func": "return [\n    { payload: msg.payload.lamp },\n    { payload: msg.payload.endStopHorCW },\n    { payload: msg.payload.endStopHorCCW },\n    { payload: msg.payload.endStopVertCW },\n    { payload: msg.payload.endStopVertCCW },\n    { payload: msg.payload.endStopFocusOut },\n    { payload: msg.payload.endStopFocusIn },\n    { payload: msg.payload.alarm }\n];",
         "outputs": 8,
@@ -1076,7 +1226,7 @@
         "finalize": "",
         "libs": [],
         "x": 150,
-        "y": 1100,
+        "y": 660,
         "wires": [
             [
                 "0b6e8e9c16c9bd79"
@@ -1107,7 +1257,7 @@
     {
         "id": "3af097141a79a207",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "EndStopHorCW",
         "tooltip": "",
@@ -1131,7 +1281,7 @@
         "animate": false,
         "className": "",
         "x": 400,
-        "y": 1020,
+        "y": 580,
         "wires": [
             [
                 "cb3284b9b175bb8a"
@@ -1141,7 +1291,7 @@
     {
         "id": "39fe26eda41991d5",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "EndStopHorCCW",
         "tooltip": "",
@@ -1165,7 +1315,7 @@
         "animate": false,
         "className": "",
         "x": 410,
-        "y": 1080,
+        "y": 640,
         "wires": [
             [
                 "37a7537afd53def2"
@@ -1175,7 +1325,7 @@
     {
         "id": "3e87405f53e60149",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "EndStopVertCW",
         "tooltip": "",
@@ -1199,7 +1349,7 @@
         "animate": false,
         "className": "",
         "x": 400,
-        "y": 1140,
+        "y": 700,
         "wires": [
             [
                 "1352b8961e73485b"
@@ -1209,7 +1359,7 @@
     {
         "id": "d85eefd0ae256c99",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "EndStopVertCCW",
         "tooltip": "",
@@ -1233,7 +1383,7 @@
         "animate": false,
         "className": "",
         "x": 410,
-        "y": 1200,
+        "y": 760,
         "wires": [
             [
                 "5e8d524534040ed2"
@@ -1243,7 +1393,7 @@
     {
         "id": "4062beaffd946a1d",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "EndStopFocusOut",
         "tooltip": "",
@@ -1267,7 +1417,7 @@
         "animate": false,
         "className": "",
         "x": 410,
-        "y": 1260,
+        "y": 820,
         "wires": [
             [
                 "28a9bb3b58458270"
@@ -1277,7 +1427,7 @@
     {
         "id": "64b695a445c6abd6",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "EndStopFocusIn",
         "tooltip": "",
@@ -1301,7 +1451,7 @@
         "animate": false,
         "className": "",
         "x": 410,
-        "y": 1320,
+        "y": 880,
         "wires": [
             [
                 "ab950b592bccc87c"
@@ -1311,7 +1461,7 @@
     {
         "id": "81c447951ee1bffb",
         "type": "ui_switch",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "label": "Alarm",
         "tooltip": "",
@@ -1335,7 +1485,7 @@
         "animate": false,
         "className": "",
         "x": 370,
-        "y": 1380,
+        "y": 940,
         "wires": [
             [
                 "cface1767c7073b5"
@@ -1345,13 +1495,13 @@
     {
         "id": "40fc6ac57c2d5a33",
         "type": "link in",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "link in SLStatus",
         "links": [
             "46fd59168f0ccbe5"
         ],
         "x": 185,
-        "y": 980,
+        "y": 540,
         "wires": [
             [
                 "9fe4d3a796e9cfc8"
@@ -1361,7 +1511,7 @@
     {
         "id": "f83bce599238ed68",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1378,7 +1528,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 960,
+        "y": 520,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1388,7 +1538,7 @@
     {
         "id": "cb3284b9b175bb8a",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1405,7 +1555,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1020,
+        "y": 580,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1415,7 +1565,7 @@
     {
         "id": "37a7537afd53def2",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1432,7 +1582,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 1080,
+        "y": 640,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1442,7 +1592,7 @@
     {
         "id": "1352b8961e73485b",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1459,7 +1609,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 1140,
+        "y": 700,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1469,7 +1619,7 @@
     {
         "id": "5e8d524534040ed2",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1486,7 +1636,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 1200,
+        "y": 760,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1496,7 +1646,7 @@
     {
         "id": "cface1767c7073b5",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1513,7 +1663,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 1380,
+        "y": 940,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1523,7 +1673,7 @@
     {
         "id": "ab950b592bccc87c",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1540,7 +1690,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 1320,
+        "y": 880,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1550,7 +1700,7 @@
     {
         "id": "28a9bb3b58458270",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1567,7 +1717,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 1260,
+        "y": 820,
         "wires": [
             [
                 "da38a1fc6e5c626c"
@@ -1577,11 +1727,11 @@
     {
         "id": "fe0ec0475fed2046",
         "type": "bit-encode",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "bits": "58278f54b45791c3",
         "x": 1170,
-        "y": 1180,
+        "y": 740,
         "wires": [
             [
                 "aee71959dd151efd"
@@ -1591,7 +1741,7 @@
     {
         "id": "da38a1fc6e5c626c",
         "type": "function",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "get SLStatus",
         "func": "\nreturn {payload: global.get(\"SLStatus\")};",
         "outputs": 1,
@@ -1600,7 +1750,7 @@
         "finalize": "",
         "libs": [],
         "x": 1150,
-        "y": 1120,
+        "y": 680,
         "wires": [
             [
                 "fe0ec0475fed2046"
@@ -1610,7 +1760,7 @@
     {
         "id": "aee71959dd151efd",
         "type": "change",
-        "z": "91d22f72dfbb50b9",
+        "z": "ee2f8ce4b930d2a0",
         "name": "",
         "rules": [
             {
@@ -1627,44 +1777,9 @@
         "to": "",
         "reg": false,
         "x": 1190,
-        "y": 1240,
+        "y": 800,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "55e870a4106f816b",
-        "type": "udp out",
-        "z": "91d22f72dfbb50b9",
-        "name": "R50 Respons Telegram",
-        "addr": "255.255.255.255",
-        "iface": "",
-        "port": "2101",
-        "ipv": "udp4",
-        "outport": "",
-        "base64": false,
-        "multicast": "broad",
-        "x": 1090,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "260ac8efd2414188",
-        "type": "function",
-        "z": "91d22f72dfbb50b9",
-        "name": "Build Status Telegram 07",
-        "func": "\nfunction decimalToHex(d, padding) {\n\n    if (d < 0) {\n        if (padding == 2) {\n            d = 0xFF + d + 1;\n        } else if (padding == 4) {\n            d = 0xFFFF + d + 1;\n        }\n    }\n    \n    var hex = Number(d).toString(16).toUpperCase();\n    padding = typeof (padding) === \"undefined\" || padding === null ? padding = 2 : padding;\n\n    while (hex.length < padding) {\n        hex = \"0\" + hex;\n    }\n\n    return hex;\n}\n\nlet Telegram07 = String.fromCharCode(0x1B) + \"07\";\nTelegram07 += decimalToHex(global.get(\"SL\"),2);\nTelegram07 += \"0E\";\nTelegram07 += decimalToHex(global.get(\"Horizontal_pos_act\"), 4);\nTelegram07 += decimalToHex(global.get(\"Vertical_pos_act\"), 4);\nTelegram07 += decimalToHex(global.get(\"SLStatusByte\"), 4);\n\n// Calculate CRC\nlet buff = Buffer.from(Telegram07, \"utf-8\");\nlet CS = 0;\nCS = buff[0];\nfor (let i = 1; i < buff.length; i++) {\n    CS ^= buff[i];\n}\nTelegram07 += decimalToHex(CS, 2);\n\nTelegram07 += String.fromCharCode(0x0D);\n\nreturn { payload: Telegram07};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 420,
-        "wires": [
-            [
-                "55e870a4106f816b"
-            ]
         ]
     },
     {
