@@ -48,7 +48,6 @@
 
 
 
-
 /**
   Section: Included Files
 */
@@ -56,9 +55,11 @@
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
 #include "mcc_generated_files/coretimer.h"
+#include "mcc_generated_files/uart1.h"
 #include "MD_MotorDrivers.h"
 #include "EE_RegisterStorage.h"
 #include "DB_Debounce.h"
+#include "protocol.h"
 
 
 
@@ -75,14 +76,14 @@ char RevBuild[] = "Rev.: 001";
 
 volatile bool TimerEvent10ms;
 volatile uint32_t myTime=0;
-bool TimerEvent50ms=false, TimerEvent1s=false;
+bool TimerEvent50ms=false, TimerEvent1s=false, TimerEvent15s=false;
 uint32_t myLastTime=0;
 
 
 
 void UpdateTimers(void)
 {
-    static int32_t my50msCnt, my1000msCnt;
+    static int32_t my50msCnt, my1000msCnt, my15sCnt;
     int32_t delta;
     
     delta = myTime-myLastTime;
@@ -96,8 +97,13 @@ void UpdateTimers(void)
         my1000msCnt += 50;
         while(my1000msCnt>=1000) {
             TimerEvent1s=true;
-            my1000msCnt -= 1000; 
-        }  //..while(my250msCnt>=250)
+            my1000msCnt -= 1000;
+            my15sCnt += 1;
+            while(my15sCnt>=15) {
+                TimerEvent15s=true;
+                my15sCnt -= 15;
+            }  //..while(my15sCnt>=15)
+        }  //..while(my1000msCnt>=1000)
     }  //..while(my50msCnt>=50)
     
 }
@@ -122,14 +128,17 @@ int main(void)
     DB_debounce_struct_t focus_P_Signal;
     DB_debounce_struct_t focus_N_Signal;
     int8_t horizDir=0, vertDir=0, focusDir=0;
-    uint32_t horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
-
+    uint32_t i,horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
+    char ch;
+    _frameType0x10 portDump;
+    uint8_t * buff;
     
     // initialize the device
     SYSTEM_Initialize();
 
-/*
+
     POWER_OK_SetHigh();
+/* 
     OP_STATUS_SetHigh();
     FOCUS_END_IN_LED_SetHigh();
     FOCUS_END_OUT_LED_SetHigh();
@@ -168,6 +177,9 @@ int main(void)
     MD_setHoriz(0);
     MD_setVert(0);
     MD_setFocus(0);
+    
+    // Init portDump Structure
+    portDump.frameType = 0x10;
    
     // Enable WDT
     WDTCONbits.ON=1;
@@ -223,7 +235,7 @@ int main(void)
             DB_DebounceSignal(HORIZ_SPEED_N_GetValue(),&HSN_Signal);
             DB_DebounceSignal(VERT_SPEED_P_GetValue(),&VSP_Signal);
             DB_DebounceSignal(VERT_SPEED_N_GetValue(),&VSN_Signal);
-
+                        
         }  //..if(my10msTimer)
         
         
@@ -237,7 +249,7 @@ int main(void)
             MD_setHoriz(horizDir*horizSpeedIndex);
             MD_setVert(vertDir*vertSpeedIndex);
             MD_setFocus(focusDir*focusSpeedIndex);
-
+                        
         }  //..if(TimerEvent50ms)
         
         
@@ -245,12 +257,55 @@ int main(void)
         if(TimerEvent1s) {
             TimerEvent1s = false;
             
-            OP_STATUS_SetHigh();
-
-            
         }  //..if(TimerEvent1s)
-    
 
+        
+        // 1s Timer Event
+        if(TimerEvent15s) {
+            TimerEvent15s = false;
+            
+            OP_STATUS_SetHigh();
+            
+        }  //..if(TimerEvent15s)
+
+        
+        if(UART1_IsRxReady()) {
+            ch = UART1_Read();
+        }
+
+        
+        if(UART1_IsTxDone()) {
+
+            // If any activity on ports => send!
+            if( (portDump.PortA != (PORTA&0b1111011110110000)) || (portDump.PortB != (PORTB&0b0000000110000010)) || (portDump.PortC != (PORTC&0b0110111111111111)) || (portDump.PortD != (PORTD&0b11101)) ) {
+
+                // Build&Send portDump Telegram
+                portDump.PortA = (PORTA&0b1111011110110000);
+                portDump.PortB = (PORTB&0b0000000110000010);
+                portDump.PortC = (PORTC&0b0110111111111111);
+                portDump.PortD = (PORTD&0b11101);
+                portDump.CS = 0;
+                buff = (uint8_t *)&portDump; 
+                for(i=0;i<sizeof(_frameType0x10);i++) {
+                    if(i<(sizeof(_frameType0x10)-1)) {
+                        portDump.CS ^= buff[i];
+                    }    
+                    if(buff[i] == FRAME_END) {
+                        UART1_Write(FRAME_ESC);
+                        UART1_Write(FRAME_ESC_END);
+                  } else if(buff[i] == FRAME_ESC) {
+                        UART1_Write(FRAME_ESC);
+                        UART1_Write(FRAME_ESC_ESC);
+                    } else {
+                        UART1_Write(buff[i]);
+                    }
+                }
+                UART1_Write(FRAME_END);
+
+            }
+        }
+        
+        
         // Lamp_ON
         if(!Lamp_ON_Signal.handled) {
             Lamp_ON_Signal.handled = true;
@@ -267,7 +322,7 @@ int main(void)
                 }
             }
         }
-        
+
         // Handle Horizontal Speed +
         if(!HSP_Signal.handled) {
             HSP_Signal.handled=true;

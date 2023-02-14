@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "d2106ca350b87b9e",
+        "type": "tab",
+        "label": "MDC2022",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "c978021d490da69f",
         "type": "tab",
         "label": "FINS",
@@ -325,6 +333,25 @@
         ]
     },
     {
+        "id": "4fe1be0c1be734de",
+        "type": "serial-port",
+        "serialport": "/dev/ttyS0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "0xC0",
+        "bin": "bin",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "1000"
+    },
+    {
         "id": "71e1c07fa0276701",
         "type": "comment",
         "z": "0e892ddf76c780fa",
@@ -432,8 +459,7 @@
         "y": 140,
         "wires": [
             [
-                "46eaedefebb7b58d",
-                "088bcec157c4f675"
+                "46eaedefebb7b58d"
             ]
         ]
     },
@@ -819,22 +845,6 @@
                 "4db046209627e716"
             ]
         ]
-    },
-    {
-        "id": "088bcec157c4f675",
-        "type": "debug",
-        "z": "91d22f72dfbb50b9",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "b5957aa5fdc72f5d",
@@ -1781,6 +1791,216 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "6e69d396b660b1da",
+        "type": "serial in",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "serial": "4fe1be0c1be734de",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "f7e5de37a69b3bd7"
+            ]
+        ]
+    },
+    {
+        "id": "38c75bb46da8bdca",
+        "type": "comment",
+        "z": "d2106ca350b87b9e",
+        "name": "RS232 input",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f7e5de37a69b3bd7",
+        "type": "slip",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "mode": "decode",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "662b3e1d9320f1a2"
+            ]
+        ]
+    },
+    {
+        "id": "58362e840e6529a1",
+        "type": "debug",
+        "z": "d2106ca350b87b9e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7a1f430fc3030af6",
+        "type": "serial out",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "serial": "4fe1be0c1be734de",
+        "x": 520,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "662b3e1d9320f1a2",
+        "type": "function",
+        "z": "d2106ca350b87b9e",
+        "name": "CRC OK?",
+        "func": "let buff = msg.payload;\nlet len = buff.length;\nlet CS = 0;\n\nif(len>3) {\n\n    for(let i=0;i<len;i++) {\n        CS ^= buff[i];\n    }\n\n    // Only return any payload when CRC is OK\n    if(CS==0) {\n        return msg;      \n    }\n     \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "a1c1ea1c29954c0f"
+            ]
+        ]
+    },
+    {
+        "id": "59d39ca4698e7938",
+        "type": "buffer-parser",
+        "z": "d2106ca350b87b9e",
+        "name": "C_FRAMETYPE_RAW_DATA 0x10",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint16le",
+                "name": "PortA",
+                "offset": 1,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "PortB",
+                "offset": 3,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint16le",
+                "name": "PortC",
+                "offset": 5,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "uint8",
+                "name": "PortD",
+                "offset": 7,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "58362e840e6529a1"
+            ]
+        ]
+    },
+    {
+        "id": "a1c1ea1c29954c0f",
+        "type": "switch",
+        "z": "d2106ca350b87b9e",
+        "name": "Splitt Message Types",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "16",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "59d39ca4698e7938"
+            ]
+        ]
+    },
+    {
+        "id": "331c66b6b69a256a",
+        "type": "catch",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "4bb963b3e1fc11a5"
+            ]
+        ]
+    },
+    {
+        "id": "4bb963b3e1fc11a5",
+        "type": "debug",
+        "z": "d2106ca350b87b9e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 320,
+        "wires": []
     },
     {
         "id": "01533fbb474b8035",
