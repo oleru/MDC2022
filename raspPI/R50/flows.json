@@ -352,6 +352,196 @@
         "responsetimeout": "1000"
     },
     {
+        "id": "6a635b6fe4cb76c7",
+        "type": "bit-config",
+        "name": "PortABits",
+        "bits": [
+            {
+                "property": "JS_Down",
+                "length": 1,
+                "shift": 4,
+                "type": "boolean"
+            },
+            {
+                "property": "FocusEndInLed",
+                "length": 1,
+                "shift": 5,
+                "type": "boolean"
+            },
+            {
+                "property": "LampOnBtn",
+                "length": 1,
+                "shift": 7,
+                "type": "boolean"
+            },
+            {
+                "property": "RlyLampOn",
+                "length": 1,
+                "shift": 8,
+                "type": "boolean"
+            },
+            {
+                "property": "JS__Up",
+                "length": 1,
+                "shift": 9,
+                "type": "number"
+            },
+            {
+                "property": "RlyStep",
+                "length": 1,
+                "shift": 10,
+                "type": "boolean"
+            },
+            {
+                "property": "FocusEndOut",
+                "length": 1,
+                "shift": 12,
+                "type": "boolean"
+            },
+            {
+                "property": "FocusEndIn",
+                "length": 1,
+                "shift": 13,
+                "type": "boolean"
+            },
+            {
+                "property": "JS_Right",
+                "length": 1,
+                "shift": 14,
+                "type": "boolean"
+            },
+            {
+                "property": "VertSpeedNeg",
+                "length": 1,
+                "shift": 15,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "8cc1fb1e05e0f783",
+        "type": "bit-config",
+        "name": "PortBBits",
+        "bits": [
+            {
+                "property": "MD_FocusDir",
+                "length": 1,
+                "shift": 1,
+                "type": "boolean"
+            },
+            {
+                "property": "FocusInBtn",
+                "length": 1,
+                "shift": 7,
+                "type": "boolean"
+            },
+            {
+                "property": "FocusEndOutLed",
+                "length": 1,
+                "shift": 8,
+                "type": "boolean"
+            },
+            {
+                "property": "INT2",
+                "length": 1,
+                "shift": 9,
+                "type": "number"
+            },
+            {
+                "property": "PowerOKLed",
+                "length": 1,
+                "shift": 13,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "fb9d13d3e2f609d7",
+        "type": "bit-config",
+        "name": "PortCBits",
+        "bits": [
+            {
+                "property": "SW1",
+                "length": 4,
+                "shift": 0,
+                "type": "number"
+            },
+            {
+                "property": "INT3",
+                "length": 1,
+                "shift": 4,
+                "type": "number"
+            },
+            {
+                "property": "HorizSpeedNeg",
+                "length": 1,
+                "shift": 5,
+                "type": "boolean"
+            },
+            {
+                "property": "HW_ID",
+                "length": 3,
+                "shift": 6,
+                "type": "number"
+            },
+            {
+                "property": "FocusPlusBtn",
+                "length": 1,
+                "shift": 10,
+                "type": "boolean"
+            },
+            {
+                "property": "JS_Left",
+                "length": 1,
+                "shift": 11,
+                "type": "boolean"
+            },
+            {
+                "property": "HighTempLed",
+                "length": 1,
+                "shift": 13,
+                "type": "boolean"
+            },
+            {
+                "property": "VertSpeedPlusBtn",
+                "length": 1,
+                "shift": 14,
+                "type": "boolean"
+            }
+        ]
+    },
+    {
+        "id": "6e2f66967afc9efd",
+        "type": "bit-config",
+        "name": "PortDBits",
+        "bits": [
+            {
+                "property": "RlyIgniteOn",
+                "length": 1,
+                "shift": 0,
+                "type": "boolean"
+            },
+            {
+                "property": "INT0",
+                "length": 1,
+                "shift": 2,
+                "type": "number"
+            },
+            {
+                "property": "HorizSpeedPlusBtn",
+                "length": 1,
+                "shift": 3,
+                "type": "boolean"
+            },
+            {
+                "property": "INT1",
+                "length": 1,
+                "shift": 4,
+                "type": "number"
+            }
+        ]
+    },
+    {
         "id": "71e1c07fa0276701",
         "type": "comment",
         "z": "0e892ddf76c780fa",
@@ -1843,8 +2033,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 740,
-        "y": 260,
+        "x": 1000,
+        "y": 280,
         "wires": []
     },
     {
@@ -1854,7 +2044,7 @@
         "name": "",
         "serial": "4fe1be0c1be734de",
         "x": 520,
-        "y": 380,
+        "y": 920,
         "wires": []
     },
     {
@@ -1931,17 +2121,26 @@
         "swap3Type": "swap",
         "msgProperty": "payload",
         "msgPropertyType": "str",
-        "resultType": "keyvalue",
+        "resultType": "value",
         "resultTypeType": "return",
-        "multipleResult": false,
-        "fanOutMultipleResult": false,
+        "multipleResult": true,
+        "fanOutMultipleResult": true,
         "setTopic": true,
-        "outputs": 1,
-        "x": 480,
-        "y": 240,
+        "outputs": 4,
+        "x": 440,
+        "y": 280,
         "wires": [
             [
-                "58362e840e6529a1"
+                "850259d80c7864cc"
+            ],
+            [
+                "4aa67fd12bd94059"
+            ],
+            [
+                "5d1694d9218d4ea3"
+            ],
+            [
+                "a448a3399f0dcbe6"
             ]
         ]
     },
@@ -1962,8 +2161,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 200,
-        "y": 240,
+        "x": 160,
+        "y": 280,
         "wires": [
             [
                 "59d39ca4698e7938"
@@ -1978,7 +2177,7 @@
         "scope": null,
         "uncaught": false,
         "x": 120,
-        "y": 320,
+        "y": 860,
         "wires": [
             [
                 "4bb963b3e1fc11a5"
@@ -1999,8 +2198,64 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 280,
-        "y": 320,
+        "y": 860,
         "wires": []
+    },
+    {
+        "id": "850259d80c7864cc",
+        "type": "bit-decode",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "bits": "6a635b6fe4cb76c7",
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "58362e840e6529a1"
+            ]
+        ]
+    },
+    {
+        "id": "4aa67fd12bd94059",
+        "type": "bit-decode",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "bits": "8cc1fb1e05e0f783",
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "58362e840e6529a1"
+            ]
+        ]
+    },
+    {
+        "id": "5d1694d9218d4ea3",
+        "type": "bit-decode",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "bits": "fb9d13d3e2f609d7",
+        "x": 710,
+        "y": 300,
+        "wires": [
+            [
+                "58362e840e6529a1"
+            ]
+        ]
+    },
+    {
+        "id": "a448a3399f0dcbe6",
+        "type": "bit-decode",
+        "z": "d2106ca350b87b9e",
+        "name": "",
+        "bits": "6e2f66967afc9efd",
+        "x": 710,
+        "y": 340,
+        "wires": [
+            [
+                "58362e840e6529a1"
+            ]
+        ]
     },
     {
         "id": "01533fbb474b8035",
