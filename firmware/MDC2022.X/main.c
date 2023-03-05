@@ -56,17 +56,14 @@
 #include "mcc_generated_files/pin_manager.h"
 #include "mcc_generated_files/coretimer.h"
 #include "mcc_generated_files/uart1.h"
+#include "mcc_generated_files/adc1.h"
+#include "mcc_generated_files/usb/../usb/usb_device_cdc.h"
+#include "ModbusSlave.h"
 #include "MD_MotorDrivers.h"
 #include "EE_RegisterStorage.h"
 #include "DB_Debounce.h"
 #include "protocol.h"
 
-
-
-/**
-    Prototypes
- */
-void UpdateTimers(void);
 
 
 // Version Tags
@@ -78,7 +75,22 @@ volatile bool TimerEvent10ms;
 volatile uint32_t myTime=0;
 bool TimerEvent50ms=false, TimerEvent1s=false, TimerEvent15s=false;
 uint32_t myLastTime=0;
+uint32_t mySystemTimeOutTimer;
 
+
+/**
+    Prototypes
+ */
+void MCC_USB_CDC_DemoTasks(void);
+void MBS_UART_Putch(uint8_t ch);
+void UpdateTimers(void);
+
+
+// Callback function for the ModBus Slave driver
+void MBS_UART_Putch(uint8_t ch)
+{
+    UART1_Write(ch);
+}           
 
 
 void UpdateTimers(void)
@@ -89,6 +101,7 @@ void UpdateTimers(void)
     delta = myTime-myLastTime;
     myLastTime = myTime;
     my50msCnt += delta;
+    MBS_TimerValue += delta;  // Modbus 10ms Time Keeper
     
     // Update Time Keepers
     while(my50msCnt>=50) {
@@ -98,6 +111,7 @@ void UpdateTimers(void)
         while(my1000msCnt>=1000) {
             TimerEvent1s=true;
             my1000msCnt -= 1000;
+            mySystemTimeOutTimer++;
             my15sCnt += 1;
             while(my15sCnt>=15) {
                 TimerEvent15s=true;
@@ -114,6 +128,7 @@ void UpdateTimers(void)
  */
 int main(void)
 {
+    uint8_t myModBusAddr;
     DB_debounce_struct_t Lamp_ON_Signal;
     bool Lamp_ON_Status=false;
     uint32_t xenonIgniteTime,myXenonIgniteTime=0;
@@ -132,10 +147,24 @@ int main(void)
     char ch;
     _frameType0x10 portDump;
     uint8_t * buff;
+    ADC1_CHANNEL channel;
+    _frameType0x11 ADDump;
+    _frameType0xFF debugDump;
+
     
     // initialize the device
     SYSTEM_Initialize();
 
+    // Set Modbus Slave Address
+    //myAddr = 10 + (!SW8_GetValue()<<3) | (!SW4_GetValue()<<2) | (!SW2_GetValue() << 1) | (!SW1_GetValue());
+    myModBusAddr = 11;
+    MBS_InitModbus(myModBusAddr);
+    MBS_HoldRegisters[1] = 10 + (!SW8_GetValue()<<3) | (!SW4_GetValue()<<2) | (!SW2_GetValue() << 1) | (!SW1_GetValue());  // OwnID_SW 
+    MBS_HoldRegisters[2] = 10;       // OwnID_Prefix 
+    MBS_HoldRegisters[3] = (HW_ID_2_RC8_GetValue()<<2) | (HW_ID_1_RC7_GetValue()<<1) | (HW_ID_0_RC6_GetValue());     // HW_ID 
+    MBS_HoldRegisters[4] = 0x0100;  // SW_ID 
+    
+    
 
     POWER_OK_SetHigh();
 /* 
@@ -153,17 +182,17 @@ int main(void)
     // Read out Persistent variables
     horizSpeedIndex = EERS_Read(EE_HORIZ_SPEED_INDEX);
     if(horizSpeedIndex == 0xFFFFFFFF) {
-        horizSpeedIndex = 3;
+        horizSpeedIndex = 5;
         EERS_Write(EE_HORIZ_SPEED_INDEX,horizSpeedIndex);
     }
     vertSpeedIndex = EERS_Read(EE_VERT_SPEED_INDEX);
     if(vertSpeedIndex == 0xFFFFFFFF) {
-        vertSpeedIndex = 3;
+        vertSpeedIndex = 5;
         EERS_Write(EE_VERT_SPEED_INDEX,vertSpeedIndex);
     }
     focusSpeedIndex = EERS_Read(EE_FOCUS_SPEED_INDEX);
     if(focusSpeedIndex == 0xFFFFFFFF) {
-        focusSpeedIndex = 7;  // Full speed...
+        focusSpeedIndex = 10;  // Full speed...
         EERS_Write(EE_FOCUS_SPEED_INDEX,focusSpeedIndex);
     }
     xenonIgniteTime = EERS_Read(EE_XENON_IGNITE_TIME);
@@ -180,7 +209,17 @@ int main(void)
     
     // Init portDump Structure
     portDump.frameType = 0x10;
-   
+
+    // Prepare the ADC
+    ADC1_Enable();
+    channel = MD_FOCUS_FB_AN4;
+    ADC1_ChannelSelect(channel);
+    ADC1_SoftwareTriggerEnable();
+    ADDump.frameType = 0x11;
+    
+    // Debug Dump
+    debugDump.frameType = 0xFF;
+    
     // Enable WDT
     WDTCONbits.ON=1;
     
@@ -231,11 +270,12 @@ int main(void)
                 focusDir=-1;
             }
 
-            DB_DebounceSignal(HORIZ_SPEED_P_GetValue(),&HSP_Signal);
+            DB_DebounceSignal(HORIZ_SPEED_P_GetValue(),&HSP_Signal); 
             DB_DebounceSignal(HORIZ_SPEED_N_GetValue(),&HSN_Signal);
             DB_DebounceSignal(VERT_SPEED_P_GetValue(),&VSP_Signal);
             DB_DebounceSignal(VERT_SPEED_N_GetValue(),&VSN_Signal);
-                        
+            
+            
         }  //..if(my10msTimer)
         
         
@@ -250,6 +290,66 @@ int main(void)
             MD_setVert(vertDir*vertSpeedIndex);
             MD_setFocus(focusDir*focusSpeedIndex);
                         
+            ADC1_SoftwareTriggerDisable();
+            while(!ADC1_IsConversionComplete(channel));
+            if(ADC1_IsConversionComplete(channel)) {
+ 
+                switch(channel) {
+                    case MD_FOCUS_FB_AN4:
+                        ADDump.MD_FOCUS_FB_AN4 = ADC1_ConversionResultGet(channel);
+                        channel = MD_VERT_FB_AN5;
+                        break;
+                    case MD_VERT_FB_AN5:
+                        ADDump.MD_VERT_FB_AN5 = ADC1_ConversionResultGet(channel);
+                        channel = MD_HORIZ_FB_AN6;
+                        break;
+                    case MD_HORIZ_FB_AN6:
+                        ADDump.MD_HORIZ_FB_AN6 = ADC1_ConversionResultGet(channel);
+                        channel = POWER_IN_V_AN7;
+                        break;
+                    case POWER_IN_V_AN7:
+                        ADDump.POWER_IN_V_AN7 = ADC1_ConversionResultGet(channel);
+                        channel = FOCUS_POS_AN18;
+                        break;
+                    case FOCUS_POS_AN18:
+                        ADDump.FOCUS_POS_AN18 = ADC1_ConversionResultGet(channel);
+                    default:
+                        channel = MD_FOCUS_FB_AN4;
+                        break;
+                }
+    
+                // Next value
+                ADC1_ChannelSelect(channel);
+                ADC1_SoftwareTriggerEnable();
+
+/*
+                if(UART1_IsTxDone()) {
+                    
+                    // Send ADDump Telegram
+                    ADDump.CS = 0;
+                    buff = (uint8_t *)&ADDump; 
+                    for(i=0;i<sizeof(_frameType0x11);i++) {
+                        if(i<(sizeof(_frameType0x11)-1)) {
+                            ADDump.CS ^= buff[i];
+                        }    
+                        if(buff[i] == FRAME_END) {
+                            UART1_Write(FRAME_ESC);
+                            UART1_Write(FRAME_ESC_END);
+                      } else if(buff[i] == FRAME_ESC) {
+                            UART1_Write(FRAME_ESC);
+                            UART1_Write(FRAME_ESC_ESC);
+                        } else {
+                            UART1_Write(buff[i]);
+                        }
+                    }
+                    UART1_Write(FRAME_END);
+
+                }
+  */
+                
+            } 
+            
+            
         }  //..if(TimerEvent50ms)
         
         
@@ -266,14 +366,53 @@ int main(void)
             
             OP_STATUS_SetHigh();
             
+            // Save Changes
+            if(horizSpeedIndex!=debugDump.horizSpeedIndex) {
+                debugDump.horizSpeedIndex = horizSpeedIndex;
+                EERS_Write(EE_HORIZ_SPEED_INDEX,horizSpeedIndex);
+            }
+            if(vertSpeedIndex!=debugDump.vertSpeedIndex) {
+                debugDump.vertSpeedIndex = vertSpeedIndex;
+                EERS_Write(EE_VERT_SPEED_INDEX,vertSpeedIndex);
+            }
+            if(focusSpeedIndex!=debugDump.focusSpeedIndex) {
+                debugDump.focusSpeedIndex = focusSpeedIndex;
+                EERS_Write(EE_FOCUS_SPEED_INDEX,focusSpeedIndex);
+            }
+
+/*            
+            // Send Debug data...
+            debugDump.CS = 0;
+            buff = (uint8_t *)&debugDump; 
+            for(i=0;i<sizeof(_frameType0xFF);i++) {
+                if(i<(sizeof(_frameType0xFF)-1)) {
+                    portDump.CS ^= buff[i];
+                }    
+                if(buff[i] == FRAME_END) {
+                    UART1_Write(FRAME_ESC);
+                    UART1_Write(FRAME_ESC_END);
+              } else if(buff[i] == FRAME_ESC) {
+                    UART1_Write(FRAME_ESC);
+                    UART1_Write(FRAME_ESC_ESC);
+                } else {
+                    UART1_Write(buff[i]);
+                }
+            }
+            UART1_Write(FRAME_END);
+*/            
+            
         }  //..if(TimerEvent15s)
 
         
+        // Check for incoming data
         if(UART1_IsRxReady()) {
-            ch = UART1_Read();
+            MBS_ReciveData(UART1_Read());
         }
-
         
+        // Process Modbus
+        MBS_ProcessModbus();
+        
+/*        
         if(UART1_IsTxDone()) {
 
             // If any activity on ports => send!
@@ -304,7 +443,7 @@ int main(void)
 
             }
         }
-        
+*/        
         
         // Lamp_ON
         if(!Lamp_ON_Signal.handled) {
@@ -363,6 +502,8 @@ int main(void)
             }
         }
         
+
+        MCC_USB_CDC_DemoTasks(); 
         
         // Guard the Watchdog
         WDTCONbits.WDTCLRKEY=0x5743;  // Magic sequence to reset WDT

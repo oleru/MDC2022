@@ -40,7 +40,7 @@ extern "C" {
     /* ************************************************************************** */
     /* ************************************************************************** */
 
-#define FRAME_MAXSIZE       200 // max size of packet
+#define FRAME_MAXSIZE       100 // max size of packet
 
 /* SLIP special character codes */
 #define FRAME_END			0xC0    /* indicates end of packet */
@@ -58,6 +58,10 @@ extern "C" {
 
 /* FRAME TYPES () */
 #define C_FRAMETYPE_RAW_DATA 0x10
+#define C_FRAMETYPE_RAW_AD 0x11
+#define C_FRAMETYPE_COMMAND 0x20
+#define C_FRAMETYPE_DEBUG 0xFF
+
 
     // *****************************************************************************
     // *****************************************************************************
@@ -77,7 +81,7 @@ typedef struct {
 /*
 Frametype 0x10:
   [C_FRAMETYPE_RAW_DATA]
-  Broadcast All µC Ports in use
+  Broadcast All Ports in use
   payload:
   PORTA, PORTB, PORTC and PORTD. CS on All Bytes (including frametype)
  */
@@ -90,6 +94,55 @@ typedef struct {
     uint8_t CS;
 } __attribute__((packed)) _frameType0x10;
 
+/*
+Frametype 0x11:
+  [C_FRAMETYPE_RAW_AD]
+  Broadcast All AD-Channels in use
+  payload:
+  ... CS on All Bytes (including frametype)
+ */
+typedef struct {
+    uint8_t frameType;  // 0x11
+    uint16_t MD_FOCUS_FB_AN4;  //Channel Name:AN4   Assigned to:Shared Channel
+    uint16_t MD_VERT_FB_AN5;  //Channel Name:AN5   Assigned to:Shared Channel
+    uint16_t MD_HORIZ_FB_AN6;  //Channel Name:AN6   Assigned to:Shared Channel
+    uint16_t POWER_IN_V_AN7;  //Channel Name:AN7   Assigned to:Shared Channel
+    uint16_t FOCUS_POS_AN18;  //Channel Name:AN18   Assigned to:Shared Channel
+    uint8_t CS;
+} __attribute__((packed)) _frameType0x11;
+
+
+/*
+Frametype 0x20:
+  [C_FRAMETYPE_COMMAND]
+  Command Input Data, override local signal from arrival to around 500ms  
+  payload:
+  ... CS on All Bytes (including frametype)
+ */
+typedef struct {
+    uint8_t frameType;  // 0x20
+    int16_t horizInput;  // Dir (+/-) and PWM [0,32767];
+    int16_t vertInput;  // Dir (+/-) and PWM [0,32767];
+    int16_t focusInput;  // Dir (+/-) and PWM [0,32767];
+    int8_t Command;  // Bit1=Change Lamp position 1(yes)/0(no), Bit0=Lamp ON/OFF, ....
+    uint8_t CS;
+} __attribute__((packed)) _frameType0x20;
+
+
+/*
+Frametype 0xFF:
+  [C_FRAMETYPE_DEBUG]
+  Debug variabler
+  payload:
+  ... CS on All Bytes (including frametype)
+ */
+typedef struct {
+    uint8_t frameType;  // 0xFF
+    int8_t horizSpeedIndex;
+    int8_t vertSpeedIndex;
+    int8_t focusSpeedIndex;
+    uint8_t CS;
+} __attribute__((packed)) _frameType0xFF;
 
     // *****************************************************************************
     // *****************************************************************************

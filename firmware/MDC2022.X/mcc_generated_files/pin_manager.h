@@ -3531,11 +3531,11 @@ inline static void FOCUS_END_OUT_LED_SetValue(bool value)
   @Example
     <code>
     // Set RC0 high (1)
-    SW1_RC0_SetHigh();
+    SW8_SetHigh();
     </code>
 
 */
-#define SW1_RC0_SetHigh()          ( LATCSET = (1 << 0) )
+#define SW8_SetHigh()          ( LATCSET = (1 << 0) )
 /**
   @Summary
     Sets the GPIO pin, RC0, low using LATC0.
@@ -3555,11 +3555,11 @@ inline static void FOCUS_END_OUT_LED_SetValue(bool value)
   @Example
     <code>
     // Set RC0 low (0)
-    SW1_RC0_SetLow();
+    SW8_SetLow();
     </code>
 
 */
-#define SW1_RC0_SetLow()           ( LATCCLR = (1 << 0) )
+#define SW8_SetLow()           ( LATCCLR = (1 << 0) )
 
 /**
   @Summary
@@ -3580,19 +3580,19 @@ inline static void FOCUS_END_OUT_LED_SetValue(bool value)
   @Example
     <code>
     // Set RC0 to low.
-    SW1_RC0_SetValue(false);
+    SW8_SetValue(false);
     </code>
 
 */
-inline static void SW1_RC0_SetValue(bool value)
+inline static void SW8_SetValue(bool value)
 {
   if(value)
   {
-    SW1_RC0_SetHigh();
+    SW8_SetHigh();
   }
   else
   {
-    SW1_RC0_SetLow();
+    SW8_SetLow();
   }
 }
 
@@ -3615,11 +3615,11 @@ inline static void SW1_RC0_SetValue(bool value)
   @Example
     <code>
     // Toggle RC0
-    SW1_RC0_Toggle();
+    SW8_Toggle();
     </code>
 
 */
-#define SW1_RC0_Toggle()           ( LATCINV = (1 << 0) )
+#define SW8_Toggle()           ( LATCINV = (1 << 0) )
 /**
   @Summary
     Reads the value of the GPIO pin, RC0.
@@ -3641,11 +3641,11 @@ inline static void SW1_RC0_SetValue(bool value)
     uint16_t portValue;
 
     // Read RC0
-    postValue = SW1_RC0_GetValue();
+    postValue = SW8_GetValue();
     </code>
 
 */
-#define SW1_RC0_GetValue()         PORTCbits.RC0
+#define SW8_GetValue()         PORTCbits.RC0
 /**
   @Summary
     Configures the GPIO pin, RC0, as an input.
@@ -3665,11 +3665,11 @@ inline static void SW1_RC0_SetValue(bool value)
   @Example
     <code>
     // Sets the RC0 as an input
-    SW1_RC0_SetDigitalInput();
+    SW8_SetDigitalInput();
     </code>
 
 */
-#define SW1_RC0_SetDigitalInput()   ( TRISCSET = (1 << 0) )
+#define SW8_SetDigitalInput()   ( TRISCSET = (1 << 0) )
 /**
   @Summary
     Configures the GPIO pin, RC0, as an output.
@@ -3689,11 +3689,11 @@ inline static void SW1_RC0_SetValue(bool value)
   @Example
     <code>
     // Sets the RC0 as an output
-    SW1_RC0_SetDigitalOutput();
+    SW8_SetDigitalOutput();
     </code>
 
 */
-#define SW1_RC0_SetDigitalOutput()   ( TRISCCLR = (1 << 0) )
+#define SW8_SetDigitalOutput()   ( TRISCCLR = (1 << 0) )
 /**
   @Summary
     Sets the GPIO pin, RC1, high using LATC1.
@@ -3713,11 +3713,11 @@ inline static void SW1_RC0_SetValue(bool value)
   @Example
     <code>
     // Set RC1 high (1)
-    SW1_RC1_SetHigh();
+    SW4_SetHigh();
     </code>
 
 */
-#define SW1_RC1_SetHigh()          ( LATCSET = (1 << 1) )
+#define SW4_SetHigh()          ( LATCSET = (1 << 1) )
 /**
   @Summary
     Sets the GPIO pin, RC1, low using LATC1.
@@ -3737,11 +3737,11 @@ inline static void SW1_RC0_SetValue(bool value)
   @Example
     <code>
     // Set RC1 low (0)
-    SW1_RC1_SetLow();
+    SW4_SetLow();
     </code>
 
 */
-#define SW1_RC1_SetLow()           ( LATCCLR = (1 << 1) )
+#define SW4_SetLow()           ( LATCCLR = (1 << 1) )
 
 /**
   @Summary
@@ -3762,19 +3762,19 @@ inline static void SW1_RC0_SetValue(bool value)
   @Example
     <code>
     // Set RC1 to low.
-    SW1_RC1_SetValue(false);
+    SW4_SetValue(false);
     </code>
 
 */
-inline static void SW1_RC1_SetValue(bool value)
+inline static void SW4_SetValue(bool value)
 {
   if(value)
   {
-    SW1_RC1_SetHigh();
+    SW4_SetHigh();
   }
   else
   {
-    SW1_RC1_SetLow();
+    SW4_SetLow();
   }
 }
 
@@ -3797,11 +3797,11 @@ inline static void SW1_RC1_SetValue(bool value)
   @Example
     <code>
     // Toggle RC1
-    SW1_RC1_Toggle();
+    SW4_Toggle();
     </code>
 
 */
-#define SW1_RC1_Toggle()           ( LATCINV = (1 << 1) )
+#define SW4_Toggle()           ( LATCINV = (1 << 1) )
 /**
   @Summary
     Reads the value of the GPIO pin, RC1.
@@ -3823,11 +3823,11 @@ inline static void SW1_RC1_SetValue(bool value)
     uint16_t portValue;
 
     // Read RC1
-    postValue = SW1_RC1_GetValue();
+    postValue = SW4_GetValue();
     </code>
 
 */
-#define SW1_RC1_GetValue()         PORTCbits.RC1
+#define SW4_GetValue()         PORTCbits.RC1
 /**
   @Summary
     Configures the GPIO pin, RC1, as an input.
@@ -3847,11 +3847,11 @@ inline static void SW1_RC1_SetValue(bool value)
   @Example
     <code>
     // Sets the RC1 as an input
-    SW1_RC1_SetDigitalInput();
+    SW4_SetDigitalInput();
     </code>
 
 */
-#define SW1_RC1_SetDigitalInput()   ( TRISCSET = (1 << 1) )
+#define SW4_SetDigitalInput()   ( TRISCSET = (1 << 1) )
 /**
   @Summary
     Configures the GPIO pin, RC1, as an output.
@@ -3871,11 +3871,11 @@ inline static void SW1_RC1_SetValue(bool value)
   @Example
     <code>
     // Sets the RC1 as an output
-    SW1_RC1_SetDigitalOutput();
+    SW4_SetDigitalOutput();
     </code>
 
 */
-#define SW1_RC1_SetDigitalOutput()   ( TRISCCLR = (1 << 1) )
+#define SW4_SetDigitalOutput()   ( TRISCCLR = (1 << 1) )
 /**
   @Summary
     Sets the GPIO pin, RC10, high using LATC10.
@@ -4623,11 +4623,11 @@ inline static void VERT_SPEED_P_SetValue(bool value)
   @Example
     <code>
     // Set RC2 high (1)
-    SW1_RC2_SetHigh();
+    SW2_SetHigh();
     </code>
 
 */
-#define SW1_RC2_SetHigh()          ( LATCSET = (1 << 2) )
+#define SW2_SetHigh()          ( LATCSET = (1 << 2) )
 /**
   @Summary
     Sets the GPIO pin, RC2, low using LATC2.
@@ -4647,11 +4647,11 @@ inline static void VERT_SPEED_P_SetValue(bool value)
   @Example
     <code>
     // Set RC2 low (0)
-    SW1_RC2_SetLow();
+    SW2_SetLow();
     </code>
 
 */
-#define SW1_RC2_SetLow()           ( LATCCLR = (1 << 2) )
+#define SW2_SetLow()           ( LATCCLR = (1 << 2) )
 
 /**
   @Summary
@@ -4672,19 +4672,19 @@ inline static void VERT_SPEED_P_SetValue(bool value)
   @Example
     <code>
     // Set RC2 to low.
-    SW1_RC2_SetValue(false);
+    SW2_SetValue(false);
     </code>
 
 */
-inline static void SW1_RC2_SetValue(bool value)
+inline static void SW2_SetValue(bool value)
 {
   if(value)
   {
-    SW1_RC2_SetHigh();
+    SW2_SetHigh();
   }
   else
   {
-    SW1_RC2_SetLow();
+    SW2_SetLow();
   }
 }
 
@@ -4707,11 +4707,11 @@ inline static void SW1_RC2_SetValue(bool value)
   @Example
     <code>
     // Toggle RC2
-    SW1_RC2_Toggle();
+    SW2_Toggle();
     </code>
 
 */
-#define SW1_RC2_Toggle()           ( LATCINV = (1 << 2) )
+#define SW2_Toggle()           ( LATCINV = (1 << 2) )
 /**
   @Summary
     Reads the value of the GPIO pin, RC2.
@@ -4733,11 +4733,11 @@ inline static void SW1_RC2_SetValue(bool value)
     uint16_t portValue;
 
     // Read RC2
-    postValue = SW1_RC2_GetValue();
+    postValue = SW2_GetValue();
     </code>
 
 */
-#define SW1_RC2_GetValue()         PORTCbits.RC2
+#define SW2_GetValue()         PORTCbits.RC2
 /**
   @Summary
     Configures the GPIO pin, RC2, as an input.
@@ -4757,11 +4757,11 @@ inline static void SW1_RC2_SetValue(bool value)
   @Example
     <code>
     // Sets the RC2 as an input
-    SW1_RC2_SetDigitalInput();
+    SW2_SetDigitalInput();
     </code>
 
 */
-#define SW1_RC2_SetDigitalInput()   ( TRISCSET = (1 << 2) )
+#define SW2_SetDigitalInput()   ( TRISCSET = (1 << 2) )
 /**
   @Summary
     Configures the GPIO pin, RC2, as an output.
@@ -4781,11 +4781,11 @@ inline static void SW1_RC2_SetValue(bool value)
   @Example
     <code>
     // Sets the RC2 as an output
-    SW1_RC2_SetDigitalOutput();
+    SW2_SetDigitalOutput();
     </code>
 
 */
-#define SW1_RC2_SetDigitalOutput()   ( TRISCCLR = (1 << 2) )
+#define SW2_SetDigitalOutput()   ( TRISCCLR = (1 << 2) )
 /**
   @Summary
     Sets the GPIO pin, RC3, high using LATC3.
@@ -4805,11 +4805,11 @@ inline static void SW1_RC2_SetValue(bool value)
   @Example
     <code>
     // Set RC3 high (1)
-    SW1_RC3_SetHigh();
+    SW1_SetHigh();
     </code>
 
 */
-#define SW1_RC3_SetHigh()          ( LATCSET = (1 << 3) )
+#define SW1_SetHigh()          ( LATCSET = (1 << 3) )
 /**
   @Summary
     Sets the GPIO pin, RC3, low using LATC3.
@@ -4829,11 +4829,11 @@ inline static void SW1_RC2_SetValue(bool value)
   @Example
     <code>
     // Set RC3 low (0)
-    SW1_RC3_SetLow();
+    SW1_SetLow();
     </code>
 
 */
-#define SW1_RC3_SetLow()           ( LATCCLR = (1 << 3) )
+#define SW1_SetLow()           ( LATCCLR = (1 << 3) )
 
 /**
   @Summary
@@ -4854,19 +4854,19 @@ inline static void SW1_RC2_SetValue(bool value)
   @Example
     <code>
     // Set RC3 to low.
-    SW1_RC3_SetValue(false);
+    SW1_SetValue(false);
     </code>
 
 */
-inline static void SW1_RC3_SetValue(bool value)
+inline static void SW1_SetValue(bool value)
 {
   if(value)
   {
-    SW1_RC3_SetHigh();
+    SW1_SetHigh();
   }
   else
   {
-    SW1_RC3_SetLow();
+    SW1_SetLow();
   }
 }
 
@@ -4889,11 +4889,11 @@ inline static void SW1_RC3_SetValue(bool value)
   @Example
     <code>
     // Toggle RC3
-    SW1_RC3_Toggle();
+    SW1_Toggle();
     </code>
 
 */
-#define SW1_RC3_Toggle()           ( LATCINV = (1 << 3) )
+#define SW1_Toggle()           ( LATCINV = (1 << 3) )
 /**
   @Summary
     Reads the value of the GPIO pin, RC3.
@@ -4915,11 +4915,11 @@ inline static void SW1_RC3_SetValue(bool value)
     uint16_t portValue;
 
     // Read RC3
-    postValue = SW1_RC3_GetValue();
+    postValue = SW1_GetValue();
     </code>
 
 */
-#define SW1_RC3_GetValue()         PORTCbits.RC3
+#define SW1_GetValue()         PORTCbits.RC3
 /**
   @Summary
     Configures the GPIO pin, RC3, as an input.
@@ -4939,11 +4939,11 @@ inline static void SW1_RC3_SetValue(bool value)
   @Example
     <code>
     // Sets the RC3 as an input
-    SW1_RC3_SetDigitalInput();
+    SW1_SetDigitalInput();
     </code>
 
 */
-#define SW1_RC3_SetDigitalInput()   ( TRISCSET = (1 << 3) )
+#define SW1_SetDigitalInput()   ( TRISCSET = (1 << 3) )
 /**
   @Summary
     Configures the GPIO pin, RC3, as an output.
@@ -4963,11 +4963,11 @@ inline static void SW1_RC3_SetValue(bool value)
   @Example
     <code>
     // Sets the RC3 as an output
-    SW1_RC3_SetDigitalOutput();
+    SW1_SetDigitalOutput();
     </code>
 
 */
-#define SW1_RC3_SetDigitalOutput()   ( TRISCCLR = (1 << 3) )
+#define SW1_SetDigitalOutput()   ( TRISCCLR = (1 << 3) )
 /**
   @Summary
     Sets the GPIO pin, RC5, high using LATC5.

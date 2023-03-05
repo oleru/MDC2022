@@ -48,6 +48,40 @@
 
 void protocolParser(_frameTypeParserData *Header, uint8_t Ch)
 {
+    
+    // First check if we are at a end...
+    if( Ch == FRAME_END ) {
+
+        // Clear out - prepare for next packets
+        Header->frameType = 0;
+        Header->LastByte = FRAME_END;
+        Header->indexPtr = 0;
+        Header->CS = 0;
+        
+        return;
+        
+    } else if( Ch == FRAME_ESC ) {  // ESC Slip?
+        
+        Header->LastByte = FRAME_ESC;
+        return;
+        
+    } else if( Header->LastByte == FRAME_ESC ) {  // LastCh FRAME_ESC?
+            
+        Header->LastByte = Ch;
+        if( Ch == FRAME_ESC_END )
+            Ch = FRAME_END;  // Swap it for coded data.
+        else if( Ch == FRAME_ESC_ESC ) {
+            Ch = FRAME_ESC;
+        } else {
+            ;
+            // if "c" is not one of these two, then we
+            // have a protocol violation.
+        }                
+    }
+    
+    
+
+        
 /*    uint8_t Ch, *buff;
     int8_t index;
     uint32_t CRC, CRCcalc, i, cnt;

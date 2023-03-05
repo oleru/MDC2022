@@ -60,6 +60,11 @@ void INTERRUPT_Initialize (void)
         IPC0bits.CTIP = 1;
     //    Sub Priority: 0
         IPC0bits.CTIS = 0;
+    //    USBI: USB
+    //    Priority: 1
+        IPC7bits.USBIP = 1;
+    //    Sub Priority: 0
+        IPC7bits.USBIS = 0;
     //    UERI: UART 1 Error
     //    Priority: 1
         IPC13bits.U1EIP = 1;
