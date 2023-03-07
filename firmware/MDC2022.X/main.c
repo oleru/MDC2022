@@ -62,7 +62,7 @@
 #include "MD_MotorDrivers.h"
 #include "EE_RegisterStorage.h"
 #include "DB_Debounce.h"
-#include "protocol.h"
+//#include "protocol.h"
 
 
 
@@ -128,10 +128,12 @@ void UpdateTimers(void)
  */
 int main(void)
 {
+    uint8_t ModbusInCommandCnt=0;
     uint8_t myModBusAddr;
     DB_debounce_struct_t Lamp_ON_Signal;
     bool Lamp_ON_Status=false;
     uint32_t xenonIgniteTime,myXenonIgniteTime=0;
+    uint32_t sno;
     DB_debounce_struct_t joystick_Right_Signal;
     DB_debounce_struct_t joystick_Left_Signal;
     DB_debounce_struct_t joystick_Down_Signal;
@@ -144,12 +146,10 @@ int main(void)
     DB_debounce_struct_t focus_N_Signal;
     int8_t horizDir=0, vertDir=0, focusDir=0;
     uint32_t i,horizSpeedIndex, vertSpeedIndex, focusSpeedIndex;
+    uint32_t lastHorizSpeedIndex, lastVertSpeedIndex, lastFocusSpeedIndex;
     char ch;
-    _frameType0x10 portDump;
     uint8_t * buff;
     ADC1_CHANNEL channel;
-    _frameType0x11 ADDump;
-    _frameType0xFF debugDump;
 
     
     // initialize the device
@@ -157,7 +157,7 @@ int main(void)
 
     // Set Modbus Slave Address
     //myAddr = 10 + (!SW8_GetValue()<<3) | (!SW4_GetValue()<<2) | (!SW2_GetValue() << 1) | (!SW1_GetValue());
-    myModBusAddr = 11;
+    myModBusAddr = 10;
     MBS_InitModbus(myModBusAddr);
     MBS_HoldRegisters[1] = 10 + (!SW8_GetValue()<<3) | (!SW4_GetValue()<<2) | (!SW2_GetValue() << 1) | (!SW1_GetValue());  // OwnID_SW 
     MBS_HoldRegisters[2] = 10;       // OwnID_Prefix 
@@ -200,25 +200,26 @@ int main(void)
         xenonIgniteTime = 300;  // [ms]
         EERS_Write(EE_XENON_IGNITE_TIME,xenonIgniteTime);
     } 
-
+    sno = EERS_Read(EE_SNO);
+    if(sno == 0xFFFFFFFF) {
+        sno = 1;
+        EERS_Write(EE_SNO,sno);
+    } 
+    MBS_HoldRegisters[5] = sno;  // Set serial number 
     
+        
     // Init. all Motor Driver in lock - no motion
     MD_setHoriz(0);
     MD_setVert(0);
     MD_setFocus(0);
     
-    // Init portDump Structure
-    portDump.frameType = 0x10;
 
     // Prepare the ADC
     ADC1_Enable();
     channel = MD_FOCUS_FB_AN4;
     ADC1_ChannelSelect(channel);
     ADC1_SoftwareTriggerEnable();
-    ADDump.frameType = 0x11;
     
-    // Debug Dump
-    debugDump.frameType = 0xFF;
     
     // Enable WDT
     WDTCONbits.ON=1;
@@ -288,6 +289,28 @@ int main(void)
             // Update PWM Control
             MD_setHoriz(horizDir*horizSpeedIndex);
             MD_setVert(vertDir*vertSpeedIndex);
+
+            if(MBS_HoldRegisters[13]==0xFFFF) {
+                focusDir=-1;
+            } else if(MBS_HoldRegisters[13]>0) {
+                focusDir=1;
+            }
+            
+            // Stop if R60 and End_Switches active
+            if( ((focusDir>0) && (FOCUS_END_OUT_GetValue()==0) && (FOCUS_END_IN_GetValue()==1))
+             || ((focusDir<0) && (FOCUS_END_OUT_GetValue()==1) && (FOCUS_END_IN_GetValue()==0)) ){  
+                focusDir=0;
+            }
+            if(FOCUS_END_OUT_GetValue()) {
+                FOCUS_END_OUT_LED_SetHigh();
+            } else {
+                FOCUS_END_OUT_LED_SetLow();
+            }
+            if(FOCUS_END_IN_GetValue()) {
+                FOCUS_END_IN_LED_SetHigh();
+            } else {
+                FOCUS_END_IN_LED_SetLow();
+            }
             MD_setFocus(focusDir*focusSpeedIndex);
                         
             ADC1_SoftwareTriggerDisable();
@@ -296,23 +319,28 @@ int main(void)
  
                 switch(channel) {
                     case MD_FOCUS_FB_AN4:
-                        ADDump.MD_FOCUS_FB_AN4 = ADC1_ConversionResultGet(channel);
+                        //ADDump.MD_FOCUS_FB_AN4 = ADC1_ConversionResultGet(channel);
+                        MBS_HoldRegisters[25] = ADC1_ConversionResultGet(channel);
                         channel = MD_VERT_FB_AN5;
                         break;
                     case MD_VERT_FB_AN5:
-                        ADDump.MD_VERT_FB_AN5 = ADC1_ConversionResultGet(channel);
+                        //ADDump.MD_VERT_FB_AN5 = ADC1_ConversionResultGet(channel);
+                        MBS_HoldRegisters[26] = ADC1_ConversionResultGet(channel);
                         channel = MD_HORIZ_FB_AN6;
                         break;
                     case MD_HORIZ_FB_AN6:
-                        ADDump.MD_HORIZ_FB_AN6 = ADC1_ConversionResultGet(channel);
+                        //ADDump.MD_HORIZ_FB_AN6 = ADC1_ConversionResultGet(channel);
+                        MBS_HoldRegisters[27] = ADC1_ConversionResultGet(channel);
                         channel = POWER_IN_V_AN7;
                         break;
                     case POWER_IN_V_AN7:
-                        ADDump.POWER_IN_V_AN7 = ADC1_ConversionResultGet(channel);
+                        //ADDump.POWER_IN_V_AN7 = ADC1_ConversionResultGet(channel);
+                        MBS_HoldRegisters[28] = ADC1_ConversionResultGet(channel);
                         channel = FOCUS_POS_AN18;
                         break;
                     case FOCUS_POS_AN18:
-                        ADDump.FOCUS_POS_AN18 = ADC1_ConversionResultGet(channel);
+                        //ADDump.FOCUS_POS_AN18 = ADC1_ConversionResultGet(channel);
+                        MBS_HoldRegisters[29] = ADC1_ConversionResultGet(channel);
                     default:
                         channel = MD_FOCUS_FB_AN4;
                         break;
@@ -360,90 +388,52 @@ int main(void)
         }  //..if(TimerEvent1s)
 
         
-        // 1s Timer Event
+        // 15s Timer Event
         if(TimerEvent15s) {
             TimerEvent15s = false;
             
             OP_STATUS_SetHigh();
             
             // Save Changes
-            if(horizSpeedIndex!=debugDump.horizSpeedIndex) {
-                debugDump.horizSpeedIndex = horizSpeedIndex;
+            if(horizSpeedIndex!=lastHorizSpeedIndex) {
+                lastHorizSpeedIndex = horizSpeedIndex;
                 EERS_Write(EE_HORIZ_SPEED_INDEX,horizSpeedIndex);
             }
-            if(vertSpeedIndex!=debugDump.vertSpeedIndex) {
-                debugDump.vertSpeedIndex = vertSpeedIndex;
+            if(vertSpeedIndex!=lastVertSpeedIndex) {
+                lastVertSpeedIndex = vertSpeedIndex;
                 EERS_Write(EE_VERT_SPEED_INDEX,vertSpeedIndex);
             }
-            if(focusSpeedIndex!=debugDump.focusSpeedIndex) {
-                debugDump.focusSpeedIndex = focusSpeedIndex;
+            if(focusSpeedIndex!=lastFocusSpeedIndex) {
+                lastFocusSpeedIndex = focusSpeedIndex;
                 EERS_Write(EE_FOCUS_SPEED_INDEX,focusSpeedIndex);
             }
+            if(MBS_HoldRegisters[5] != sno) {
+                sno = MBS_HoldRegisters[5];
+                EERS_Write(EE_SNO,sno);
+            } 
 
-/*            
-            // Send Debug data...
-            debugDump.CS = 0;
-            buff = (uint8_t *)&debugDump; 
-            for(i=0;i<sizeof(_frameType0xFF);i++) {
-                if(i<(sizeof(_frameType0xFF)-1)) {
-                    portDump.CS ^= buff[i];
-                }    
-                if(buff[i] == FRAME_END) {
-                    UART1_Write(FRAME_ESC);
-                    UART1_Write(FRAME_ESC_END);
-              } else if(buff[i] == FRAME_ESC) {
-                    UART1_Write(FRAME_ESC);
-                    UART1_Write(FRAME_ESC_ESC);
-                } else {
-                    UART1_Write(buff[i]);
-                }
-            }
-            UART1_Write(FRAME_END);
-*/            
-            
+           
         }  //..if(TimerEvent15s)
 
         
+        // Pin-Pong response 
+        MBS_HoldRegisters[30] = MBS_HoldRegisters[10];
+        
+        // Build&Send portDump Telegram
+        MBS_HoldRegisters[31] = (PORTA&0b1111011110110000);
+        MBS_HoldRegisters[32] = (PORTB&0b0000000110000010);
+        MBS_HoldRegisters[33] = (PORTC&0b0110111111111111);
+        MBS_HoldRegisters[34] = (PORTD&0b11101);
+        
+       
         // Check for incoming data
         if(UART1_IsRxReady()) {
             MBS_ReciveData(UART1_Read());
         }
-        
-        // Process Modbus
+
+         // Process Modbus
         MBS_ProcessModbus();
         
-/*        
-        if(UART1_IsTxDone()) {
-
-            // If any activity on ports => send!
-            if( (portDump.PortA != (PORTA&0b1111011110110000)) || (portDump.PortB != (PORTB&0b0000000110000010)) || (portDump.PortC != (PORTC&0b0110111111111111)) || (portDump.PortD != (PORTD&0b11101)) ) {
-
-                // Build&Send portDump Telegram
-                portDump.PortA = (PORTA&0b1111011110110000);
-                portDump.PortB = (PORTB&0b0000000110000010);
-                portDump.PortC = (PORTC&0b0110111111111111);
-                portDump.PortD = (PORTD&0b11101);
-                portDump.CS = 0;
-                buff = (uint8_t *)&portDump; 
-                for(i=0;i<sizeof(_frameType0x10);i++) {
-                    if(i<(sizeof(_frameType0x10)-1)) {
-                        portDump.CS ^= buff[i];
-                    }    
-                    if(buff[i] == FRAME_END) {
-                        UART1_Write(FRAME_ESC);
-                        UART1_Write(FRAME_ESC_END);
-                  } else if(buff[i] == FRAME_ESC) {
-                        UART1_Write(FRAME_ESC);
-                        UART1_Write(FRAME_ESC_ESC);
-                    } else {
-                        UART1_Write(buff[i]);
-                    }
-                }
-                UART1_Write(FRAME_END);
-
-            }
-        }
-*/        
         
         // Lamp_ON
         if(!Lamp_ON_Signal.handled) {

@@ -61,6 +61,18 @@ bool DB_DebounceSignal(bool newSignal, DB_debounce_struct_t * param)
 
 }
 
+void DB_SetSignal(bool newSignal, DB_debounce_struct_t * param)
+{
+    
+    if(param->value!=newSignal) {
+        param->value = newSignal;
+        param->v2 = newSignal;
+        param->v1 = newSignal;
+        param->handled = false;
+    }
+
+}
+
 
 /* *****************************************************************************
  End of File

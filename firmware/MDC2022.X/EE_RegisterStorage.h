@@ -208,7 +208,10 @@ extern "C" {
         EE_HORIZ_SPEED_INDEX=1,
         EE_VERT_SPEED_INDEX,
         EE_FOCUS_SPEED_INDEX,
-        EE_XENON_IGNITE_TIME
+        EE_XENON_IGNITE_TIME,
+        
+        // SNO.
+        EE_SNO
         
     };
 

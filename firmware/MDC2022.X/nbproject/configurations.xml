@@ -41,7 +41,6 @@
       <itemPath>flash.h</itemPath>
       <itemPath>MD_MotorDrivers.h</itemPath>
       <itemPath>DB_Debounce.h</itemPath>
-      <itemPath>protocol.h</itemPath>
       <itemPath>ModbusSlave.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -83,7 +82,6 @@
       <itemPath>flash.c</itemPath>
       <itemPath>MD_MotorDrivers.c</itemPath>
       <itemPath>DB_Debounce.c</itemPath>
-      <itemPath>protocol.c</itemPath>
       <itemPath>ModbusSlave.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
