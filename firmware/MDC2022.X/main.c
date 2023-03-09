@@ -290,10 +290,10 @@ int main(void)
             MD_setHoriz(horizDir*horizSpeedIndex);
             MD_setVert(vertDir*vertSpeedIndex);
 
-            if(MBS_HoldRegisters[13]==0xFFFF) {
-                focusDir=-1;
-            } else if(MBS_HoldRegisters[13]>0) {
+            if(MBS_HoldRegisters[13]>0) {
                 focusDir=1;
+            } else if(MBS_HoldRegisters[13]<0) {
+                focusDir=-1; 
             }
             
             // Stop if R60 and End_Switches active
@@ -349,41 +349,18 @@ int main(void)
                 // Next value
                 ADC1_ChannelSelect(channel);
                 ADC1_SoftwareTriggerEnable();
-
-/*
-                if(UART1_IsTxDone()) {
-                    
-                    // Send ADDump Telegram
-                    ADDump.CS = 0;
-                    buff = (uint8_t *)&ADDump; 
-                    for(i=0;i<sizeof(_frameType0x11);i++) {
-                        if(i<(sizeof(_frameType0x11)-1)) {
-                            ADDump.CS ^= buff[i];
-                        }    
-                        if(buff[i] == FRAME_END) {
-                            UART1_Write(FRAME_ESC);
-                            UART1_Write(FRAME_ESC_END);
-                      } else if(buff[i] == FRAME_ESC) {
-                            UART1_Write(FRAME_ESC);
-                            UART1_Write(FRAME_ESC_ESC);
-                        } else {
-                            UART1_Write(buff[i]);
-                        }
-                    }
-                    UART1_Write(FRAME_END);
-
-                }
-  */
                 
             } 
-            
-            
+                        
         }  //..if(TimerEvent50ms)
         
         
         // 1s Timer Event
         if(TimerEvent1s) {
             TimerEvent1s = false;
+
+            OP_STATUS_SetHigh();
+            
             
         }  //..if(TimerEvent1s)
 
@@ -391,8 +368,6 @@ int main(void)
         // 15s Timer Event
         if(TimerEvent15s) {
             TimerEvent15s = false;
-            
-            OP_STATUS_SetHigh();
             
             // Save Changes
             if(horizSpeedIndex!=lastHorizSpeedIndex) {
