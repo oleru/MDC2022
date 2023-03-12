@@ -290,9 +290,9 @@ int main(void)
             MD_setHoriz(horizDir*horizSpeedIndex);
             MD_setVert(vertDir*vertSpeedIndex);
 
-            if(MBS_HoldRegisters[13]>0) {
+            if((int16_t)(MBS_HoldRegisters[13])>0) {
                 focusDir=1;
-            } else if(MBS_HoldRegisters[13]<0) {
+            } else if((int16_t)(MBS_HoldRegisters[13])<0) {
                 focusDir=-1; 
             }
             

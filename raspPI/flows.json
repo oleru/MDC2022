@@ -167,7 +167,7 @@
         "type": "ui_tab",
         "name": "Settings",
         "icon": "settings",
-        "order": 2
+        "order": 3
     },
     {
         "id": "8e3f0b650d98dc09",
@@ -242,7 +242,7 @@
         "type": "ui_tab",
         "name": "R50",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -568,7 +568,7 @@
         "type": "ui_tab",
         "name": "SVG",
         "icon": "dashboard",
-        "order": 38,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -592,11 +592,11 @@
         "serialParity": "none",
         "serialConnectionDelay": "100",
         "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": "1",
-        "commandDelay": "1",
-        "clientTimeout": "200",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 200,
         "reconnectOnTimeout": true,
-        "reconnectTimeout": "2000",
+        "reconnectTimeout": 2000,
         "parallelUnitIdsAllowed": false,
         "showWarnings": true,
         "showLogs": true
@@ -625,6 +625,26 @@
         "reconnectOnTimeout": true,
         "reconnectTimeout": 2000,
         "parallelUnitIdsAllowed": true
+    },
+    {
+        "id": "77664e1fb86b74a6",
+        "type": "ui_tab",
+        "name": "R5 - MDC",
+        "icon": "config",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3c410cd6cbd2d8fc",
+        "type": "ui_group",
+        "name": "R5 Slave",
+        "tab": "77664e1fb86b74a6",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "71e1c07fa0276701",
@@ -4131,8 +4151,8 @@
         "z": "30ea3b9c4ff0fb20",
         "name": "",
         "registerShowMax": 20,
-        "x": 390,
-        "y": 180,
+        "x": 870,
+        "y": 100,
         "wires": []
     },
     {
@@ -4167,39 +4187,6 @@
         ]
     },
     {
-        "id": "99ef2b58e47d04af",
-        "type": "modbus-read",
-        "z": "30ea3b9c4ff0fb20",
-        "name": "",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "10",
-        "dataType": "HoldingRegister",
-        "adr": "20",
-        "quantity": "15",
-        "rate": "500",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "server": "6f22240d6bfd8a8a",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 190,
-        "y": 180,
-        "wires": [
-            [
-                "eb5eede313d5bd8d",
-                "03fc6e485c98717d"
-            ],
-            []
-        ]
-    },
-    {
         "id": "d8b0e1acb40e7bbd",
         "type": "modbus-write",
         "z": "30ea3b9c4ff0fb20",
@@ -4216,10 +4203,12 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 480,
-        "y": 80,
+        "x": 620,
+        "y": 100,
         "wires": [
-            [],
+            [
+                "eb5eede313d5bd8d"
+            ],
             []
         ]
     },
@@ -4237,10 +4226,10 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "0.25",
         "crontab": "",
         "once": true,
-        "onceDelay": "1",
+        "onceDelay": "0.25",
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
@@ -4257,18 +4246,17 @@
         "type": "function",
         "z": "30ea3b9c4ff0fb20",
         "name": "function 4",
-        "func": "let pktNum = global.get(\"pktNum\");\npktNum++;\nglobal.set(\"pktNum\",pktNum);\n\n\nreturn { payload: [pktNum, 0, 0, global.get(\"focusInput\"),0]};",
+        "func": "let pktNum = global.get(\"pktNum\");\npktNum++;\nglobal.set(\"pktNum\",pktNum);\n\n\nreturn { payload: [pktNum, 0, 0, global.get(\"focusInput\"), 0]};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 80,
+        "x": 440,
+        "y": 100,
         "wires": [
             [
-                "d8b0e1acb40e7bbd",
-                "2d3916b95e3deac8"
+                "d8b0e1acb40e7bbd"
             ]
         ]
     },
@@ -4295,8 +4283,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 560,
-        "y": 340,
+        "x": 580,
+        "y": 420,
         "wires": []
     },
     {
@@ -4322,8 +4310,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 550,
-        "y": 380,
+        "x": 570,
+        "y": 460,
         "wires": []
     },
     {
@@ -4349,8 +4337,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 550,
-        "y": 420,
+        "x": 570,
+        "y": 500,
         "wires": []
     },
     {
@@ -4376,8 +4364,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 700,
-        "y": 460,
+        "x": 720,
+        "y": 540,
         "wires": []
     },
     {
@@ -4403,8 +4391,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 690,
-        "y": 500,
+        "x": 710,
+        "y": 580,
         "wires": []
     },
     {
@@ -4418,8 +4406,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 460,
+        "x": 540,
+        "y": 540,
         "wires": [
             [
                 "4a28e4a7e1ecf4c0"
@@ -4437,8 +4425,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 340,
+        "x": 420,
+        "y": 420,
         "wires": [
             [
                 "d479eab58c9f6e3f"
@@ -4451,8 +4439,8 @@
         "z": "30ea3b9c4ff0fb20",
         "name": "",
         "bits": "6a635b6fe4cb76c7",
-        "x": 370,
-        "y": 620,
+        "x": 390,
+        "y": 700,
         "wires": [
             [
                 "405e6d865ae24899",
@@ -4466,8 +4454,8 @@
         "z": "30ea3b9c4ff0fb20",
         "name": "",
         "bits": "8cc1fb1e05e0f783",
-        "x": 370,
-        "y": 660,
+        "x": 390,
+        "y": 740,
         "wires": [
             [
                 "286e5c793dc96945"
@@ -4480,8 +4468,8 @@
         "z": "30ea3b9c4ff0fb20",
         "name": "",
         "bits": "fb9d13d3e2f609d7",
-        "x": 370,
-        "y": 700,
+        "x": 390,
+        "y": 780,
         "wires": [
             [
                 "15fa8a1892c4d213"
@@ -4494,8 +4482,8 @@
         "z": "30ea3b9c4ff0fb20",
         "name": "",
         "bits": "6e2f66967afc9efd",
-        "x": 370,
-        "y": 740,
+        "x": 390,
+        "y": 820,
         "wires": [
             [
                 "8313d0fd692e8f72"
@@ -4515,8 +4503,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 550,
-        "y": 620,
+        "x": 570,
+        "y": 700,
         "wires": []
     },
     {
@@ -4532,8 +4520,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 550,
-        "y": 660,
+        "x": 570,
+        "y": 740,
         "wires": []
     },
     {
@@ -4549,8 +4537,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 550,
-        "y": 700,
+        "x": 570,
+        "y": 780,
         "wires": []
     },
     {
@@ -4566,8 +4554,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 550,
-        "y": 740,
+        "x": 570,
+        "y": 820,
         "wires": []
     },
     {
@@ -4581,8 +4569,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 500,
+        "x": 380,
+        "y": 580,
         "wires": [
             [
                 "e02a130ddb16e410"
@@ -4601,8 +4589,8 @@
         "round": false,
         "property": "payload",
         "name": "",
-        "x": 520,
-        "y": 500,
+        "x": 540,
+        "y": 580,
         "wires": [
             [
                 "631d6f0b86ae0f63"
@@ -4620,8 +4608,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 560,
+        "x": 580,
+        "y": 640,
         "wires": [
             [
                 "735110972b3a0350"
@@ -4661,8 +4649,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "FocusEndOut",
-        "x": 800,
-        "y": 540,
+        "x": 820,
+        "y": 620,
         "wires": []
     },
     {
@@ -4692,65 +4680,528 @@
         "shape": "circle",
         "showGlow": true,
         "name": "Focus End In",
-        "x": 790,
-        "y": 580,
+        "x": 810,
+        "y": 660,
         "wires": []
     },
     {
         "id": "0666cb21802b9723",
         "type": "ui_svg_graphics",
         "z": "30ea3b9c4ff0fb20",
-        "group": "e2b691598d8dbabc",
+        "group": "3c410cd6cbd2d8fc",
         "order": 18,
         "width": 0,
         "height": 0,
-        "svgString": "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 362.84 362.84\" height=\"362.84\" width=\"362.84\" xml:space=\"preserve\" id=\"svg2\" version=\"1.1\" preserveAspectRatio=\"xMidYMid meet\"><rect id=\"svgEditorBackground\" x=\"0\" y=\"0\" width=\"362.8399963378906\" height=\"362.8399963378906\" style=\"fill:none;stroke:none\"/>\n    <metadata id=\"metadata8\">\n        <rdf:RDF>\n            <cc:Work rdf:about=\"\">\n                <dc:format>image/svg+xml</dc:format>\n                <dc:type rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\"/>\n            </cc:Work>\n        </rdf:RDF>\n    </metadata>\n    <defs id=\"defs6\">\n        <clipPath id=\"clipPath24\" clipPathUnits=\"userSpaceOnUse\">\n            <path id=\"path22\" d=\"M 0,272.13 H 272.13 V 0 H 0 Z\"/>\n        </clipPath>\n        <clipPath id=\"clipPath124\" clipPathUnits=\"userSpaceOnUse\">\n            <path id=\"path122\" d=\"M 0,272.13 H 272.13 V 0 H 0 Z\"/>\n        </clipPath>\n    </defs>\n    <g transform=\"matrix(1.3333333,0,0,-1.3333333,0,362.84)\" id=\"g10\">\n        <path id=\"path12\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 H 272.13 V 272.13 H 0 Z\"/><text id=\"text16\" style=\"font-variant:normal;font-weight:500;font-stretch:normal;font-size:8px;font-family:'Futura LT Pro Medium';-inkscape-font-specification:FuturaLTPro-Medium;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" transform=\"matrix(1,0,0,-1,171.2368,8.5386)\">\n            <tspan id=\"tspan14\" y=\"0\" x=\"0 6.2800002 10.6 13.7272 19.471201 23.919201\">Norway</tspan>\n        </text>\n        <g id=\"g18\">\n            <g clip-path=\"url(#clipPath24)\" id=\"g20\">\n                <g transform=\"translate(118.9053,222.3579)\" id=\"g26\">\n                    <path id=\"Hor_Speed_Minus\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m0,0c0,-6.627,-5.372,-12,-12,-12h-15.685c-6.627,0,-12,5.373,-12,12v15.684c0,6.628,5.373,12.001,12,12.001H-12c6.628,0,12,-5.373,12,-12.001Z\"/>\n                </g>\n                <g transform=\"translate(118.9053,222.3579)\" id=\"g30\">\n                    <path id=\"path32\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\"/>\n                </g>\n                <g transform=\"translate(95.8125,239.1812)\" id=\"g34\">\n                    <path id=\"path36\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h 6.508 v -7.852 h 6.318 l -9.41,-10.108 -9.742,10.125 6.344,0.007 z\"/>\n                </g>\n                <g transform=\"translate(61.2393,89.3564)\" id=\"g38\">\n                    <path id=\"path40\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\"/>\n                </g>\n                <g transform=\"translate(61.2393,89.3564)\" id=\"g42\">\n                    <path id=\"path44\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\"/>\n                </g>\n                <g transform=\"translate(38.1465,106.1797)\" id=\"g46\">\n                    <path id=\"path48\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h 6.508 v -7.852 h 6.318 l -9.41,-10.108 -9.742,10.125 6.344,0.007 z\"/>\n                </g>\n                <g transform=\"translate(250.9062,89.3564)\" id=\"g50\">\n                    <path id=\"FocusMinus\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m0,0c0,-6.627,-5.372,-12,-12,-12h-15.685c-6.627,0,-12,5.373,-12,12v15.684c0,6.628,5.373,12.001,12,12.001H-12c6.628,0,12,-5.373,12,-12.001Z\"/>\n                </g>\n                <g transform=\"translate(250.9062,89.3564)\" id=\"g54\">\n                    <path id=\"path56\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\"/>\n                </g>\n                <g transform=\"translate(227.8135,106.1797)\" id=\"g58\">\n                    <path id=\"path60\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h 6.508 v -7.852 h 6.318 l -9.41,-10.108 -9.742,10.125 6.344,0.007 z\"/>\n                </g>\n                <g transform=\"translate(155.5566,238.3745)\" id=\"g62\">\n                    <path id=\"Hor_Speed_Pluss\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m0,0c0,6.627,5.372,12,12,12h15.685c6.627,0,12,-5.373,12,-12v-15.684c0,-6.628,-5.373,-12.001,-12,-12.001H12c-6.628,0,-12,5.373,-12,12.001Z\"/>\n                </g>\n                <g transform=\"translate(155.5566,238.3745)\" id=\"g66\">\n                    <path id=\"path68\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\"/>\n                </g>\n                <g transform=\"translate(178.6494,221.5513)\" id=\"g70\">\n                    <path id=\"path72\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -6.508 v 7.852 h -6.318 L -3.416,17.96 6.326,7.835 -0.018,7.828 Z\"/>\n                </g>\n                <g transform=\"translate(211.2217,180.708)\" id=\"g74\">\n                    <path id=\"FocusPlus\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m0,0c0,6.627,5.372,12,12,12h15.685c6.627,0,12,-5.373,12,-12v-15.684c0,-6.628,-5.373,-12.001,-12,-12.001H12c-6.628,0,-12,5.373,-12,12.001Z\"/>\n                </g>\n                <g transform=\"translate(211.2217,180.708)\" id=\"g78\">\n                    <path id=\"path80\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\"/>\n                </g>\n                <g transform=\"translate(234.3145,163.8848)\" id=\"g82\">\n                    <path id=\"path84\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -6.508 v 7.852 h -6.318 L -3.416,17.96 6.326,7.835 -0.018,7.828 Z\"/>\n                </g>\n                <g transform=\"translate(21.5547,180.708)\" id=\"g86\">\n                    <path id=\"path88\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\"/>\n                </g>\n                <g transform=\"translate(21.5547,180.708)\" id=\"g90\">\n                    <path id=\"path92\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\"/>\n                </g>\n                <g transform=\"translate(44.6475,163.8848)\" id=\"g94\">\n                    <path id=\"path96\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -6.508 v 7.852 h -6.318 L -3.416,17.96 6.326,7.835 -0.018,7.828 Z\"/>\n                </g>\n                <g transform=\"translate(64.0391,39.6289)\" id=\"g98\">\n                    <path id=\"path100\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 C 0,-12.427 -10.072,-22.5 -22.5,-22.5 -34.926,-22.5 -45,-12.427 -45,0 -45,12.426 -34.926,22.5 -22.5,22.5 -10.072,22.5 0,12.426 0,0\"/>\n                </g>\n                <g transform=\"translate(22.373,39.6279)\" id=\"g102\">\n                    <path id=\"path104\" style=\"fill:none;stroke:#2b2b2a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"M 0,0 C 0,10.586 8.582,19.167 19.165,19.167 29.75,19.167 38.332,10.586 38.332,0 38.332,-10.584 29.75,-19.165 19.165,-19.165 8.582,-19.165 0,-10.584 0,0 Z\"/>\n                </g>\n            </g>\n        </g><text id=\"text116\" style=\"font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:'Futura LT Pro Book';-inkscape-font-specification:FuturaLTPro-Bold;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" transform=\"matrix(1,0,0,-1,29.897,37.6294)\">\n            <tspan id=\"tspan106\" y=\"0\" x=\"0 3.96 9.4160004 17.327999\">Lamp</tspan>\n            <tspan id=\"tspan108\" y=\"-219.584\" x=\"70.552002 76.975998 82.272003 85.896004 88.311996 92.783997 98.080002 103.368 106.248 111.704 114.12 116.864 121.792 127.248 132.12801 137.008\">\n                Horizontal Speed</tspan>\n            <tspan id=\"tspan110\" y=\"-100\" x=\"-4.8080001 0.63999999 5.52 9.3039999 12.1912 14.6072 18.471201 23.9272\">\n                Vertical</tspan>\n            <tspan id=\"tspan112\" y=\"-90.400002\" x=\"-2.0320001 2.8959999 8.3520002 13.232 18.112\">Speed</tspan>\n            <tspan id=\"tspan114\" y=\"-94\" x=\"189.224 193.416 198.71201 202.576 207.84801\">Focus</tspan>\n        </text>\n        <g id=\"g118\">\n            <g clip-path=\"url(#clipPath124)\" id=\"g120\">\n                <g transform=\"translate(241.2861,24.2754)\" id=\"g126\">\n                    <path id=\"path128\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c -0.82,0 -1.27,-0.499 -1.27,-1.461 0,-0.964 0.372,-1.514 1.27,-1.514 0.898,0 1.25,0.534 1.25,1.479 C 1.25,-0.55 0.82,0 0,0\"/>\n                </g>\n                <g transform=\"translate(258.5137,24.5166)\" id=\"g130\">\n                    <path id=\"path132\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -1.27 v -2.598 c 0,-0.308 0.215,-0.532 0.665,-0.532 H 0 v -1.564 h -1.875 c -1.035,0 -1.758,0.618 -1.758,1.426 V 0 H -4.57 v 1.101 h 0.937 V 3.026 H -1.27 V 1.101 H 0 Z m -5.43,-0.843 v -3.756 h -2.343 v 3.171 c 0,0 0.195,1.117 -1.055,1.117 -1.251,0 -1.211,-1.117 -1.211,-1.117 v -3.171 h -2.364 V 3.25 h 2.364 V 0.292 c 0,0 0.684,1.031 2.266,1.031 2.421,0 2.343,-2.166 2.343,-2.166 m -8.282,-3.756 c 0,-1.421 -0.664,-2.348 -3.516,-2.348 -2.851,0 -3.105,1.306 -3.105,1.444 h 2.305 c 0,0 0.097,-0.309 0.82,-0.309 0.723,0 1.191,0.309 1.191,0.98 v 1.203 c 0,0 -0.234,-0.36 -0.683,-0.636 -0.449,-0.275 -0.86,-0.429 -1.426,-0.429 -0.566,0 -1.407,0.206 -1.935,0.825 -0.527,0.618 -0.78,1.186 -0.78,2.167 0,0.979 0.528,3.025 2.695,3.025 1.543,0 2.344,-1.135 2.344,-1.135 l -0.019,0.913 h 2.109 z m -8.341,6.525 h -2.363 v 1.495 h 2.363 z m 0,-6.525 h -2.363 V 1.1 h 2.363 z m -3.984,0 h -2.344 V 3.25 h 2.344 z m -2.779,-4.589 H 4.12 v 32.479 h -32.936 z\"/>\n                </g>\n                <g transform=\"translate(189.8906,19.5918)\" id=\"g134\">\n                    <path id=\"path136\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c -1.231,0 -2.565,0.285 -2.565,2.351 0,2.066 1.334,2.3 2.565,2.3 1.23,0 2.54,-0.335 2.54,-2.3 C 2.54,0.386 1.23,0 0,0 m 0,6.382 c -3.925,0 -6.132,-1.562 -6.132,-4.031 0,-2.468 2.258,-4.098 6.132,-4.098 3.874,0 6.054,1.747 6.054,4.098 0,2.352 -2.129,4.031 -6.054,4.031\"/>\n                </g>\n                <g transform=\"translate(202.8916,22.3457)\" id=\"g138\">\n                    <path id=\"path140\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -2.335 v 1.746 l 2.283,0.008 C 0.607,1.754 1.18,1.713 1.18,0.874 1.18,0.033 0.63,0 0,0 m 4.616,1.26 c 0,1.612 -1.743,2.135 -3.95,2.135 h -6.489 v -7.634 h 3.463 v 2.711 h 2.026 L 1.204,-4.239 H 4.616 L 2.308,-0.84 c 0,0 2.308,0.487 2.308,2.1\"/>\n                </g>\n                <g transform=\"translate(214.8643,23.7578)\" id=\"g142\">\n                    <path id=\"path144\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 3.438,-0.001 c 0,0 -0.05,0.906 -1.307,1.545 -1.258,0.638 -2.694,0.706 -3.668,0.706 -0.976,0 -2.464,-0.101 -3.464,-0.604 -1.001,-0.504 -1.411,-1.194 -1.411,-1.782 0,-0.588 0.23,-0.906 0.487,-1.192 0.257,-0.285 1.257,-0.69 1.667,-0.789 0.411,-0.102 2.468,-0.513 3.156,-0.655 1.183,-0.245 1.334,-0.386 1.334,-0.756 0,-0.369 0.015,-0.705 -1.437,-0.705 -1.423,0 -1.719,0.201 -1.719,0.822 h -3.642 c 0,0 0.129,-0.806 0.795,-1.377 0.667,-0.57 2.18,-1.108 4.31,-1.108 2.129,0 3.437,0.419 4.002,0.739 0.564,0.319 1.231,0.856 1.231,1.882 0,1.023 -0.718,1.393 -1.282,1.644 -0.564,0.252 -1.36,0.472 -2.437,0.656 -1.078,0.185 -2.034,0.381 -2.438,0.521 -0.469,0.162 -0.461,0.285 -0.461,0.453 0,0.433 0.037,0.621 1.309,0.621 C -0.342,0.62 0,0.437 0,0\"/>\n                </g>\n                <g transform=\"translate(219.7236,25.7715)\" id=\"g146\">\n                    <path id=\"path148\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 H 9.261 V -1.662 H 3.54 V -2.955 H 8.389 V -4.567 H 3.54 v -1.445 h 5.951 v -1.653 l -9.491,0 z\"/>\n                </g>\n                <g transform=\"translate(175.001,25.7402)\" id=\"g150\">\n                    <path id=\"path152\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 H -3.283 V -7.634 H 0 v 4.482 L 4.311,-7.634 H 7.619 V 0 H 4.208 v -4.443 z\"/>\n                </g>\n            </g>\n        </g>\n    </g>\n<path d=\"M0.606061,-0.424242v-2l4,4l-4,4v-2h-4v-4Z\" style=\"fill:white;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px\" id=\"R\" transform=\"matrix(7.4156 0 0 7.4156 236.101 179.472)\"/><path d=\"M0,-2v-2l-4,4l4,4v-2h4v-4Z\" style=\"fill:white;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px\" id=\"L\" transform=\"matrix(7.52796 0 0 7.52796 119.698 191.607)\"/><path d=\"M2,0h2l-4,-4l-4,4h2v4h4Z\" style=\"fill:snow;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px\" id=\"U\" transform=\"matrix(7.19088 0 0 7.19088 182.169 121.047)\"/><path d=\"M0.027397,0.438356h2l-4,4l-4,-4h2v-4h4Z\" style=\"fill:white;stroke:black;vector-effect:non-scaling-stroke;stroke-width:1px\" id=\"D\" transform=\"matrix(8.2021 0 0 8.2021 194.304 252.73)\"/></svg>",
+        "svgString": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg viewBox=\"0 0 362.84 362.84\" height=\"362.84\" width=\"362.84\" xml:space=\"preserve\" id=\"svg2\" version=\"1.1\" preserveAspectRatio=\"xMidYMid meet\" sodipodi:docname=\"R5.svg\" inkscape:version=\"1.2.1 (9c6d41e410, 2022-07-14)\" xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\" xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:cc=\"http://creativecommons.org/ns#\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n  <sodipodi:namedview id=\"namedview82\" pagecolor=\"#ffffff\" bordercolor=\"#666666\" borderopacity=\"1.0\" inkscape:showpageshadow=\"2\" inkscape:pageopacity=\"0.0\" inkscape:pagecheckerboard=\"0\" inkscape:deskcolor=\"#d1d1d1\" showgrid=\"false\" inkscape:zoom=\"2.2434131\" inkscape:cx=\"71.097026\" inkscape:cy=\"181.42\" inkscape:window-width=\"3840\" inkscape:window-height=\"2081\" inkscape:window-x=\"3831\" inkscape:window-y=\"-9\" inkscape:window-maximized=\"1\" inkscape:current-layer=\"layer1\" />\n  <metadata id=\"metadata8\">\n    <rdf:RDF>\n      <cc:Work rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <defs id=\"defs6\">\n    <clipPath id=\"clipPath124\" clipPathUnits=\"userSpaceOnUse\">\n      <path id=\"path122\" d=\"M 0,272.13 H 272.13 V 0 H 0 Z\" />\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath517\">\n      <g id=\"g521\" transform=\"matrix(0.75000002,0,0,-0.75000002,-22.373,232.50211)\">\n        <path id=\"path519\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath523\">\n      <g id=\"g527\" transform=\"matrix(0.75000002,0,0,-0.75000002,-64.0391,232.50111)\">\n        <path id=\"path525\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath529\">\n      <g id=\"g533\" transform=\"matrix(0.75000002,0,0,-0.75000002,-44.6475,108.24521)\">\n        <path id=\"path531\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath535\">\n      <g id=\"g539\" transform=\"matrix(0.75000002,0,0,-0.75000002,-21.5547,91.42201)\">\n        <path id=\"path537\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath541\">\n      <g id=\"g545\" transform=\"matrix(0.75000002,0,0,-0.75000002,-21.5547,91.42201)\">\n        <path id=\"path543\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath547\">\n      <g id=\"g551\" transform=\"matrix(0.75000002,0,0,-0.75000002,-234.3145,108.24521)\">\n        <path id=\"path549\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath553\">\n      <g id=\"g557\" transform=\"matrix(0.75000002,0,0,-0.75000002,-211.2217,91.42201)\">\n        <path id=\"path555\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath559\">\n      <g id=\"g563\" transform=\"matrix(0.75000002,0,0,-0.75000002,-211.2217,91.42201)\">\n        <path id=\"path561\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath565\">\n      <g id=\"g569\" transform=\"matrix(0.75000002,0,0,-0.75000002,-178.6494,50.578707)\">\n        <path id=\"path567\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath571\">\n      <g id=\"g575\" transform=\"matrix(0.75000002,0,0,-0.75000002,-155.5566,33.755507)\">\n        <path id=\"path573\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath577\">\n      <g id=\"g581\" transform=\"matrix(0.75000002,0,0,-0.75000002,-155.5566,33.755507)\">\n        <path id=\"path579\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath583\">\n      <g id=\"g587\" transform=\"matrix(0.75000002,0,0,-0.75000002,-227.8135,165.95031)\">\n        <path id=\"path585\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath589\">\n      <g id=\"g593\" transform=\"matrix(0.75000002,0,0,-0.75000002,-250.9062,182.77361)\">\n        <path id=\"path591\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath595\">\n      <g id=\"g599\" transform=\"matrix(0.75000002,0,0,-0.75000002,-250.9062,182.77361)\">\n        <path id=\"path597\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath601\">\n      <g id=\"g605\" transform=\"matrix(0.75000002,0,0,-0.75000002,-38.1465,165.95031)\">\n        <path id=\"path603\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath607\">\n      <g id=\"g611\" transform=\"matrix(0.75000002,0,0,-0.75000002,-61.2393,182.77361)\">\n        <path id=\"path609\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath613\">\n      <g id=\"g617\" transform=\"matrix(0.75000002,0,0,-0.75000002,-61.2393,182.77361)\">\n        <path id=\"path615\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath619\">\n      <g id=\"g623\" transform=\"matrix(0.75000002,0,0,-0.75000002,-95.812502,32.948807)\">\n        <path id=\"path621\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath625\">\n      <g id=\"g629\" transform=\"matrix(0.75000002,0,0,-0.75000002,-118.9053,49.772106)\">\n        <path id=\"path627\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n    <clipPath clipPathUnits=\"userSpaceOnUse\" id=\"clipPath631\">\n      <g id=\"g635\" transform=\"matrix(0.75000002,0,0,-0.75000002,-118.9053,49.772106)\">\n        <path id=\"path633\" d=\"M 0,9.071e-6 H 362.83999 V 362.84 H 0 Z\" style=\"stroke-width:1.33333\" />\n      </g>\n    </clipPath>\n  </defs>\n  <g inkscape:groupmode=\"layer\" id=\"layer1\" inkscape:label=\"Layer 1\">\n    <path id=\"path12\" style=\"display:inline;fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\" d=\"M 0,362.84 H 362.83999 V 9.071e-6 H 0 Z\" inkscape:label=\"PanelColor\" />\n    <path d=\"m 116.63948,168.57293 v -14.38176 l -28.763522,28.76352 28.763522,28.76352 V 197.33645 H 145.403 v -28.76352 z\" style=\"fill:#fffafa;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-miterlimit:3.8;stroke-linejoin:round;stroke-linecap:round\" id=\"L\" inkscape:label=\"#L\" />\n    <path d=\"m 247.01146,168.29328 v -14.38176 l 28.76352,28.76352 -28.76352,28.76352 V 197.0568 h -28.76352 v -28.76352 z\" style=\"fill:#fffafa;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-miterlimit:3.8;stroke-linejoin:round;stroke-linecap:round\" id=\"R\" inkscape:label=\"#R\" />\n    <path d=\"m 196.02209,236.28773 h 14.38176 l -28.76352,28.76352 -28.76352,-28.76352 h 14.38176 v -28.76352 h 28.76352 z\" style=\"fill:#fffafa;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-miterlimit:3.8;stroke-linejoin:round;stroke-linecap:round\" id=\"D\" inkscape:label=\"#D\" />\n    <path d=\"m 196.02269,127.73324 h 14.38176 L 181.64093,98.969721 152.87741,127.73324 h 14.38176 v 28.76352 h 28.76352 z\" style=\"fill:#fffafa;stroke:#000000;stroke-width:0;stroke-dasharray:none;stroke-miterlimit:3.8;stroke-linejoin:round;stroke-linecap:round\" id=\"U\" inkscape:label=\"#U\" />\n    <g id=\"g669\" inkscape:label=\"Logo\"><text id=\"text16\" style=\"font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.6667px;font-family:'Futura LT Pro Medium';-inkscape-font-specification:FuturaLTPro-Medium;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\" x=\"228.31573\" y=\"351.4552\">\n        <tspan id=\"tspan14\" y=\"351.4552\" x=\"228.31573 236.68906 242.44907 246.61867 254.27733 260.20801\" style=\"stroke-width:1.33333\">Norway</tspan>\n      </text>\n      <g clip-path=\"url(#clipPath124)\" id=\"g120\" transform=\"matrix(1.3333333,0,0,-1.3333333,0,362.84)\">\n        <g transform=\"translate(241.2861,24.2754)\" id=\"g126\">\n          <path id=\"path128\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c -0.82,0 -1.27,-0.499 -1.27,-1.461 0,-0.964 0.372,-1.514 1.27,-1.514 0.898,0 1.25,0.534 1.25,1.479 C 1.25,-0.55 0.82,0 0,0\" />\n        </g>\n        <g transform=\"translate(258.5137,24.5166)\" id=\"g130\">\n          <path id=\"path132\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -1.27 v -2.598 c 0,-0.308 0.215,-0.532 0.665,-0.532 H 0 v -1.564 h -1.875 c -1.035,0 -1.758,0.618 -1.758,1.426 V 0 H -4.57 v 1.101 h 0.937 V 3.026 H -1.27 V 1.101 H 0 Z m -5.43,-0.843 v -3.756 h -2.343 v 3.171 c 0,0 0.195,1.117 -1.055,1.117 -1.251,0 -1.211,-1.117 -1.211,-1.117 v -3.171 h -2.364 V 3.25 h 2.364 V 0.292 c 0,0 0.684,1.031 2.266,1.031 2.421,0 2.343,-2.166 2.343,-2.166 m -8.282,-3.756 c 0,-1.421 -0.664,-2.348 -3.516,-2.348 -2.851,0 -3.105,1.306 -3.105,1.444 h 2.305 c 0,0 0.097,-0.309 0.82,-0.309 0.723,0 1.191,0.309 1.191,0.98 v 1.203 c 0,0 -0.234,-0.36 -0.683,-0.636 -0.449,-0.275 -0.86,-0.429 -1.426,-0.429 -0.566,0 -1.407,0.206 -1.935,0.825 -0.527,0.618 -0.78,1.186 -0.78,2.167 0,0.979 0.528,3.025 2.695,3.025 1.543,0 2.344,-1.135 2.344,-1.135 l -0.019,0.913 h 2.109 z m -8.341,6.525 h -2.363 v 1.495 h 2.363 z m 0,-6.525 h -2.363 V 1.1 h 2.363 z m -3.984,0 h -2.344 V 3.25 h 2.344 z m -2.779,-4.589 H 4.12 v 32.479 h -32.936 z\" />\n        </g>\n        <g transform=\"translate(189.8906,19.5918)\" id=\"g134\">\n          <path id=\"path136\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c -1.231,0 -2.565,0.285 -2.565,2.351 0,2.066 1.334,2.3 2.565,2.3 1.23,0 2.54,-0.335 2.54,-2.3 C 2.54,0.386 1.23,0 0,0 m 0,6.382 c -3.925,0 -6.132,-1.562 -6.132,-4.031 0,-2.468 2.258,-4.098 6.132,-4.098 3.874,0 6.054,1.747 6.054,4.098 0,2.352 -2.129,4.031 -6.054,4.031\" />\n        </g>\n        <g transform=\"translate(202.8916,22.3457)\" id=\"g138\">\n          <path id=\"path140\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -2.335 v 1.746 l 2.283,0.008 C 0.607,1.754 1.18,1.713 1.18,0.874 1.18,0.033 0.63,0 0,0 m 4.616,1.26 c 0,1.612 -1.743,2.135 -3.95,2.135 h -6.489 v -7.634 h 3.463 v 2.711 h 2.026 L 1.204,-4.239 H 4.616 L 2.308,-0.84 c 0,0 2.308,0.487 2.308,2.1\" />\n        </g>\n        <g transform=\"translate(214.8643,23.7578)\" id=\"g142\">\n          <path id=\"path144\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 3.438,-0.001 c 0,0 -0.05,0.906 -1.307,1.545 -1.258,0.638 -2.694,0.706 -3.668,0.706 -0.976,0 -2.464,-0.101 -3.464,-0.604 -1.001,-0.504 -1.411,-1.194 -1.411,-1.782 0,-0.588 0.23,-0.906 0.487,-1.192 0.257,-0.285 1.257,-0.69 1.667,-0.789 0.411,-0.102 2.468,-0.513 3.156,-0.655 1.183,-0.245 1.334,-0.386 1.334,-0.756 0,-0.369 0.015,-0.705 -1.437,-0.705 -1.423,0 -1.719,0.201 -1.719,0.822 h -3.642 c 0,0 0.129,-0.806 0.795,-1.377 0.667,-0.57 2.18,-1.108 4.31,-1.108 2.129,0 3.437,0.419 4.002,0.739 0.564,0.319 1.231,0.856 1.231,1.882 0,1.023 -0.718,1.393 -1.282,1.644 -0.564,0.252 -1.36,0.472 -2.437,0.656 -1.078,0.185 -2.034,0.381 -2.438,0.521 -0.469,0.162 -0.461,0.285 -0.461,0.453 0,0.433 0.037,0.621 1.309,0.621 C -0.342,0.62 0,0.437 0,0\" />\n        </g>\n        <g transform=\"translate(219.7236,25.7715)\" id=\"g146\">\n          <path id=\"path148\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 H 9.261 V -1.662 H 3.54 V -2.955 H 8.389 V -4.567 H 3.54 V -6.012 H 9.491 V -7.665 H 0 Z\" />\n        </g>\n        <g transform=\"translate(175.001,25.7402)\" id=\"g150\">\n          <path id=\"path152\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 H -3.283 V -7.634 H 0 v 4.482 L 4.311,-7.634 H 7.619 V 0 H 4.208 v -4.443 z\" />\n        </g>\n      </g>\n    </g><text id=\"text116-7-2-3\" style=\"font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:Verdana;-inkscape-font-specification:'Verdana, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\" x=\"289.90399\" y=\"185.17491\" inkscape:label=\"textFocus\">\n      <tspan sodipodi:role=\"line\" id=\"tspan1098\">Focus</tspan>\n    </text><text id=\"text116-7-2\" style=\"font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:Verdana;-inkscape-font-specification:'Verdana, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\" x=\"37.514637\" y=\"354.61224\" inkscape:label=\"textLamp\">\n      <tspan sodipodi:role=\"line\" id=\"tspan1096\">Lamp</tspan>\n    </text>\n    <text id=\"text116-7\" style=\"font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:Verdana;-inkscape-font-specification:'Verdana, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\"\n      x=\"31.403107\" y=\"181.26718\" inkscape:label=\"textVS\">\n      <tspan sodipodi:role=\"line\" id=\"tspan1094\">Vertical</tspan>\n    </text><text id=\"text116-7-2\"\n      style=\"font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:Verdana;-inkscape-font-specification:'Verdana, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\"\n      x=\"31.403107\" y=\"191.26718\" inkscape:label=\"textVS2\">\n      <tspan sodipodi:role=\"line\" id=\"tspan1094-2\">Speed</tspan>\n    </text>\n    <text id=\"text116\" style=\"font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.6667px;font-family:Verdana;-inkscape-font-specification:'Verdana, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333\" x=\"131.03603\" y=\"19.810144\" inkscape:label=\"textHS\">\n      <tspan sodipodi:role=\"line\" id=\"tspan1090\">Horizontal Speed</tspan>\n    </text>\n    <g id=\"Lamp\" inkscape:label=\"Lamp\">\n      <path id=\"path100\" style=\"fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"M 0,0 C 0,-12.427 -10.072,-22.5 -22.5,-22.5 -34.926,-22.5 -45,-12.427 -45,0 -45,12.426 -34.926,22.5 -22.5,22.5 -10.072,22.5 0,12.426 0,0\" transform=\"matrix(1.3333333,0,0,-1.3333333,85.385465,310.00147)\" />\n      <path id=\"path104\" style=\"fill:none;stroke:#2b2b2a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"M 0,0 C 0,10.586 8.582,19.167 19.165,19.167 29.75,19.167 38.332,10.586 38.332,0 38.332,-10.584 29.75,-19.165 19.165,-19.165 8.582,-19.165 0,-10.584 0,0 Z\" transform=\"matrix(1.3333333,0,0,-1.3333333,29.830666,310.0028)\" />\n    </g>\n    <g id=\"Vert_Speed_Pluss\" inkscape:label=\"Vert_Speed_Pluss\">\n      <path id=\"path88\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,28.739599,121.89601)\" />\n      <path id=\"path92\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,28.739599,121.89601)\" />\n      <path id=\"path96\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -6.508 v 7.852 h -6.318 L -3.416,17.96 6.326,7.835 -0.018,7.828 Z\" transform=\"matrix(1.3333333,0,0,-1.3333333,59.529999,144.32694)\" />\n    </g>\n    <g id=\"FocusPluss\" inkscape:label=\"FocusPluss\">\n      <path id=\"path1240\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\" inkscape:label=\"path180\" transform=\"matrix(1.3333333,0,0,-1.3333333,281.62893,121.89601)\" />\n      <path id=\"path80\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,281.62893,121.89601)\" />\n      <path id=\"path84\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -6.508 v 7.852 h -6.318 L -3.416,17.96 6.326,7.835 -0.018,7.828 Z\" transform=\"matrix(1.3333333,0,0,-1.3333333,312.41933,144.32694)\" />\n    </g>\n    <g id=\"Hor_Speed_Pluss\" inkscape:label=\"Hor_Speed_Pluss\">\n      <path id=\"path821\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\" inkscape:label=\"path168\" transform=\"matrix(1.3333333,0,0,-1.3333333,207.40879,45.007341)\" />\n      <path id=\"path68\" style=\"fill:#ffffff;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,6.627 5.372,12 12,12 h 15.685 c 6.627,0 12,-5.373 12,-12 v -15.684 c 0,-6.628 -5.373,-12.001 -12,-12.001 H 12 c -6.628,0 -12,5.373 -12,12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,207.40879,45.007341)\" />\n      <path id=\"path72\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h -6.508 v 7.852 h -6.318 L -3.416,17.96 6.326,7.835 -0.018,7.828 Z\" transform=\"matrix(1.3333333,0,0,-1.3333333,238.19919,67.438274)\" />\n    </g>\n    <g id=\"FocusMinus\" inkscape:label=\"FocusMinus\">\n      <path id=\"path1248\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,334.54159,243.69814)\" inkscape:label=\"path156\" />\n      <path id=\"path56\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,334.54159,243.69814)\" />\n      <path id=\"path60\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h 6.508 v -7.852 h 6.318 l -9.41,-10.108 -9.742,10.125 6.344,0.007 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,303.75133,221.26707)\" />\n    </g>\n    <g id=\"Vert_Speed_Minus\" inkscape:label=\"Vert_Speed_Minus\">\n      <path id=\"path40\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,81.652398,243.69814)\" />\n      <path id=\"path44\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,81.652398,243.69814)\" />\n      <path id=\"path48\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h 6.508 v -7.852 h 6.318 l -9.41,-10.108 -9.742,10.125 6.344,0.007 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,50.861999,221.26707)\" />\n    </g>\n    <g id=\"Hor_Speed_Minus\" inkscape:label=\"Hor_Speed_Minus\">\n      <path id=\"path813\" style=\"fill:#fefefe;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\" inkscape:label=\"path132\" transform=\"matrix(1.3333333,0,0,-1.3333333,158.5404,66.362807)\" />\n      <path id=\"path32\" style=\"fill:none;stroke:#fefefe;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1\" d=\"m 0,0 c 0,-6.627 -5.372,-12 -12,-12 h -15.685 c -6.627,0 -12,5.373 -12,12 v 15.684 c 0,6.628 5.373,12.001 12,12.001 H -12 c 6.628,0 12,-5.373 12,-12.001 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,158.5404,66.362807)\" />\n      <path id=\"path36\" style=\"fill:#2b2b2a;fill-opacity:1;fill-rule:nonzero;stroke:none\" d=\"m 0,0 h 6.508 v -7.852 h 6.318 l -9.41,-10.108 -9.742,10.125 6.344,0.007 z\" transform=\"matrix(1.3333333,0,0,-1.3333333,127.75,43.931741)\" />\n    </g>\n  </g>\n</svg>",
         "clickableShapes": [
             {
-                "targetId": "#FocusPlus",
+                "targetId": "#FocusPluss",
                 "action": "mousedown",
-                "payload": "#FocusPlus_MD",
-                "payloadType": "str",
-                "topic": "#U"
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#FocusPlussMD\",\"action\":\"start\",\"cmd\":\"FocusPlussMD\"}",
+                "payloadType": "json",
+                "topic": ""
             },
             {
-                "targetId": "#FocusPlus",
+                "targetId": "#FocusPluss",
                 "action": "mouseup",
-                "payload": "#FocusPlus_MU",
-                "payloadType": "str",
-                "topic": "#U"
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#FocusPlussMU\",\"action\":\"start\",\"cmd\":\"FocusPlussMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#FocusMinus",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#FocusMinusMD\",\"action\":\"start\",\"cmd\":\"FocusMinusMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#FocusMinus",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#FocusMinusMU\",\"action\":\"start\",\"cmd\":\"FocusMinusMU\"}",
+                "payloadType": "json",
+                "topic": ""
             },
             {
                 "targetId": "#Hor_Speed_Minus",
-                "action": "click",
-                "payload": "#Hor_Speed_Minus",
-                "payloadType": "str",
-                "topic": "#Hor_Speed_Minus"
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Hor_Speed_MinusMD\",\"action\":\"start\",\"cmd\":\"Hor_Speed_MinusMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#Hor_Speed_Minus",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Hor_Speed_MinusMU\",\"action\":\"start\",\"cmd\":\"Hor_Speed_MinussMU\"}",
+                "payloadType": "json",
+                "topic": ""
             },
             {
                 "targetId": "#Hor_Speed_Pluss",
-                "action": "click",
-                "payload": "#Hor_Speed_Pluss",
-                "payloadType": "str",
-                "topic": "#Hor_Speed_Pluss"
-            },
-            {
-                "targetId": "#FocusMinus",
                 "action": "mousedown",
-                "payload": "#FocusMinus_MD",
-                "payloadType": "str",
-                "topic": "#FocusMinus"
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Hor_Speed_PlussMD\",\"action\":\"start\",\"cmd\":\"Hor_Speed_PlussMD\"}",
+                "payloadType": "json",
+                "topic": ""
             },
             {
-                "targetId": "#FocusMinus",
+                "targetId": "#Hor_Speed_Pluss",
                 "action": "mouseup",
-                "payload": "#FocusMinus_MU",
-                "payloadType": "str",
-                "topic": "#FocusMinus"
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Hor_Speed_PlussMU\",\"action\":\"start\",\"cmd\":\"Hor_Speed_PlussMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#Vert_Speed_Minus",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Vert_Speed_MinusMD\",\"action\":\"start\",\"cmd\":\"Vert_Speed_MinusMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#Vert_Speed_Minus",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Vert_Speed_MinusMU\",\"action\":\"start\",\"cmd\":\"Vert_Speed_MinusMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#Vert_Speed_Pluss",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Vert_Speed_PlussMD\",\"action\":\"start\",\"cmd\":\"Vert_Speed_PlussMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#Vert_Speed_Pluss",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#Vert_Speed_PlussMU\",\"action\":\"start\",\"cmd\":\"Vert_Speed_PlussMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#U",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#UMD\",\"action\":\"start\",\"cmd\":\"UMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#U",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#UMU\",\"action\":\"start\",\"cmd\":\"UMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#D",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#DMD\",\"action\":\"start\",\"cmd\":\"DMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#D",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#DMU\",\"action\":\"start\",\"cmd\":\"DMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#L",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#LMD\",\"action\":\"start\",\"cmd\":\"LMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#L",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#LMU\",\"action\":\"start\",\"cmd\":\"LMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#R",
+                "action": "mousedown",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#RMD\",\"action\":\"start\",\"cmd\":\"RMD\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#R",
+                "action": "mouseup",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#RMU\",\"action\":\"start\",\"cmd\":\"RMU\"}",
+                "payloadType": "json",
+                "topic": ""
+            },
+            {
+                "targetId": "#Lamp",
+                "action": "click",
+                "payload": "{\"command\":\"trigger_animation\",\"selector\":\"#LampMU\",\"action\":\"start\",\"cmd\":\"LampMU\"}",
+                "payloadType": "json",
+                "topic": ""
             }
         ],
         "javascriptHandlers": [],
-        "smilAnimations": [],
+        "smilAnimations": [
+            {
+                "id": "FocusPlussMD",
+                "targetId": "FocusPluss",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "FocusPlussMU",
+                "targetId": "FocusPluss",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "FocusMinusMD",
+                "targetId": "FocusMinus",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "FocusMinusMU",
+                "targetId": "FocusMinus",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Hor_Speed_MinusMD",
+                "targetId": "Hor_Speed_Minus",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Hor_Speed_MinusMU",
+                "targetId": "Hor_Speed_Minus",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Hor_Speed_PlussMD",
+                "targetId": "Hor_Speed_Pluss",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Hor_Speed_PlussMU",
+                "targetId": "Hor_Speed_Pluss",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Vert_Speed_MinusMD",
+                "targetId": "Vert_Speed_Minus",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Vert_Speed_MinusMU",
+                "targetId": "Vert_Speed_Minus",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Vert_Speed_PlussMD",
+                "targetId": "Vert_Speed_Pluss",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "Vert_Speed_PlussMU",
+                "targetId": "Vert_Speed_Pluss",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "UMD",
+                "targetId": "U",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "UMU",
+                "targetId": "U",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "DMD",
+                "targetId": "D",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "DMU",
+                "targetId": "D",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "LMD",
+                "targetId": "L",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "LMU",
+                "targetId": "L",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "RMD",
+                "targetId": "R",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "1",
+                "toValue": ".5",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "RMU",
+                "targetId": "R",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "freeze",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            },
+            {
+                "id": "LampMU",
+                "targetId": "Lamp",
+                "classValue": "",
+                "attributeName": "opacity",
+                "transformType": "rotate",
+                "fromValue": "0.5",
+                "toValue": "1",
+                "trigger": "msg",
+                "duration": "500",
+                "durationUnit": "ms",
+                "repeatCount": "1",
+                "end": "restore",
+                "delay": "1",
+                "delayUnit": "s",
+                "custom": ""
+            }
+        ],
         "bindings": [],
         "showCoordinates": false,
         "autoFormatAfterEdit": false,
@@ -4770,8 +5221,8 @@
         "dblClickZoomPercentage": 150,
         "cssString": "div.ui-svg svg{\n    color: var(--nr-dashboard-widgetColor);\n    fill: currentColor !important;\n}\ndiv.ui-svg path {\n    fill: inherit;\n}",
         "name": "",
-        "x": 800,
-        "y": 620,
+        "x": 820,
+        "y": 700,
         "wires": [
             [
                 "67b41404266c1075"
@@ -4789,8 +5240,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
-        "y": 340,
+        "x": 200,
+        "y": 420,
         "wires": [
             [
                 "93146d8931aadbf2"
@@ -4823,37 +5274,55 @@
         ]
     },
     {
-        "id": "2d3916b95e3deac8",
-        "type": "debug",
-        "z": "30ea3b9c4ff0fb20",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 460,
-        "y": 140,
-        "wires": []
-    },
-    {
         "id": "67b41404266c1075",
         "type": "function",
         "z": "30ea3b9c4ff0fb20",
-        "name": "function 9",
-        "func": "let cmd = msg.payload;\n\nif (cmd === \"#FocusPlus_MD\") {\n    global.set(\"focusInput\", 1);\n}\nif (cmd === \"#FocusPlus_MU\") {\n    global.set(\"focusInput\", 0);\n}\nif (cmd === \"#FocusMinus_MD\") {\n    global.set(\"focusInput\", 0xFFFF);\n}\nif (cmd === \"#FocusMinus_MU\") {\n    global.set(\"focusInput\", 0);\n}\n\nreturn msg;",
+        "name": "Parse functions",
+        "func": "let cmd = msg.payload.cmd;\n\nif (cmd === \"FocusPlussMD\") {\n    global.set(\"focusInput\", 1);\n}\nif (cmd === \"FocusPlussMU\") {\n    global.set(\"focusInput\", 0);\n}\nif (cmd === \"FocusMinusMD\") {\n    global.set(\"focusInput\", (~1 +1)&0xFFFF);\n}\nif (cmd === \"FocusMinusMU\") {\n    global.set(\"focusInput\", 0);\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 980,
-        "y": 620,
+        "x": 1020,
+        "y": 700,
         "wires": [
-            []
+            [
+                "48f42d4627a3d45e",
+                "0666cb21802b9723"
+            ]
+        ]
+    },
+    {
+        "id": "14f7787c2313e957",
+        "type": "modbus-read",
+        "z": "30ea3b9c4ff0fb20",
+        "name": "Les Alle registere",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "10",
+        "dataType": "HoldingRegister",
+        "adr": "20",
+        "quantity": "15",
+        "rate": "100",
+        "rateUnit": "ms",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "6f22240d6bfd8a8a",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [],
+            [
+                "03fc6e485c98717d"
+            ]
         ]
     }
 ]
