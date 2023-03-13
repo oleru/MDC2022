@@ -286,17 +286,26 @@ int main(void)
 
             OP_STATUS_SetLow();
             
-            // Update PWM Control
-            MD_setHoriz(horizDir*horizSpeedIndex);
-            MD_setVert(vertDir*vertSpeedIndex);
+            // Update PWM Control Horiz and Vert
+            if((int16_t)(MBS_HoldRegisters[11])!=0) {
+                MD_setHorizPWM((int16_t)(MBS_HoldRegisters[11]));
+            } else {
+                MD_setHoriz(horizDir*horizSpeedIndex);
+            }
+            if((int16_t)(MBS_HoldRegisters[12])!=0) {
+                MD_setVertPWM((int16_t)(MBS_HoldRegisters[12])); 
+            } else {
+                MD_setVert(vertDir*vertSpeedIndex);
+            }
 
+            // Check if external control of Focus, if so override local
             if((int16_t)(MBS_HoldRegisters[13])>0) {
                 focusDir=1;
             } else if((int16_t)(MBS_HoldRegisters[13])<0) {
                 focusDir=-1; 
             }
             
-            // Stop if R60 and End_Switches active
+            // Stop if R60 and End_Switches active else Go on Signal
             if( ((focusDir>0) && (FOCUS_END_OUT_GetValue()==0) && (FOCUS_END_IN_GetValue()==1))
              || ((focusDir<0) && (FOCUS_END_OUT_GetValue()==1) && (FOCUS_END_IN_GetValue()==0)) ){  
                 focusDir=0;
@@ -409,6 +418,14 @@ int main(void)
          // Process Modbus
         MBS_ProcessModbus();
         
+        // Check if unhandled ModBus Commands
+        if(MBS_HoldRegisters[14]&0x0002) {  // Lamp?
+            if( ( (!Lamp_ON_Status) && ((MBS_HoldRegisters[14]&0x0001)!=0) )
+             || ( (Lamp_ON_Status) && ((MBS_HoldRegisters[14]&0x0001)==0) ) ) {
+                DB_SetSignal(0, &Lamp_ON_Signal);  // Toggle Lamp On
+            }
+            MBS_HoldRegisters[14] &= 0xFFFC;  // Clear register after handling 
+        }
         
         // Lamp_ON
         if(!Lamp_ON_Signal.handled) {

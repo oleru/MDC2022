@@ -77,8 +77,8 @@ void MCCP2_COMPARE_Initialize (void)
     CCP2STAT = 0x00;
     //TMRL 0; TMRH 0; 
     CCP2TMR = 0x00;
-    //PRH 0; PRL 32767; 
-    CCP2PR = 0x7FFF;
+    //PRH 0; PRL 2047; 
+    CCP2PR = 0x7FF;
     //CMPA 0; 
     CCP2RA = 0x00;
     //CMPB 0; 

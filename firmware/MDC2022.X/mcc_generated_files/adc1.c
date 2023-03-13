@@ -64,8 +64,8 @@ void ADC1_Initialize (void)
     AD1CON1 = 0x8008;
     // CSCNA disabled; BUFM disabled; SMPI Generates interrupt after completion of every sample/conversion operation; OFFCAL disabled; VCFG AVDD/AVSS; BUFREGEN disabled; 
     AD1CON2 = 0x00;
-    // SAMC 1; EXTSAM disabled; ADRC FRC; ADCS 63; 
-    AD1CON3 = 0x813F;
+    // SAMC 31; EXTSAM disabled; ADRC FRC; ADCS 63; 
+    AD1CON3 = 0x9F3F;
     // CH0SA AN0; CH0NA AVSS; 
     AD1CHS = 0x00;
     // CSS9 disabled; CSS8 disabled; CSS7 disabled; CSS6 disabled; CSS5 disabled; CSS4 disabled; CSS3 disabled; CSS2 disabled; CSS15 disabled; CSS1 disabled; CSS14 disabled; CSS0 disabled; CSS13 disabled; CSS12 disabled; CSS11 disabled; CSS10 disabled; CSS30 disabled; CSS19 disabled; CSS18 disabled; CSS29 disabled; CSS17 disabled; CSS28 disabled; CSS16 disabled; CSS27 disabled; 
